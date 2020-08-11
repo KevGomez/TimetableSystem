@@ -40,13 +40,13 @@ public class MainController implements Initializable {
 
    
     @FXML
-    private Label lblFeedBack;
+    private Label location;
     @FXML
     private Label lblComplan;
     @FXML
-    private Label lblTemporyReg;
+    private Label Subject;
     @FXML
-    private Label lblStaffReg;
+    private Label Lecturers;
     @FXML
     private AnchorPane loadPane;
     @FXML
@@ -99,7 +99,31 @@ public class MainController implements Initializable {
         String curDate=format.format(date);
         lblDate.setText(curDate);
     }
+    
+    
+        @FXML
+    private void subjectOnClick(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("Subject.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+
+        
+           @FXML
+    private void lblLecturersClick(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("Location.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     
 }

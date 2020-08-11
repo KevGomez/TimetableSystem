@@ -32,7 +32,7 @@
                   <Image url="@../assert/icons8-parking-50.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblFeedBack" layoutX="-6.0" layoutY="259.0" prefHeight="34.0" prefWidth="228.0" style="-fx-background-color: #1c6494;" text="             LOCATION" textFill="WHITE">
+            <Label fx:id="location" layoutX="-6.0" layoutY="259.0"  prefHeight="34.0" prefWidth="228.0" style="-fx-background-color: #1c6494;" text="             LOCATION" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -44,13 +44,13 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblTemporyReg" layoutX="46.0" layoutY="150.0" prefHeight="28.0" prefWidth="176.0" text="SUBJECTS" textFill="WHITE">
+            <Label fx:id="Subject" layoutX="46.0" layoutY="150.0" prefHeight="28.0" prefWidth="176.0" text="SUBJECTS" onMouseClicked="#subjectOnClick" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
             <Label layoutY="109.0" prefHeight="34.0" prefWidth="221.0" style="-fx-background-color: #1c6494;" />
-            <Label fx:id="lblStaffReg" layoutX="45.0" layoutY="106.0" prefHeight="34.0" prefWidth="176.0" text="LECTURERS" textFill="WHITE">
+            <Label fx:id="Lecturers" layoutX="45.0" layoutY="106.0" onMouseClicked="#lblLecturersClick" prefHeight="34.0" prefWidth="176.0" text="LECTURERS" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -142,12 +142,24 @@
             <Image url="@../assert/icons8-user-30.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="152.0" fitWidth="160.0" layoutX="608.0" layoutY="273.0" pickOnBounds="true">
+      
+          <AnchorPane fx:id="loadPane" layoutX="218.0" layoutY="45.0" prefHeight="559.0" prefWidth="886.0"> 
+          <children>
+        
+      
+      
+      
+      
+      <ImageView fitHeight="152.0" fitWidth="160.0" layoutX="270.0" layoutY="213.0" pickOnBounds="true">
          <image>
             <Image url="@../images/logo2.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="loadPane" layoutX="218.0" layoutY="45.0" prefHeight="545.0" prefWidth="873.0" />
+  
+              
+              
+          </children>
+      </AnchorPane>
       <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="20.0" pickOnBounds="true">
          <image>
             <Image url="@../images/logo.jpg" />

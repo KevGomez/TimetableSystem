@@ -27,7 +27,6 @@ public class TimetableSystem extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.centerOnScreen();
         stage.show();
-        //this is form intelli idea
     }
 
     /**
