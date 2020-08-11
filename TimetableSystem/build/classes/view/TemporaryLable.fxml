@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="27.0" prefHeight="44.0" prefWidth="743.0" style="-fx-background-color: #1172a6;" text="   077 214 8545                                                       Saman Kumara" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="83.0" prefHeight="44.0" prefWidth="743.0" style="-fx-background-color: #1172a6;" text="   077 214 8545                                                       Saman Kumara" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="139.0" prefHeight="44.0" prefWidth="743.0" style="-fx-background-color: #1172a6;" text="   077 214 8545                                                       Saman Kumara" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="#1172a6" layoutX="716.0" layoutY="48.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="697.0" layoutY="30.0" prefHeight="34.0" prefWidth="40.0" text="  -" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Circle fill="#1172a6" layoutX="716.0" layoutY="105.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="697.0" layoutY="87.0" prefHeight="25.0" prefWidth="34.0" text="  -" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Circle fill="#1172a6" layoutX="718.0" layoutY="161.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="699.0" layoutY="142.0" prefHeight="25.0" prefWidth="34.0" text="  -" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="194.0" prefHeight="44.0" prefWidth="743.0" style="-fx-background-color: #1172a6;" text="   077 214 8545                                                       Saman Kumara" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="#1172a6" layoutX="719.0" layoutY="216.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="700.0" layoutY="197.0" prefHeight="25.0" prefWidth="34.0" text="  -" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="247.0" prefHeight="44.0" prefWidth="743.0" style="-fx-background-color: #1172a6;" text="   077 214 8545                                                       Saman Kumara" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="#1172a6" layoutX="719.0" layoutY="269.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="700.0" layoutY="250.0" prefHeight="25.0" prefWidth="34.0" text="  -" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

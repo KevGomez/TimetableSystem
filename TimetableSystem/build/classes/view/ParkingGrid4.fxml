@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="467.0" fitWidth="770.0" layoutX="-1.0" opacity="0.16" pickOnBounds="true">
+         <image>
+            <Image url="@../assert/Carpark.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="490.0" layoutX="45.0" stroke="#aba5a5" strokeType="INSIDE" style="-fx-arc-width: 10px;" width="674.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="460.0" layoutX="62.0" layoutY="35.0" stroke="WHITE" strokeType="INSIDE" width="10.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="638.0" layoutX="376.0" layoutY="-279.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="11.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="460.0" layoutX="690.0" layoutY="35.0" stroke="WHITE" strokeType="INSIDE" width="11.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="158.0" layoutY="93.0" stroke="WHITE" strokeType="INSIDE" width="453.0" />
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="121.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="166.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/Untitled%20designR.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="221.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="124.0" layoutX="265.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/Untitled%20designR.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="320.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="371.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="421.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="472.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="128.0" layoutY="114.0" rotate="-67.8" stroke="WHITE" strokeType="INSIDE" width="48.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="581.0" layoutY="116.0" rotate="111.8" stroke="WHITE" strokeType="INSIDE" width="50.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="179.0" layoutY="115.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="49.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="230.0" layoutY="115.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="280.0" layoutY="116.0" rotate="104.0" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="330.0" layoutY="116.0" rotate="106.7" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="380.0" layoutY="116.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="431.0" layoutY="116.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="481.0" layoutY="116.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="531.0" layoutY="116.0" rotate="113.2" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <ImageView fitHeight="118.0" fitWidth="136.0" layoutX="195.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="136.0" fitWidth="137.0" layoutX="246.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="136.0" fitWidth="137.0" layoutX="294.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="124.0" layoutX="340.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/rrr.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="136.0" fitWidth="138.0" layoutX="393.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="116.0" fitWidth="136.0" layoutX="440.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="124.0" layoutX="203.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="248.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/Untitled%20designR.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="303.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="353.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="259.0" layoutY="224.0" rotate="66.0" stroke="WHITE" strokeType="INSIDE" width="48.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="308.0" layoutY="224.0" rotate="66.0" stroke="WHITE" strokeType="INSIDE" width="49.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="261.0" layoutY="269.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <ImageView fitHeight="104.0" fitWidth="166.0" layoutX="404.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="136.0" layoutX="456.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="241.0" layoutY="248.0" stroke="WHITE" strokeType="INSIDE" width="302.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="362.0" layoutY="269.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="462.0" layoutY="270.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="454.0" layoutY="224.0" rotate="66.0" stroke="WHITE" strokeType="INSIDE" width="53.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="406.0" layoutY="222.0" rotate="66.0" stroke="WHITE" strokeType="INSIDE" width="53.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="355.0" layoutY="223.0" rotate="66.0" stroke="WHITE" strokeType="INSIDE" width="53.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="312.0" layoutY="270.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="412.0" layoutY="269.0" rotate="108.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="211.0" layoutY="269.0" rotate="-69.4" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="211.0" layoutY="224.0" rotate="66.0" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="513.0" layoutY="270.0" rotate="105.3" stroke="WHITE" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="505.0" layoutY="225.0" rotate="66.0" stroke="WHITE" strokeType="INSIDE" width="53.0" />
+      <ImageView fitHeight="37.0" fitWidth="49.0" layoutX="560.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="216.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="263.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="352.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="399.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="451.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="166.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="118.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="501.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="561.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="564.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="566.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="117.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="118.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="119.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="238.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="300.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="360.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="415.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="470.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="49.0" layoutX="558.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-down-arrow-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="117.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="110.0" layoutY="432.0" prefHeight="30.0" prefWidth="71.0" text="Entry" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="564.0" layoutY="429.0" prefHeight="17.0" prefWidth="71.0" text="Exist" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aba5a5" height="114.0" layoutX="194.0" layoutY="363.0" stroke="WHITE" strokeType="INSIDE" style="-fx-stroke-width: 3px;" width="353.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0e0c9" height="97.0" layoutX="203.0" layoutY="372.0" stroke="#c3b9b9" strokeType="INSIDE" width="332.0" />
+      <ImageView fitHeight="80.0" fitWidth="332.0" layoutX="214.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/security%20–%204.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="157.0" layoutY="95.0" opacity="0.41" prefHeight="47.0" prefWidth="37.0" text="  1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="215.0" layoutY="96.0" opacity="0.41" prefHeight="46.0" prefWidth="37.0" text="2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="252.0" layoutY="98.0" opacity="0.41" prefHeight="46.0" prefWidth="45.0" text="   3" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="299.0" layoutY="99.0" opacity="0.41" prefHeight="46.0" prefWidth="53.0" text="   4" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="355.0" layoutY="98.0" opacity="0.41" prefHeight="46.0" prefWidth="45.0" text="   5" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="405.0" layoutY="98.0" opacity="0.41" prefHeight="47.0" prefWidth="45.0" text="   6" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="468.0" layoutY="99.0" opacity="0.41" prefHeight="46.0" prefWidth="37.0" text="7" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="503.0" layoutY="97.0" opacity="0.41" prefHeight="46.0" prefWidth="53.0" text="   8" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="484.0" layoutY="208.0" opacity="0.41" prefHeight="37.0" prefWidth="53.0" text="10" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="435.0" layoutY="208.0" opacity="0.41" prefHeight="37.0" prefWidth="45.0" text="11" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="204.0" opacity="0.41" prefHeight="46.0" prefWidth="45.0" text="12" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="334.0" layoutY="208.0" opacity="0.41" prefHeight="37.0" prefWidth="53.0" text="13" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="293.0" layoutY="208.0" opacity="0.41" prefHeight="37.0" prefWidth="45.0" text="14" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="233.0" layoutY="208.0" opacity="0.41" prefHeight="37.0" prefWidth="45.0" text="  15" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="257.0" opacity="0.41" prefHeight="30.0" prefWidth="37.0" text="16" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="292.0" layoutY="255.0" opacity="0.41" prefHeight="37.0" prefWidth="37.0" text="17" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="345.0" layoutY="253.0" opacity="0.41" prefHeight="37.0" prefWidth="37.0" text="18" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="396.0" layoutY="257.0" opacity="0.41" prefHeight="30.0" prefWidth="37.0" text="19" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="445.0" layoutY="253.0" opacity="0.41" prefHeight="37.0" prefWidth="45.0" text="20" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="494.0" layoutY="253.0" opacity="0.41" prefHeight="37.0" prefWidth="45.0" text="21" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="104.0" fitWidth="124.0" layoutX="524.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/green2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="554.0" layoutY="98.0" opacity="0.41" prefHeight="48.0" prefWidth="53.0" text="   9" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="312.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" rotate="-36.9">
+         <image>
+            <Image url="@../assert/redarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="206.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-car-60.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="306.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-car-60.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="290.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-car-60.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="390.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-car-60.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

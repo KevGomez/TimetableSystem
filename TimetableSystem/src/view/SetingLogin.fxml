@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="222.0" prefWidth="678.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00647e" height="84.0" stroke="#00647e" strokeType="INSIDE" width="678.0" />
+      <Label layoutX="19.0" layoutY="21.0" prefHeight="40.0" prefWidth="166.0" text="Setting Login" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="116.0" layoutY="121.0" prefHeight="33.0" prefWidth="104.0" text="Passcode  :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="228.0" layoutY="115.0" prefHeight="48.0" prefWidth="272.0" promptText="*************">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </PasswordField>
+      <ImageView fitHeight="33.0" fitWidth="47.0" layoutX="618.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/Cancel_50px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

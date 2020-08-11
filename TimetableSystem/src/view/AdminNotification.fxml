@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" opacity="0.73" prefHeight="273.0" prefWidth="240.0" style="-fx-background-color: #00647e; -fx-background-radius: 8px;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+   <children>
+      <Label layoutX="10.0" layoutY="17.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 5px;" />
+      <Label layoutX="21.0" layoutY="22.0" text="Feedback">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="44.0" prefHeight="28.0" prefWidth="94.0" text="077 556 6223">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="76.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 5px;" />
+      <Label layoutX="21.0" layoutY="76.0" text="Feedback">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="98.0" prefHeight="28.0" prefWidth="94.0" text="077 556 6223">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="11.0" layoutY="135.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 5px;" />
+      <Label layoutX="22.0" layoutY="135.0" text="Feedback">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="157.0" prefHeight="28.0" prefWidth="94.0" text="077 556 6223">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="193.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 5px;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="193.0" text="Feedback">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="215.0" prefHeight="28.0" prefWidth="94.0" text="077 556 6223">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

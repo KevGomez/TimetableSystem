@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#clickOnPlusButton" prefHeight="545.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StaffRegistrationController">
+   <children>
+      <Label layoutX="22.0" layoutY="19.0" prefHeight="31.0" prefWidth="61.0" text="Name  :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="396.0" layoutY="24.0" prefHeight="25.0" prefWidth="101.0" text="Contact No. :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Circle fill="#1c6494" layoutX="767.0" layoutY="39.0" radius="21.0" stroke="WHITE" strokeType="INSIDE" />
+      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="755.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-search-50.png" />
+         </image>
+      </ImageView>
+      <Circle fill="#1c6494" layoutX="819.0" layoutY="39.0" onMouseClicked="#clickOnPlusButton" radius="21.0" stroke="WHITE" strokeType="INSIDE" />
+      <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="814.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-plus-48.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="100.0" layoutY="24.0" prefHeight="25.0" prefWidth="267.0" />
+      <TextField layoutX="513.0" layoutY="26.0" prefHeight="25.0" prefWidth="184.0" text=" 07* *** ****" />
+      <ScrollPane hbarPolicy="ALWAYS" layoutX="18.0" layoutY="75.0" prefHeight="462.0" prefWidth="817.0" vbarPolicy="ALWAYS">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="429.0" prefWidth="767.0">
+               <children>
+                  <AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="767.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1172a6" height="45.0" layoutX="14.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="775.0">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Rectangle>
+                        <Label layoutX="29.0" layoutY="81.0" prefHeight="32.0" prefWidth="169.0" text="078548755" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="84.0" prefHeight="25.0" prefWidth="217.0" text="Dr . Sathya Molagoda" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="572.0" layoutY="86.0" prefHeight="27.0" prefWidth="131.0" text="GN 6941" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="#1172a6" layoutX="711.0" layoutY="98.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="688.0" layoutY="82.0" prefHeight="32.0" prefWidth="35.0" text="   -" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1172a6" height="45.0" layoutX="14.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" width="775.0">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Rectangle>
+                        <Label layoutX="29.0" layoutY="140.0" prefHeight="32.0" prefWidth="169.0" text="078548755" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="143.0" prefHeight="27.0" prefWidth="243.0" text="Dr . Poornima Uthpalawanna" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="572.0" layoutY="145.0" prefHeight="27.0" prefWidth="131.0" text="GN 6941" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="#1172a6" layoutX="711.0" layoutY="157.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="688.0" layoutY="141.0" prefHeight="32.0" prefWidth="35.0" text="   -" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1172a6" height="45.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="775.0">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Rectangle>
+                        <Label layoutX="29.0" layoutY="201.0" prefHeight="32.0" prefWidth="169.0" text="078548755" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="204.0" prefHeight="25.0" prefWidth="217.0" text="Dr . Shan Perera" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="572.0" layoutY="206.0" prefHeight="27.0" prefWidth="131.0" text="GN 6941" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="#1172a6" layoutX="711.0" layoutY="218.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="688.0" layoutY="202.0" prefHeight="32.0" prefWidth="35.0" text="   -" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1172a6" height="45.0" layoutX="14.0" layoutY="256.0" stroke="BLACK" strokeType="INSIDE" width="775.0">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Rectangle>
+                        <Label layoutX="29.0" layoutY="262.0" prefHeight="32.0" prefWidth="169.0" text="078548755" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="265.0" prefHeight="25.0" prefWidth="217.0" text="Dr . Milan Perera" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="572.0" layoutY="267.0" prefHeight="27.0" prefWidth="131.0" text="GN 6941" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="#1172a6" layoutX="711.0" layoutY="279.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="688.0" layoutY="263.0" prefHeight="32.0" prefWidth="35.0" text="   -" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1172a6" height="45.0" layoutX="14.0" layoutY="316.0" stroke="BLACK" strokeType="INSIDE" width="775.0">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Rectangle>
+                        <Label layoutX="29.0" layoutY="322.0" prefHeight="32.0" prefWidth="169.0" text="078548755" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="325.0" prefHeight="25.0" prefWidth="217.0" text="Dr . Manawadu" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="572.0" layoutY="327.0" prefHeight="27.0" prefWidth="131.0" text="GN 6941" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="#1172a6" layoutX="711.0" layoutY="339.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="688.0" layoutY="323.0" prefHeight="32.0" prefWidth="35.0" text="   -" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1172a6" height="45.0" layoutX="14.0" layoutY="377.0" stroke="BLACK" strokeType="INSIDE" width="775.0">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Rectangle>
+                        <Label layoutX="29.0" layoutY="383.0" prefHeight="32.0" prefWidth="169.0" text="078548755" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="386.0" prefHeight="25.0" prefWidth="217.0" text="Dr . Shan Perera" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="572.0" layoutY="388.0" prefHeight="27.0" prefWidth="131.0" text="GN 6941" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="#1172a6" layoutX="711.0" layoutY="400.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="688.0" layoutY="384.0" prefHeight="32.0" prefWidth="35.0" text="   -" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1172a6" height="45.0" layoutX="14.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="775.0">
+                     <cursor>
+                        <Cursor fx:constant="NW_RESIZE" />
+                     </cursor>
+                  </Rectangle>
+                  <Label layoutX="29.0" layoutY="22.0" prefHeight="32.0" prefWidth="169.0" text="078548755" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="235.0" layoutY="25.0" prefHeight="25.0" prefWidth="217.0" text="Dr . Shan Perera" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="572.0" layoutY="27.0" prefHeight="27.0" prefWidth="131.0" text="GN 6941" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#1172a6" layoutX="711.0" layoutY="39.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Label layoutX="688.0" layoutY="23.0" prefHeight="32.0" prefWidth="35.0" text="   -" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="810.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-plus-48.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

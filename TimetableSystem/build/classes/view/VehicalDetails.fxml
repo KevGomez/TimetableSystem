@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="259.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VehicalDetailsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1c6494" height="83.0" layoutX="-7.0" stroke="#1c6494" strokeType="INSIDE" width="740.0" />
+      <Label layoutX="26.0" layoutY="25.0" prefHeight="45.0" prefWidth="161.0" text="Vehicle Details" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="100.0" prefHeight="36.0" prefWidth="149.0" text="Contact Number.     :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="136.0" prefHeight="36.0" prefWidth="74.0" text="In Time     :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="172.0" prefHeight="36.0" prefWidth="94.0" text="Out Time       :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="208.0" prefHeight="28.0" prefWidth="124.0" text="Total Time       :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="202.0" layoutY="104.0" prefHeight="28.0" prefWidth="141.0" text="0774512475">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="201.0" layoutY="140.0" prefHeight="28.0" prefWidth="94.0" text="10.00 AM">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="202.0" layoutY="176.0" prefHeight="28.0" prefWidth="85.0" text="12.00 PM">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="205.0" layoutY="208.0" prefHeight="28.0" prefWidth="94.0" text="2h">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgCancel" fitHeight="51.0" fitWidth="39.0" layoutX="667.0" layoutY="26.0" onMouseClicked="#imgCancelOnClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/Cancel_50px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
