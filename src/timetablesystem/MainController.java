@@ -28,6 +28,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -48,7 +50,7 @@ public class MainController implements Initializable {
     @FXML
     private Label Lecturers;
     @FXML
-    private AnchorPane loadPane;
+    private VBox loadPane;
     @FXML
     private Label lblPayment;
     
@@ -125,5 +127,14 @@ public class MainController implements Initializable {
         }
     }
 
-    
+
+    public void showWorkingTimeSettngs(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("DateTimeManagement/WorkingTimeSettings.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

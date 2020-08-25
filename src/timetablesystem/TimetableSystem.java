@@ -19,13 +19,16 @@ public class TimetableSystem extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SplashScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.centerOnScreen();
+        //stage.initStyle(StageStyle.UNDECORATED);
+        //stage.centerOnScreen()
+        // ;
+        stage.setTitle("Time Table Management");
+
         stage.show();
     }
 
