@@ -270,11 +270,6 @@
                                                       <Insets left="20.0" top="30.0" />
                                                    </HBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onMouseClicked="#clearGrid" text="Reset">
-                                                   <HBox.margin>
-                                                      <Insets left="20.0" top="30.0" />
-                                                   </HBox.margin>
-                                                </Button>
                                              </children>
                                              <VBox.margin>
                                                 <Insets left="50.0" right="50.0" top="10.0" />

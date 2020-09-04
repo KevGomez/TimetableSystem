@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.scene.input.KeyEvent;
+import timetablesystem.DataBaseHandler.DBHandler;
 
 public class WorkingTimeSettingsController implements Initializable {
     @FXML
@@ -83,7 +84,8 @@ public class WorkingTimeSettingsController implements Initializable {
 * */
 
     DaysHandler daysHandler;
-    ArrayList<String> timeSlots= new ArrayList<>();
+    DBHandler dbHandler;
+    ArrayList<TimeSlots> timeSlots;
 
     int tSlotX=0,tSlotY=0;
     String hours[]= new String[12],minutes[]= new String[60], amPm[]= {"AM","PM"};
@@ -91,6 +93,15 @@ public class WorkingTimeSettingsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        dbHandler = new DBHandler();
+        dbHandler.createTables(); // create tables
+
+        timeSlots=TimeSlotsController.getTimeSlots();
+
+
+
+
 
         VBox.setVgrow(dtmanagement, Priority.ALWAYS);
 
@@ -180,7 +191,23 @@ public class WorkingTimeSettingsController implements Initializable {
         duration.getSelectionModel().select(0);
 
 
+        for(int i=0;i<timeSlots.size();i++){
+            addSlot(timeSlots.get(i).getTime());
+            if (i==(timeSlots.size()-1)){
 
+                String time[]=timeSlots.get(i).getTime().split("to")[1].trim().split(" ");
+                System.out.println(time[2]+time[0]+time[1]);
+
+                timeSlotTime[0]=(Integer.parseInt(time[0].trim())-1);
+                timeSlotTime[1]=Integer.parseInt(time[1].trim());
+                if (time[2].trim().equals("AM")){
+                    timeSlotTime[2]=0;
+                }else {
+                    timeSlotTime[2]=1;
+                }
+                from.setText(getTime(timeSlotTime));
+            }
+        }
 
         //nDaysPerWeek.setItems(nDaysPerWeekValues);
 
@@ -207,7 +234,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 timeSlotTime[0]=(int)newValue;
                 daysHandler.setWorkingTime("startTime",sTime);
                 from.setText(getTime(sTime));
-
+                clearTimeSlots();
             }
         });
         mStart.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
@@ -217,6 +244,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 timeSlotTime[1]=(int)newValue;
                 daysHandler.setWorkingTime("startTime",sTime);
                 from.setText(getTime(sTime));
+                clearTimeSlots();
             }
         });
         sAmPm.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
@@ -226,6 +254,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 timeSlotTime[2]=(int)newValue;
                 daysHandler.setWorkingTime("startTime",sTime);
                 from.setText(getTime(sTime));
+                clearTimeSlots();
             }
         });
 
@@ -244,6 +273,7 @@ public class WorkingTimeSettingsController implements Initializable {
                     eTime[0]=(int)newValue;
                     daysHandler.setWorkingTime("endTime",eTime);
                     showError("");
+                    clearTimeSlots();
 
                 }else{
                     showError("Invalid End Time ");
@@ -261,6 +291,7 @@ public class WorkingTimeSettingsController implements Initializable {
                     eTime[2]=(int)newValue;
                     daysHandler.setWorkingTime("endTime",eTime);
                     showError("");
+                    clearTimeSlots();
 
 
                 }else{
@@ -278,6 +309,7 @@ public class WorkingTimeSettingsController implements Initializable {
                     eTime[2]=(int)newValue;
                     daysHandler.setWorkingTime("endTime",eTime);
                     showError("");
+                    clearTimeSlots();
 
                 }else{
                     showError("Invalid End Time ");
@@ -371,12 +403,13 @@ public class WorkingTimeSettingsController implements Initializable {
 
     @FXML
     public void changeNDayPerWeek(MouseEvent mouseEvent) {
-
-
-
-
-
     }
+
+    @FXML
+    public void clearGrid(MouseEvent mouseEvent){
+        clearTimeSlots();
+    }
+
 
     @FXML
     public void addNewTimeSlot(MouseEvent mouseEvent) {
@@ -450,10 +483,12 @@ public class WorkingTimeSettingsController implements Initializable {
 
 
            if (isTimesEquals(timeSlotTime,eTime)){
-               addSlot(time);
+
+               TimeSlotsController.insertTimeSlots(time);
                timeSlotTime[0]=hour;
                timeSlotTime[1]=min;
                timeSlotTime[2]=ampm;
+               addSlot(time);
             }else{
                 addSlotsError();
             }
@@ -473,6 +508,9 @@ public class WorkingTimeSettingsController implements Initializable {
     }
 
     private void addSlot(String time){
+
+
+
         Label label = new Label();
         label.setText(time);
         label.setMinHeight(10);
@@ -484,6 +522,12 @@ public class WorkingTimeSettingsController implements Initializable {
         }
         from.setText(getTime(timeSlotTime));
 
+    }
+
+    private void clearTimeSlots(){
+        timeSoltsGrid.getChildren().clear();
+        TimeSlotsController.deleteTimeSlots();
+        tSlotX=0;tSlotY=0;
     }
 
     private Boolean isTimesEquals(int s1[],int s2[] ){
