@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.locations.AddLocations">
+   <children>
+      <Pane layoutX="-14.0" prefHeight="563.0" prefWidth="873.0">
+         <children>
+            <Text layoutX="31.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location Details">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fill="#686868" layoutX="31.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Location">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="addBuilding_text" layoutX="31.0" layoutY="132.0" prefHeight="25.0" prefWidth="204.0" promptText="Add Building" />
+            <TextField fx:id="addRoom_text" layoutX="31.0" layoutY="190.0" prefHeight="25.0" prefWidth="204.0" promptText="Add Room" />
+            <Text layoutX="33.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Building " />
+            <Text layoutX="31.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add RMainoom" />
+            <Button fx:id="add_building_btn" layoutX="254.0" layoutY="132.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="clear_building" layoutX="310.0" layoutY="132.0" mnemonicParsing="false" text="Clear" />
+            <Button fx:id="add_room_btn" layoutX="254.0" layoutY="190.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="clear_room" layoutX="300.0" layoutY="190.0" mnemonicParsing="false" text="Clear" />
+            <Text fill="#686868" layoutX="37.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Building details list">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TableView fx:id="building_table" layoutX="30.0" layoutY="318.0" prefHeight="231.0" prefWidth="816.0">
+              <columns>
+                <TableColumn fx:id="building_id_row" prefWidth="152.0" text="ID" />
+                  <TableColumn fx:id="building_name_row" prefWidth="658.0" text="Name" />
+              </columns>
+            </TableView>
+            <Text fill="#686868" layoutX="438.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room details list">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="building_search" layoutX="31.0" layoutY="286.0" prefHeight="25.0" prefWidth="204.0" promptText="Search Building" />
+            <Button fx:id="building_search_btn" layoutX="242.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Search" />
+            <TextField fx:id="room_search" layoutX="439.0" layoutY="108.0" prefHeight="25.0" prefWidth="192.0" promptText="Search Room" />
+            <Button fx:id="room_search_btn" layoutX="653.0" layoutY="107.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Search" />
+            <TableView fx:id="room_table" layoutX="436.0" layoutY="150.0" prefHeight="156.0" prefWidth="408.0">
+              <columns>
+                  <TableColumn fx:id="room_id" prefWidth="91.0" text="ID" />
+                <TableColumn fx:id="room_name" prefWidth="138.0" text="Room" />
+                  <TableColumn fx:id="room_building" prefWidth="106.0" text="Building" />
+                  <TableColumn fx:id="room_capacity" prefWidth="75.0" text="Capacity" />
+              </columns>
+            </TableView>
+            <Button fx:id="building_delete" layoutX="310.0" layoutY="286.0" mnemonicParsing="false" text="Delete" />
+            <Button fx:id="delete_room" layoutX="728.0" layoutY="107.0" mnemonicParsing="false" text="Delete" />
+            <Button fx:id="update_building" layoutX="368.0" layoutY="286.0" mnemonicParsing="false" text="Edit" />
+            <Button fx:id="update_building_btn" layoutX="242.0" layoutY="132.0" mnemonicParsing="false" text="Update" visible="false" />
+            <Button fx:id="room_edit_btn" layoutX="789.0" layoutY="107.0" mnemonicParsing="false" text="Edit" />
+            <Button fx:id="update_room_btn" layoutX="240.0" layoutY="190.0" mnemonicParsing="false" text="Update" visible="false" />
+            <TextField fx:id="room_capacity_text" layoutX="119.0" layoutY="222.0" prefHeight="25.0" prefWidth="117.0" />
+            <ComboBox fx:id="room_buiding_dop" layoutX="30.0" layoutY="222.0" prefHeight="25.0" prefWidth="79.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/TimetableSystem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_49_bin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SPMProject_2020.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.49-bin.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/Connections/SQLConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Building.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Lecture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/statstics/Statistics.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/statstics/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/MainController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1h8ANfj50PhygqjSHwNzzfRt6ot" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="F:/Assigment Project" />
+  </component>
+  <component name="RunManager">
+    <configuration name="TimetableSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="timetablesystem.TimetableSystem" />
+      <module name="SPMProject_2020" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="timetablesystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TimetableSystem" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="" />
+      <created>1599382308264</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599382308264</updated>
+      <workItem from="1599382316730" duration="543000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1599382813153">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1599382813153" />
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1599382865858">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1599382865858">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1599382865858">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1599382865858">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
+  </component>
+</project>

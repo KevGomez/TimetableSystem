@@ -125,5 +125,27 @@ public class MainController implements Initializable {
         }
     }
 
+    @FXML
+    private void onLocationClick(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("locations/AddLocations.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void onStatisticClick(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("statstics/Statistics.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
 }
