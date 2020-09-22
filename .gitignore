@@ -1,3 +1,5 @@
 /.idea/
 /TimetableSystem.iml
-/out/
+/out
+*.class
+/SPMProject_2020.iml
