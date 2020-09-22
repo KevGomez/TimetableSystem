@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/TimetableSystem.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_49_bin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SPMProject_2020.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.49-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/Connections/SQLConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Lecture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/statstics/Statistics.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/statstics/Statistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/timetablesystem/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/timetablesystem/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/MainController.java" afterDir="false" />
-    </list>
+    <list default="true" id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VidulaDakshitha/TimetableSystem&#10;&#10;# Conflicts:&#10;#&#9;src/timetablesystem/Main.fxml&#10;#&#9;src/timetablesystem/MainController.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1h8ANfj50PhygqjSHwNzzfRt6ot" />
@@ -78,6 +78,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1599382813153">
