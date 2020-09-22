@@ -39,7 +39,7 @@ import javafx.util.Duration;
  * @author Hansani Madushika
  */
 public class MainController implements Initializable {
-
+//ghgh
 
     @FXML
     private Label location;
