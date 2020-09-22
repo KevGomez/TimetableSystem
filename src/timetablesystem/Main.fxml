@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" minHeight="600.0" minWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.MainController">
+   <children>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="216.0" style="-fx-background-color: rgba(0,0,0,0.1);">
+               <children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#showWorkingTimeSettngs" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-parking-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblParkingGrid" style="-fx-background-color: #1c6494;" text="WORKING DAYS TIMES" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-name-tag-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="Lecturers" onMouseClicked="#lblLecturersClick" text="LECTURERS" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-book-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="Subject" onMouseClicked="#subjectOnClick" text="SUBJECTS" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/Property%20Time_64px.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="STUDENTS" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/Receive%20Cash_64px.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblPayment" text="TAGS" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/441046-200.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="location" alignment="TOP_LEFT" style="-fx-background-color: #1c6494;" text="LOCATION" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-send-letter-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="STATISTICS" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-settings-100.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="SESSIONS" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/Property%20Time_64px.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="TIME TABLE" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="47.0" prefWidth="430.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="lblDate" prefHeight="21.0" prefWidth="153.0" text="2019 -04 -08" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTime" prefHeight="17.0" prefWidth="110.0" text="12.00" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="30.0" prefWidth="110.0" text="Welcome   " textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Admin" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="20.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-user-30.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <VBox fx:id="loadPane" alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+            
+            
+            
+            
+            
+                        <ImageView fitHeight="152.0" fitWidth="160.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/logo2.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

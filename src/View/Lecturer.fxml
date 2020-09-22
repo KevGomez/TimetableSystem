@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LecturerController">
+   <children>
+  
+                   <VBox alignment="TOP_CENTER" layoutY="70.0" prefHeight="493.0" prefWidth="873.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+           <children>
+           <TabPane layoutX="21.0" layoutY="79.0" prefHeight="481.0" prefWidth="873.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Add Lecturers">
+                     <content>
+                        <HBox alignment="CENTER" prefHeight="452.0" prefWidth="860.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="452.0" prefWidth="550.0">
+                                 <children>
+                                    <AnchorPane prefHeight="430.0" prefWidth="421.0">
+                                       <children>
+                                    <Text layoutX="35.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="78.1396484375">
+                                       <font>
+                                          <Font name="Century Gothic" size="13.0" />
+                                       </font>
+                                          </Text>
+              
+                                                                  <TextField fx:id="name" layoutX="29.0" layoutY="29.0" prefHeight="31.0" prefWidth="356.0" promptText="Enter Name" />
+                                    <Text layoutX="35.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty" wrappingWidth="61.16796875">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                          </Text>
+                                    <TextField fx:id="faculty" layoutX="29.0" layoutY="119.0" prefHeight="31.0" prefWidth="356.0" promptText="Enter Faculty" />
+                                    <Text layoutX="35.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Center">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                          </Text>
+                                    <TextField fx:id="center" layoutX="29.0" layoutY="209.0" prefHeight="31.0" prefWidth="356.0" promptText="Enter Center" />
+                                    <Text layoutX="35.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                          </Text>
+                                    <TextField fx:id="level" layoutX="29.0" layoutY="303.0" prefHeight="31.0" prefWidth="356.0" promptText="Enter Level" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="452.0" prefWidth="581.0">
+                                 <children>
+                                    <AnchorPane prefHeight="438.0" prefWidth="452.0">
+                                       <children>
+                                    <TextField fx:id="department" layoutX="36.0" layoutY="121.0" prefHeight="31.0" prefWidth="354.0" promptText="Enter Department" />
+                                    <Text layoutX="42.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecturers ID" wrappingWidth="68.173828125">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                          </Text>
+                                    <TextField fx:id="lectid" layoutX="37.0" layoutY="31.0" prefHeight="31.0" prefWidth="356.0" promptText="Enter Lecture ID" />
+                                    <Text layoutX="42.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                          </Text>
+                                    <Text layoutX="42.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Building">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                          </Text>
+                                    <TextField fx:id="building" layoutX="37.0" layoutY="214.0" prefHeight="31.0" prefWidth="353.0" promptText="Enter Building" />
+                                    <Text layoutX="42.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rank">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                          </Text>
+                                    <Button fx:id="submit" layoutX="302.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#insertData" prefHeight="38.0" prefWidth="136.0" text="Save" />
+                                          <TextField fx:id="rank" editable="false" layoutX="40.0" layoutY="310.0" prefHeight="31.0" prefWidth="351.0" promptText="Autogenerated RankID" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+          </Tab>
+          <Tab text="View Lecturers">
+                     <content>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="462.0" prefWidth="873.0">
+                           <children>
+                              <TableView fx:id="lecttable" layoutX="48.0" layoutY="47.0" prefHeight="379.0" prefWidth="752.0">
+                                <columns>
+                                  <TableColumn fx:id="namecol" prefWidth="75.0" text="Name" />
+                                  <TableColumn fx:id="lectidcol" prefWidth="75.0" text="Lecturers ID" />
+                                  <TableColumn fx:id="facultycol" prefWidth="75.0" text="Faculty" />
+                                  <TableColumn fx:id="departmentcol" prefWidth="75.0" text="Department" />
+                                  <TableColumn fx:id="centercol" prefWidth="75.0" text="Center" />
+                                  <TableColumn fx:id="buildingcol" prefWidth="75.0" text="Building" />
+                                  <TableColumn fx:id="levelcol" prefWidth="75.0" text="Level" />
+                                  <TableColumn fx:id="rankcol" prefWidth="75.0" text="Rank" />
+                                    <TableColumn fx:id="actioncol" prefWidth="75.0" text="Edit" />
+                                    <TableColumn fx:id="deletecol" prefWidth="75.0" text="Delete" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                           </children>
+                        </VBox>
+                     </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+       </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutY="-2.0" prefHeight="80.0" prefWidth="873.0" AnchorPane.bottomAnchor="485.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+           <children>
+      <Text layoutX="399.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecturers">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="360.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-name-tag-50_1.png" />
+         </image>
+      </ImageView>
+       </children>
+      </VBox>
+   
+   </children>
+</AnchorPane>
