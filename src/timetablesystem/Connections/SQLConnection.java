@@ -14,6 +14,7 @@ public class SQLConnection {
     private  final String url="jdbc:mysql://localhost:3306/timetabledb";
     Statement statement;
 
+     
 
     public SQLConnection()  {
          Connection connection=null;

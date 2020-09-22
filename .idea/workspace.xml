@@ -17,15 +17,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VidulaDakshitha/TimetableSystem&#10;&#10;# Conflicts:&#10;#&#9;src/timetablesystem/Main.fxml&#10;#&#9;src/timetablesystem/MainController.java">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Location.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Location.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/TimetableSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/TimetableSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$5.class" afterDir="false" />
@@ -35,9 +32,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/Connections/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/Connections/SQLConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../now/TimetableSystem-master" />
+    <property name="last_opened_file_path" value="F:/Assigment Project/TimeTableManagemtSystem/TimetableSystem" />
   </component>
   <component name="RunManager">
     <configuration name="TimetableSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -95,6 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599382308264</updated>
       <workItem from="1599382316730" duration="543000" />
+      <workItem from="1600791544331" duration="831000" />
     </task>
     <task id="LOCAL-00001" summary="sff">
       <created>1600788586883</created>
@@ -110,43 +106,72 @@
       <option name="project" value="LOCAL" />
       <updated>1600788955903</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="remove unnecessary comments">
+      <created>1600789053650</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600789053650</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sff" />
-    <option name="LAST_COMMIT_MESSAGE" value="sff" />
+    <MESSAGE value="remove unnecessary comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary comments" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1600788805846">
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1600790595427">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1600788805846" />
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom" timestamp="1600788947300">
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1600790595427" />
+    <state width="1323" height="150" key="GridCell.Tab.0.bottom" timestamp="1600792323705">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state width="1323" height="150" key="GridCell.Tab.0.center" timestamp="1600788947300">
+    <state width="1323" height="150" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1600792323705" />
+    <state width="1323" height="150" key="GridCell.Tab.0.center" timestamp="1600792323705">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state width="1323" height="150" key="GridCell.Tab.0.left" timestamp="1600788947300">
+    <state width="1323" height="150" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1600792323705" />
+    <state width="1323" height="150" key="GridCell.Tab.0.left" timestamp="1600792323705">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state width="1323" height="150" key="GridCell.Tab.0.right" timestamp="1600788947300">
+    <state width="1323" height="150" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1600792323705" />
+    <state width="1323" height="150" key="GridCell.Tab.0.right" timestamp="1600792323705">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600788965885">
+    <state width="1323" height="150" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1600792323705" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600792348836">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600788965885" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600792348836" />
   </component>
 </project>
