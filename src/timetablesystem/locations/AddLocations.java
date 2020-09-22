@@ -62,6 +62,7 @@ public class AddLocations implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Building=new Building();
         Rooms=new Room();
+        //Room centraler
 
 
          add_building_btn.setOnAction(new EventHandler<ActionEvent>() {
