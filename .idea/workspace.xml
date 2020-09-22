@@ -1,31 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/TimetableSystem.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_49_bin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SPMProject_2020.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.49-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/Connections/SQLConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Lecture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/models/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/statstics/Statistics.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/timetablesystem/statstics/Statistics.java" afterDir="false" />
+    <list default="true" id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VidulaDakshitha/TimetableSystem&#10;&#10;# Conflicts:&#10;#&#9;src/timetablesystem/Main.fxml&#10;#&#9;src/timetablesystem/MainController.java">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nbproject/jfx-impl_backup.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/DateTimeManagement/DateTimeManagement.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/DateTimeManagement/DaysHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/DateTimeManagement/WorkingTimeSettings.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/DateTimeManagement/WorkingTimeSettingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/Main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locationPreference/LocationPreference.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/timetablesystem/locationPreference/LocationPreference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/TimetableSystem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/TimetableSystem.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SPMProject_2020.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SPMProject_2020.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/timetablesystem/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/timetablesystem/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/timetablesystem/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/timetablesystem/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/timetablesystem/TimetableSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/timetablesystem/TimetableSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/TimetableSystem.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/TimetableSystem.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/TimetableSystem.jnlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/dtjava.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/get_java.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/get_javafx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/javafx-chrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/javafx-loading-100x100.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/javafx-loading-25x25.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/upgrade_java.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/web-files/upgrade_javafx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/jfx-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/jfx-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Location.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Location.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/TimetableSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/TimetableSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/Location.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/Location.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/timetablesystem/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/Main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/timetablesystem/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/TimetableSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/TimetableSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timetablesystem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +103,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="F:/Assigment Project" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/json/java-json.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.545977" />
   </component>
   <component name="RunManager">
     <configuration name="TimetableSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -73,32 +139,91 @@
       <option name="presentableId" value="Default" />
       <updated>1599382308264</updated>
       <workItem from="1599382316730" duration="543000" />
+      <workItem from="1599384063867" duration="6573000" />
+      <workItem from="1599392941601" duration="639000" />
+      <workItem from="1599395245120" duration="52000" />
+      <workItem from="1600689750049" duration="4399000" />
+      <workItem from="1600767675275" duration="676000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'master' of https://github.com/VidulaDakshitha/TimetableSystem&#10;&#10;# Conflicts:&#10;#&#9;src/timetablesystem/Main.fxml&#10;#&#9;src/timetablesystem/MainController.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/VidulaDakshitha/TimetableSystem&#10;&#10;# Conflicts:&#10;#&#9;src/timetablesystem/Main.fxml&#10;#&#9;src/timetablesystem/MainController.java" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1599382813153">
+    <state x="488" y="75" key="#com.intellij.ide.util.MemberChooser" timestamp="1600692378038">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1599382813153" />
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1599382865858">
+    <state x="488" y="75" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1600692378038" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1600767997759">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
-    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1599382865858">
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1600767997759" />
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1600694499209">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
-    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1599382865858">
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1600694499209" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1600694499209">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
-    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1599382865858">
+    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1600694499209" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1600694499208">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1599382865858" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1600694499208" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1600694499209">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1600694499209" />
+    <state x="571" y="237" key="MultipleFileMergeDialog" timestamp="1599393501933">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="571" y="237" key="MultipleFileMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1599393501933" />
+    <state x="0" y="0" key="SettingsEditor" timestamp="1599384520505">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="0" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1599384520505" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600768301050">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600768301050" />
+    <state x="274" y="30" key="new project wizard" timestamp="1599395292952">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="274" y="30" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1599395292952" />
+    <state x="339" y="165" key="run.anything.popup" timestamp="1600692206883">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1600692206883" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java</url>
+          <line>61</line>
+          <properties class="timetablesystem.locations.AddLocations" method="initialize">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

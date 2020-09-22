@@ -64,7 +64,7 @@ public class AddLocations implements Initializable {
         Rooms=new Room();
 
 
-         add_building_btn.setOnAction(new EventHandler<ActionEvent>() {
+        add_building_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String buildingname=addBuilding_text.getText().trim();
@@ -87,8 +87,6 @@ public class AddLocations implements Initializable {
 
             }
         });
-
-
 
         add_room_btn.setOnAction(new EventHandler<ActionEvent>() {
              @Override

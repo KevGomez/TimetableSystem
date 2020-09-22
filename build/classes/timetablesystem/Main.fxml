@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1099.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.MainController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1099.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.MainController">
    <children>
       <Pane layoutY="101.0" prefHeight="505.0" prefWidth="246.0">
          <children>
@@ -22,7 +20,7 @@
                   <Image url="@../assert/download%20(1).png" />
                </image>
             </ImageView>
-            <Label fx:id="lblParkingGrid" layoutY="71.0" prefHeight="34.0" prefWidth="221.0" style="-fx-background-color: #1c6494;" text="           WORKING TIMES" textFill="WHITE">
+            <Label fx:id="lblParkingGrid" layoutY="71.0" onMouseClicked="#showWorkingTimeSettngs" prefHeight="34.0" prefWidth="221.0" style="-fx-background-color: #1c6494;" text="           WORKING TIMES" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -32,7 +30,7 @@
                   <Image url="@../assert/icons8-parking-50.png" />
                </image>
             </ImageView>
-            <Label fx:id="location" layoutX="-6.0" layoutY="259.0"  prefHeight="34.0" prefWidth="228.0" style="-fx-background-color: #1c6494;" text="             LOCATION" textFill="WHITE">
+            <Label fx:id="location" layoutX="-6.0" layoutY="259.0" prefHeight="34.0" prefWidth="228.0" style="-fx-background-color: #1c6494;" text="             LOCATION" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -44,7 +42,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="Subject" layoutX="46.0" layoutY="150.0" prefHeight="28.0" prefWidth="176.0" text="SUBJECTS" onMouseClicked="#subjectOnClick" textFill="WHITE">
+            <Label fx:id="Subject" layoutX="46.0" layoutY="150.0" onMouseClicked="#subjectOnClick" prefHeight="28.0" prefWidth="176.0" text="SUBJECTS" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -142,23 +140,23 @@
             <Image url="@../assert/icons8-user-30.png" />
          </image>
       </ImageView>
-      
-          <AnchorPane fx:id="loadPane" layoutX="218.0" layoutY="45.0" prefHeight="559.0" prefWidth="886.0"> 
-          <children>
-        
-      
-      
-      
-      
-      <ImageView fitHeight="152.0" fitWidth="160.0" layoutX="270.0" layoutY="213.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/logo2.png" />
-         </image>
-      </ImageView>
-  
-              
-              
-          </children>
+
+      <AnchorPane fx:id="loadPane" layoutX="218.0" layoutY="45.0" prefHeight="559.0" prefWidth="886.0">
+         <children>
+
+
+
+
+
+            <ImageView fitHeight="152.0" fitWidth="160.0" layoutX="270.0" layoutY="213.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/logo2.png" />
+               </image>
+            </ImageView>
+
+
+
+         </children>
       </AnchorPane>
       <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="20.0" pickOnBounds="true">
          <image>
