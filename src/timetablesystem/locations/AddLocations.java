@@ -63,6 +63,7 @@ public class AddLocations implements Initializable {
         Building=new Building();
         Rooms=new Room();
         //Room centraler
+        //tevwrtwrt
 
 
          add_building_btn.setOnAction(new EventHandler<ActionEvent>() {
