@@ -88,8 +88,11 @@ public class AddLocations implements Initializable {
             }
         });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> add new locations
         add_room_btn.setOnAction(new EventHandler<ActionEvent>() {
              @Override
              public void handle(ActionEvent event) {

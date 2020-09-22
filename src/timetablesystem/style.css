@@ -11,3 +11,7 @@ and open the template in the editor.
     -fx-background-image: url("/images/first.jpg");
     -fx-background-size: 100% 100%;
 }
+
+.mainMenuButton{
+    -fx-background-color: chartreuse;
+}

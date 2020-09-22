@@ -28,6 +28,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -38,7 +40,7 @@ import javafx.util.Duration;
  */
 public class MainController implements Initializable {
 
-   
+
     @FXML
     private Label location;
     @FXML
@@ -48,11 +50,11 @@ public class MainController implements Initializable {
     @FXML
     private Label Lecturers;
     @FXML
-    private AnchorPane loadPane;
+    private VBox loadPane;
     @FXML
     private Label lblPayment;
-    
-     public static AnchorPane rootP;
+
+    public static AnchorPane rootP;
     @FXML
     private Label lblDate;
     @FXML
@@ -68,40 +70,39 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //     scrolPane.setVisible(false);
-     setCurrentTime();
-     setCurrentDate();
-     
-    } 
-    
-    
+        setCurrentTime();
+        setCurrentDate();
+
+    }
+
     private void setCurrentTime() {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0),
                         new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        Calendar time = Calendar.getInstance();
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-                        lblTime.setText(simpleDateFormat.format(time.getTime()));
-                    }
-                }
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                Calendar time = Calendar.getInstance();
+                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                                lblTime.setText(simpleDateFormat.format(time.getTime()));
+                            }
+                        }
                 ),
                 new KeyFrame(Duration.seconds(1))
         );
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-    
+
     }
 
     private void setCurrentDate() {
-        Date date=new Date();
-        SimpleDateFormat format=new SimpleDateFormat("dd-MM-yyyy");
-        String curDate=format.format(date);
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        String curDate = format.format(date);
         lblDate.setText(curDate);
     }
-    
-    
-        @FXML
+
+
+    @FXML
     private void subjectOnClick(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(this.getClass().getResource("Subject.fxml"));
@@ -113,8 +114,7 @@ public class MainController implements Initializable {
     }
 
 
-        
-           @FXML
+    @FXML
     private void lblLecturersClick(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(this.getClass().getResource("Location.fxml"));
@@ -127,6 +127,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void onLocationClick(MouseEvent event) {
+        System.out.println("Location call");
         try {
             Parent root = FXMLLoader.load(this.getClass().getResource("locations/AddLocations.fxml"));
             this.loadPane.getChildren().clear();
@@ -142,10 +143,34 @@ public class MainController implements Initializable {
             Parent root = FXMLLoader.load(this.getClass().getResource("statstics/Statistics.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
+    private  void onLocationPreference(MouseEvent event){
+        try{
+
+            Parent root = FXMLLoader.load(this.getClass().getResource("locationPreference/LocationPreference.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        }catch (IOException ex){
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }
+
+    public void showWorkingTimeSettngs(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("DateTimeManagement/WorkingTimeSettings.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    
 }
