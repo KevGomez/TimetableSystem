@@ -11,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import timetablesystem.DataBaseHandler.DBHandler;
+
 /**
  *
  * @author Vidula
@@ -36,6 +38,9 @@ public class TimetableSystem extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+        DBHandler dbHandler = new DBHandler();
+        dbHandler.createTables();
         launch(args);
     }
     
