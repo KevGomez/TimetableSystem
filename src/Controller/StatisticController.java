@@ -1,12 +1,13 @@
 package Controller;
 
+import Model.Lecture;
+import Model.Student;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.chart.PieChart;
-import timetablesystem.models.Lecture;
-import timetablesystem.models.Student;
+
 
 import java.net.URL;
 import java.sql.SQLException;
