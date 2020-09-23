@@ -17,6 +17,7 @@ public class Building {
 
     }
 
+    //set buiding name
     public Building(String buildingName, String id) {
         BuildingName = buildingName;
         Id = id;
