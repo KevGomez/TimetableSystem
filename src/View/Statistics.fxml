@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StatisticController">
+   <children>
+      <Text layoutX="40.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistic">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TabPane layoutX="41.0" layoutY="82.0" prefHeight="415.0" prefWidth="794.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Lectures">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture Statistic" wrappingWidth="125.185546875">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                        <SplitPane dividerPositions="0.5, 0.5" layoutX="20.0" layoutY="38.0" prefHeight="330.0" prefWidth="763.0">
+                           <items>
+                              <PieChart fx:id="lecture_center_pie" prefHeight="246.0" prefWidth="252.0" title="Lecture Center" />
+                              <PieChart fx:id="lecture_level_pie" title="Lecture Departmet" />
+                              <PieChart fx:id="lecture_departmet_pie" title="Lecture Level" />
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Students">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <Text layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students Statistic">
+                           <font>
+                               <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                        <SplitPane dividerPositions="0.5" layoutX="14.0" layoutY="54.0" prefHeight="289.0" prefWidth="766.0">
+                           <items>
+                              <PieChart fx:id="studet_accadamicyear_pichart" />
+                              <PieChart fx:id="studet_accadamicsemester_pichart" />
+
+                           </items>
+                        </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+          <Tab text="Subjects">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                          <Text layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject Statistics">
+                           <font>
+                               <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                          <SplitPane dividerPositions="0.5" layoutX="14.0" layoutY="54.0" prefHeight="289.0" prefWidth="766.0">
+                              <items>
+                                  <PieChart fx:id="subject_year_pichart" />
+                                  <PieChart fx:id="subject_code_pichart" />
+
+                              </items>
+                          </SplitPane>
+
+                      </children>
+                  </AnchorPane>
+              </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,5 +1,9 @@
 .side-bar-button{
     -fx-padding: 5,10,5,10;
+}
+
+.side-bar-button{
+    -fx-padding: 5,10,5,10;
     -fx-background-color: linear-gradient(to right top, #2c00ff, #0049ff, #006aff, #0084ff, #009bff);
     -fx-border-radius: 5 5 5 5;
     -fx-background-radius: 5 5 5 5;

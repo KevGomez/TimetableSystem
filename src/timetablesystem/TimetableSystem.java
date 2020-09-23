@@ -21,7 +21,7 @@ public class TimetableSystem extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,1100,650);
         
         stage.setScene(scene);
         //stage.initStyle(StageStyle.UNDECORATED);

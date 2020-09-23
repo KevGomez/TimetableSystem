@@ -1,58 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VidulaDakshitha/TimetableSystem&#10;&#10;# Conflicts:&#10;#&#9;src/timetablesystem/Main.fxml&#10;#&#9;src/timetablesystem/MainController.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Location.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Location.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/TimetableSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/TimetableSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/locations/AddLocations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SPMProject_2020/timetablesystem/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/timetablesystem/locations/AddLocations.java" afterDir="false" />
-    </list>
+    <list default="true" id="1698148e-d5cd-4ac2-8c71-b10a9264f666" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
     </option>
+  </component>
+  <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1h8ANfj50PhygqjSHwNzzfRt6ot" />
+  <component name="ProjectId" id="1hten0FxlYgcfkXTJPHJpdxMTlo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,12 +29,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../now/TimetableSystem-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.49-bin.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.545977" />
   </component>
   <component name="RunManager">
     <configuration name="TimetableSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="timetablesystem.TimetableSystem" />
-      <module name="SPMProject_2020" />
+      <module name="TimetableSystem-dev" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="timetablesystem.*" />
@@ -89,64 +59,53 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9a2c5740-657a-45ce-8dea-37e89820330b" name="Default Changelist" comment="" />
-      <created>1599382308264</created>
+      <changelist id="1698148e-d5cd-4ac2-8c71-b10a9264f666" name="Default Changelist" comment="" />
+      <created>1600834978582</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1599382308264</updated>
-      <workItem from="1599382316730" duration="543000" />
+      <updated>1600834978582</updated>
+      <workItem from="1600834979971" duration="88000" />
+      <workItem from="1600835454837" duration="49000" />
+      <workItem from="1600835536704" duration="6334000" />
+      <workItem from="1600842728308" duration="755000" />
     </task>
-    <task id="LOCAL-00001" summary="sff">
-      <created>1600788586883</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1600788586883</updated>
-    </task>
-    <task id="LOCAL-00002" summary="sff">
-      <created>1600788955903</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1600788955903</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="sff" />
-    <option name="LAST_COMMIT_MESSAGE" value="sff" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1600788805846">
+    <state x="214" y="75" key="#com.intellij.ide.util.MemberChooser" timestamp="1600840519979">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1600788805846" />
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom" timestamp="1600788947300">
+    <state x="214" y="75" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1600840519979" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1600838336910">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state width="1323" height="150" key="GridCell.Tab.0.center" timestamp="1600788947300">
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1600838336910" />
+    <state width="1323" height="227" key="GridCell.Tab.0.bottom" timestamp="1600842884573">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state width="1323" height="150" key="GridCell.Tab.0.left" timestamp="1600788947300">
+    <state width="1323" height="227" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1600842884573" />
+    <state width="1323" height="227" key="GridCell.Tab.0.center" timestamp="1600842884573">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state width="1323" height="150" key="GridCell.Tab.0.right" timestamp="1600788947300">
+    <state width="1323" height="227" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1600842884573" />
+    <state width="1323" height="227" key="GridCell.Tab.0.left" timestamp="1600842884573">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1600788947300" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600788965885">
+    <state width="1323" height="227" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1600842884573" />
+    <state width="1323" height="227" key="GridCell.Tab.0.right" timestamp="1600842884573">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600788965885" />
+    <state width="1323" height="227" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1600842884573" />
+    <state x="0" y="0" width="1303" height="738" key="SettingsEditor" timestamp="1600839604621">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="0" y="0" width="1303" height="738" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1600839604621" />
+    <state x="46" y="0" key="new project wizard" timestamp="1600838118556">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="46" y="0" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1600838118556" />
   </component>
 </project>
