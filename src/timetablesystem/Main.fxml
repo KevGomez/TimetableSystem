@@ -100,7 +100,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+
+
+
+<!--add location button -->
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" onMouseClicked="#onLocationClick" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -117,7 +121,9 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+<!-- statics button                 -->
+
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" onMouseClicked="#onStatisticClick" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -134,6 +140,30 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
+
+<!--         statistic button-->
+<!--             location preference     -->
+
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" onMouseClicked="#onLocationPreference" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-send-letter-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="LOCATION PREFERENCE" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+
+<!--             location preference end-->
+
                   <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">

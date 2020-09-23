@@ -133,4 +133,45 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    //location window opener
+    @FXML
+    private void onLocationClick(MouseEvent event) {
+        System.out.println("Location call");
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("./../View/AddLocations.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    //statistic window opener
+    @FXML
+    private void onStatisticClick(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("./../View/Statistics.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    //location preference opener
+    @FXML
+    private  void onLocationPreference(MouseEvent event){
+        try{
+
+            Parent root = FXMLLoader.load(this.getClass().getResource("./../View/LocationPreference.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        }catch (IOException ex){
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }
 }

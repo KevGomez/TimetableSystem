@@ -1,3 +1,24 @@
 .side-bar-button{
     -fx-padding: 5,10,5,10;
 }
+
+.side-bar-button{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #2c00ff, #0049ff, #006aff, #0084ff, #009bff);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+
+}
+
+.side-bar-button:hover{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #2e08f8, #003deb, #004ed5, #0057b9, #005c98);
+    -fx-border-radius: 5 0 0 5;
+    -fx-background-radius: 5 0 0 5;
+
+
+}
+
+
+
+

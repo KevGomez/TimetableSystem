@@ -102,7 +102,11 @@ public class WorkingTimeSettingsController implements Initializable {
 
 
         dbHandler = new DBHandler();
+
        // dbHandler.createTables(); // create tables
+
+        dbHandler.createTables(); // create tables
+
 
         timeSlots=TimeSlotsController.getTimeSlots();
 
@@ -515,6 +519,7 @@ public class WorkingTimeSettingsController implements Initializable {
 
            if (isTimesEquals(timeSlotTime,eTime)){
 
+
                //addSlot(time);
                timeSlotTime[0]=hour;
                timeSlotTime[1]=min;
@@ -525,6 +530,8 @@ public class WorkingTimeSettingsController implements Initializable {
                timeSlotTime[0]=hour;
                timeSlotTime[1]=min;
                timeSlotTime[2]=ampm;
+
+
                addSlot(time);
 
             }else{

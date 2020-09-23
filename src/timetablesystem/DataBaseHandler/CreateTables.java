@@ -1,11 +1,12 @@
 package timetablesystem.DataBaseHandler;
 
 public class CreateTables {
+
     static String timeSolts="CREATE TABLE IF NOT EXISTS timeslots ( id int PRIMARY KEY AUTO_INCREMENT ,tSlots varchar(100) )";
 
     static String building ="CREATE TABLE IF NOT EXISTS building (" +
-            "  BuildingName int NOT NULL PRIMARY KEY AUTO_INCREMENT," +
-            "  ID int(11) NOT NULL" +
+            "  BuildingName varchar(60) NOT NULL ," +
+            "  ID int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT" +
             ")";
 
     static String lecture="CREATE TABLE  IF NOT EXISTS lecture (" +
@@ -38,5 +39,7 @@ public class CreateTables {
             "  Code varchar(60) NOT NULL," +
             "  Lecture int(11) NOT NULL" +
             ")";
+
+
 
 }
