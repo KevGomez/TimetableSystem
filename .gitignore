@@ -1,5 +1,6 @@
-.idea
+/.idea
 .iml
 /out
 /dist
 TimetableSystem-dev.iml
+.idea/
