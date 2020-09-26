@@ -11,7 +11,7 @@ public class DBHandler {
 
 
     public DBHandler(){
-        url="jdbc:mysql://localhost/timeTableSystem";
+        url="jdbc:mysql://localhost:3306/timetablesystem?serverTimezone=UTC";
         user="root";
         pass="";
         try {

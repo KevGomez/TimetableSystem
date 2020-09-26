@@ -4,7 +4,7 @@ package Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableListBase;
-import timetablesystem.Connections.SQLConnection;
+import timetablesystem.DataBaseHandler.DBHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,22 +41,24 @@ public class Building {
 
     public void CreateBuilding(){
         String insertBuilding="INSERT INTO  building (BuildingName) VALUES ('"+this.BuildingName+"')";
-        SQLConnection sqlConnection=new SQLConnection();
-        sqlConnection.InsertQuery(insertBuilding);
+        DBHandler sqlConnection=new DBHandler();
+        sqlConnection.DbInsert(insertBuilding);
     }
 
     public ResultSet getAllData(){
         String selectBuilding="SELECT * FROM building ";
-        SQLConnection sqlConnection=new SQLConnection();
-        ResultSet getAllBuilding=sqlConnection.SelectQuery(selectBuilding);
+//        SQLConnection sqlConnection=new SQLConnection();
+        DBHandler sqlConnection=new DBHandler();
+        ResultSet getAllBuilding=sqlConnection.DbGet(selectBuilding);
         return  getAllBuilding;
     }
 
 
     public ResultSet getSelectedData(String keyword){
         String selectBuilding="SELECT * FROM building WHERE BuildingName LIKE '%"+keyword+"%'";
-        SQLConnection sqlConnection=new SQLConnection();
-        ResultSet getAllBuilding=sqlConnection.SelectQuery(selectBuilding);
+//        SQLConnection sqlConnection=new SQLConnection();
+        DBHandler sqlConnection=new DBHandler();
+        ResultSet getAllBuilding=sqlConnection.DbGet(selectBuilding);
         return  getAllBuilding;
     }
 
@@ -81,15 +83,17 @@ public class Building {
 
     public void DeleteData(String id){
         String deletequery="DELETE FROM building WHERE ID ="+id;
-        SQLConnection sqlConnection=new SQLConnection();
-        sqlConnection.InsertQuery(deletequery);
+//        SQLConnection sqlConnection=new SQLConnection();
+        DBHandler sqlConnection=new DBHandler();
+        sqlConnection.DbInsert(deletequery);
     }
 
 
     public void UpdateData(String id,String value){
         String updateQuery="UPDATE building SET BuildingName = '"+value+"' WHERE ID ="+id;
-        SQLConnection sqlConnection=new SQLConnection();
-        sqlConnection.InsertQuery(updateQuery);
+//        SQLConnection sqlConnection=new SQLConnection();
+        DBHandler sqlConnection=new DBHandler();
+        sqlConnection.DbInsert(updateQuery);
     }
 
 
