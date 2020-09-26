@@ -20,7 +20,11 @@ import org.omg.CORBA.PRIVATE_MEMBER;
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.scene.input.KeyEvent;
@@ -94,8 +98,8 @@ public class WorkingTimeSettingsController implements Initializable {
 
 
     int tSlotX=0,tSlotY=0;
-    String hours[]= new String[12],minutes[]= new String[60], amPm[]= {"AM","PM"};
-    int sTime[]= new int[3],eTime[]= new int[3],lTime[]= new int[3],timeSlotTime[]= new int[3];
+    String hours[]= new String[12],minutes[]= {"00","30"}, amPm[]= {"AM","PM"};
+    String sTime,eTime,lTime,timeSlotTime;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -127,12 +131,10 @@ public class WorkingTimeSettingsController implements Initializable {
         sunday.setSelected(daysHandler.sunday);
 
 
-        for (int i=0; i<60;i++){
-            if (i==0){
-                minutes[i]="00";
-            }else{
-                minutes[i]=String.valueOf(i);
-            }
+
+
+        for (int i=0; i<12;i++){
+
             if (i<12){
                 hours[i]=String.valueOf((i+1));
             }
@@ -166,37 +168,68 @@ public class WorkingTimeSettingsController implements Initializable {
 
 
 
-        String tempStart[]=daysHandler.sTime.split(" ");
-        String tempEnd[]=daysHandler.eTime.split(" ");
-        String tempLunch[]=daysHandler.lunch.split(" ");
 
-        for (int i=0;i<tempStart.length;i++){
-            sTime[i]=Integer.parseInt(tempStart[i]);
-            eTime[i]=Integer.parseInt(tempEnd[i]);
-            lTime[i]=Integer.parseInt(tempLunch[i]);
-            timeSlotTime[i]=Integer.parseInt(tempStart[i]);
 
+
+            sTime=daysHandler.sTime;
+            eTime=daysHandler.eTime;
+            lTime=daysHandler.lunch;
+            timeSlotTime=daysHandler.sTime;
+
+
+
+
+        String temStime[]=sliceTime(sTime);
+        hStart.getSelectionModel().select((Integer.parseInt(temStime[0])-1));
+        if (Integer.parseInt(temStime[1])==0){
+            mStart.getSelectionModel().select(0);
+        }else{
+            mStart.getSelectionModel().select(1);
+        }
+
+        if (temStime[2].equals("AM")){
+            sAmPm.getSelectionModel().select(0);
+        }else{
+            sAmPm.getSelectionModel().select(1);
         }
 
 
 
-        hStart.getSelectionModel().select(sTime[0]);
-        mStart.getSelectionModel().select(sTime[1]);
-        sAmPm.getSelectionModel().select(sTime[2]);
-
-        hEnd.getSelectionModel().select(eTime[0]);
-        mEnd.getSelectionModel().select(eTime[1]);
-        eAmPm.getSelectionModel().select(eTime[2]);
 
 
-        hLunch.getSelectionModel().select(lTime[0]);
-        mLunch.getSelectionModel().select(lTime[1]);
-        lAmPm.getSelectionModel().select(lTime[2]);
+        String temEtime[]=sliceTime(eTime);
+        hEnd.getSelectionModel().select((Integer.parseInt(temEtime[0])-1));
+        if (Integer.parseInt(temStime[1])==0){
+            mEnd.getSelectionModel().select(0);
+        }else{
+            mEnd.getSelectionModel().select(1);
+        }
+        if (temEtime[2].equals("AM")){
+            eAmPm.getSelectionModel().select(0);
+        }else{
+            eAmPm.getSelectionModel().select(1);
+        }
 
 
 
 
-        from.setText(getTime(sTime));
+
+
+        String temLtime[]=sliceTime(lTime);
+        hLunch.getSelectionModel().select((Integer.parseInt(temLtime[0])-1));
+        if (Integer.parseInt(temStime[1])==0){
+            mLunch.getSelectionModel().select(0);
+        }else{
+            mLunch.getSelectionModel().select(1);
+        }
+        if (temLtime[2].equals("AM")){
+            lAmPm.getSelectionModel().select(0);
+        }else{
+            lAmPm.getSelectionModel().select(1);
+        }
+
+
+        from.setText(sTime);
         duration.getItems().add("30 Min");
         duration.getItems().add("1 Hour");
         duration.getSelectionModel().select(0);
@@ -206,18 +239,8 @@ public class WorkingTimeSettingsController implements Initializable {
         for(int i=0;i<timeSlots.size();i++){
             addSlot(timeSlots.get(i).getTime());
             if (i==(timeSlots.size()-1)){
-
-                String time[]=timeSlots.get(i).getTime().split("to")[1].trim().split(" ");
-                System.out.println(time[2]+time[0]+time[1]);
-
-                timeSlotTime[0]=(Integer.parseInt(time[0].trim())-1);
-                timeSlotTime[1]=Integer.parseInt(time[1].trim());
-                if (time[2].trim().equals("AM")){
-                    timeSlotTime[2]=0;
-                }else {
-                    timeSlotTime[2]=1;
-                }
-                from.setText(getTime(timeSlotTime));
+                timeSlotTime=timeSlots.get(i).getTime().split("to")[1];
+                from.setText(timeSlotTime);
             }
         }
 
@@ -243,10 +266,13 @@ public class WorkingTimeSettingsController implements Initializable {
         hStart.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                sTime[0]=(int)newValue;
-                timeSlotTime[0]=(int)newValue;
+                String temStime[]=sliceTime(sTime);
+
+                String time= ((int)newValue+1)+":"+temStime[1]+" "+temStime[2];
+                sTime=time;
+                timeSlotTime=time;
                 daysHandler.setWorkingTime("startTime",sTime);
-                from.setText(getTime(sTime));
+                from.setText(sTime);
 
                 clearTimeSlots();
 
@@ -255,10 +281,12 @@ public class WorkingTimeSettingsController implements Initializable {
         mStart.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                sTime[1]=(int)newValue;
-                timeSlotTime[1]=(int)newValue;
+                String temStime[]=sliceTime(sTime);
+                String time= temStime[0]+":"+minutes[((int)newValue)]+" "+temStime[2];
+                sTime=time;
+                timeSlotTime=time;
                 daysHandler.setWorkingTime("startTime",sTime);
-                from.setText(getTime(sTime));
+                from.setText(sTime);
 
                 clearTimeSlots();
 
@@ -267,10 +295,12 @@ public class WorkingTimeSettingsController implements Initializable {
         sAmPm.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                sTime[2]=(int)newValue;
-                timeSlotTime[2]=(int)newValue;
+                String temStime[]=sliceTime(sTime);
+                String time= temStime[0]+":"+temStime[1]+" "+amPm[((int)newValue)];
+                sTime=time;
+                timeSlotTime=time;
                 daysHandler.setWorkingTime("startTime",sTime);
-                from.setText(getTime(sTime));
+                from.setText(sTime);
 
                 clearTimeSlots();
 
@@ -286,16 +316,13 @@ public class WorkingTimeSettingsController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 
-                int temp[]={eTime[0],eTime[1],eTime[2]};
-                temp[0]=(int)newValue;
-                if (isTimesEquals(sTime,temp)){
-                    eTime[0]=(int)newValue;
+                String temp[]=sliceTime(eTime);
+                String time=((int)newValue+1)+":"+temp[1]+" "+temp[2];
+                if (isTimesEquals(sTime,time)){
+                    eTime=time;
                     daysHandler.setWorkingTime("endTime",eTime);
                     showError("");
-
                     clearTimeSlots();
-
-
                 }else{
                     showError("Invalid End Time ");
                 }
@@ -306,36 +333,30 @@ public class WorkingTimeSettingsController implements Initializable {
         mEnd.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                int temp[]={eTime[0],eTime[1],eTime[2]};
-                temp[2]=(int)newValue;
-                if (isTimesEquals(sTime,temp)){
-                    eTime[2]=(int)newValue;
+
+                String temp[]=sliceTime(eTime);
+                String time=temp[0]+":"+minutes[((int)newValue)]+" "+temp[2];
+                if (isTimesEquals(sTime,time)){
+                    eTime=time;
                     daysHandler.setWorkingTime("endTime",eTime);
                     showError("");
-
                     clearTimeSlots();
-
-
-
                 }else{
                     showError("Invalid End Time ");
                 }
-
             }
         });
         eAmPm.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                int temp[]={eTime[0],eTime[1],eTime[2]};
-                temp[2]=(int)newValue;
-                if (isTimesEquals(sTime,temp)){
-                    eTime[2]=(int)newValue;
+
+                String temp[]=sliceTime(eTime);
+                String time=temp[0]+":"+temp[1]+" "+amPm[((int)newValue)];
+                if (isTimesEquals(sTime,time)){
+                    eTime=time;
                     daysHandler.setWorkingTime("endTime",eTime);
                     showError("");
-
                     clearTimeSlots();
-
-
                 }else{
                     showError("Invalid End Time ");
                 }
@@ -350,19 +371,19 @@ public class WorkingTimeSettingsController implements Initializable {
         hLunch.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-               int temp[]= {lTime[0],lTime[1],lTime[2]};
-               temp[0]=(int)newValue;
+             String temp[]= sliceTime(lTime);
+             String  time=((int)newValue+1)+":"+temp[1]+" "+temp[2];
 
-                if (isTimesEquals(sTime,temp)){
-                    if (isTimesEquals(temp,eTime)){
+                if (isTimesEquals(sTime,time)){
+                    if (isTimesEquals(time,eTime)){
                         showError("");
-                        lTime[0]=(int)newValue;
+                        lTime=time;
                         daysHandler.setWorkingTime("lunch",lTime);
                     }else{
-                        showError("Invalid Lunch Time h 2");
+                        showError("Invalid Lunch Time");
                     }
                 }else{
-                    showError("Invalid Lunch Time h 1");
+                    showError("Invalid Lunch Time");
                 }
 
             }
@@ -370,39 +391,53 @@ public class WorkingTimeSettingsController implements Initializable {
         mLunch.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                int temp[]= {lTime[0],lTime[1],lTime[2]};
-                temp[1]=(int)newValue;
+                String temp[]= sliceTime(lTime);
+                String  time=temp[0]+":"+minutes[((int)newValue)]+" "+temp[2];
 
-                if (isTimesEquals(sTime,temp)){
-                    if (isTimesEquals(temp,eTime)){
+                if (isTimesEquals(sTime,time)){
+                    if (isTimesEquals(time,eTime)){
                         showError("");
-                        lTime[1]=(int)newValue;
+                        lTime=time;
                         daysHandler.setWorkingTime("lunch",lTime);
                     }else{
-                        showError("Invalid Lunch Time m 2");
+                        showError("Invalid Lunch Time");
                     }
                 }else{
-                    showError("Invalid Lunch Time m 1");
+                    showError("Invalid Lunch Time");
                 }
+
             }
+
         });
         lAmPm.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                int temp[]= {lTime[0],lTime[1],lTime[2]};
-                temp[2]=(int)newValue;
+                String temp[]= sliceTime(lTime);
+                String  time=temp[0]+":"+temp[1]+" "+amPm[((int)newValue)];
 
-                if (isTimesEquals(sTime,temp)){
-                    if (isTimesEquals(temp,eTime)){
+                if (isTimesEquals(sTime,time)){
+                    if (isTimesEquals(time,eTime)){
                         showError("");
-                        lTime[2]=(int)newValue;
+                        lTime=time;
                         daysHandler.setWorkingTime("lunch",lTime);
-                        showError("Invalid Lunch Time am 2");
+                    }else{
+                        showError("Invalid Lunch Time");
                     }
                 }else{
-                    showError("Invalid Lunch Time am 1");
+                    showError("Invalid Lunch Time");
                 }
 
+            }
+
+        });
+
+
+
+
+        duration.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                clearTimeSlots();
             }
         });
 
@@ -449,96 +484,40 @@ public class WorkingTimeSettingsController implements Initializable {
     @FXML
     public void addNewTimeSlot(MouseEvent mouseEvent) {
 
-        String slot=duration.getSelectionModel().getSelectedItem();
-
-        String nextTime,time="";
-
-        int min=timeSlotTime[1];
-        int hour=timeSlotTime[0];
-        int ampm=timeSlotTime[2];
-        System.out.println(hour);
-        String tAmPm=amPm[ampm];
+        LocalTime start = LocalTime.parse(convert12to24(sTime));
+        LocalTime end = LocalTime.parse(convert12to24(eTime));
+        int hour=start.getHour(),min=start.getMinute();
+        try {
+            String prev=sTime;
+            while(hour< end.getHour()||min<end.getMinute()){
 
 
-        if (slot.equals("30 Min")){
-            min+=30;
+            String slot=duration.getSelectionModel().getSelectedItem();
 
-            if (min>60){
+            String time="";
 
-                min-=60;
-                hour++;
-                if (hour==11){
-                    if (timeSlotTime[2]==0){
-                        tAmPm="PM";
-                        ampm=1;
-                    }else{
-                        tAmPm="AM";
-                        ampm=0;
-                    }
-                }
-                if (hour==12){
-                    hour=0;
-                }
-
-                nextTime=hours[hour]+" "+min+" "+tAmPm;
-            }else{
-                nextTime=hours[hour]+" "+min+" "+tAmPm;
-            }
-            if (min==0){
-                nextTime=hours[hour]+" 00 "+" "+tAmPm;
-            }
-          //  System.out.println(hour+" "+hours[hour]);
-            time=getTime(timeSlotTime)+" to "+nextTime;
-
-
-
-        }else if (slot.equals("1 Hour")){
-            hour++;
-            if (hour==11){
-                if (timeSlotTime[2]==0){
-                    tAmPm="PM";
-                    ampm=1;
+            if (slot.equals("30 Min")){
+                min+=30;
+                if (min==60){
+                    hour++;
+                    min=0;
+                    time=hour+":00";;
+                    System.out.println("qwe"+ hour);
                 }else{
-                    tAmPm="AM";
-                    ampm=0;
+                    time=hour+":"+min;
                 }
 
+
+            }else if (slot.equals("1 Hour")){
+                    hour++;
+                time=hour+":"+min;
             }
-            if (hour==12){
-                hour=0;
-            }
-
-
-            nextTime=hours[hour]+" "+min+" "+tAmPm;
-
-            time=getTime(timeSlotTime)+" to "+nextTime;
-
-
+            addSlot(prev+" to "+ convert24to12(time));
+            prev=time;
+          }
+        }catch (Exception e){
+            System.out.println(e.toString());
         }
-
-
-           if (isTimesEquals(timeSlotTime,eTime)){
-
-
-               //addSlot(time);
-               timeSlotTime[0]=hour;
-               timeSlotTime[1]=min;
-               timeSlotTime[2]=ampm;
-
-
-               TimeSlotsController.insertTimeSlots(time);
-               timeSlotTime[0]=hour;
-               timeSlotTime[1]=min;
-               timeSlotTime[2]=ampm;
-
-
-               addSlot(time);
-
-            }else{
-                addSlotsError();
-            }
-
-
 
 
     }
@@ -554,10 +533,6 @@ public class WorkingTimeSettingsController implements Initializable {
 
     private void addSlot(String time){
 
-
-
-
-
         Label label = new Label();
         label.setText(time);
         label.setMinHeight(10);
@@ -567,7 +542,7 @@ public class WorkingTimeSettingsController implements Initializable {
             tSlotY++;
             tSlotX=0;
         }
-        from.setText(getTime(timeSlotTime));
+
 
     }
 
@@ -579,32 +554,26 @@ public class WorkingTimeSettingsController implements Initializable {
     }
 
 
-    private Boolean isTimesEquals(int s1[],int s2[] ){
+    private Boolean isTimesEquals(String s1,String s2 ){
 
-        // check s1<s2
-        int sh1=s1[0],sh2=s2[0],sm1=s1[2],sm2=s2[2];
-        if (s1[2]==1){
-            if (sh1<11){
-                sh1+=12;
-            }
-        }
+        SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
+            //s1<s2
 
-        if (s2[2]==1){
-            if (sh2<11){
-                sh2+=12;
-            }
-        }
 
-        if (sh1<sh2){
+        try {
+            LocalTime start = LocalTime.parse(convert12to24(s1));
+            LocalTime end = LocalTime.parse(convert12to24(s2));
+            if (start.isBefore(end)) {
+                System.out.println("Succ");
                 return true;
-        }else if(sh1==sh2) {
-                    if(sm1<sm2){
-                        return true;
-                    }else {
-                        return false;
-                    }
-        }else {
+            }else{
+                System.out.println("Invalid");
                 return false;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return false;
         }
 
 
@@ -621,8 +590,58 @@ public class WorkingTimeSettingsController implements Initializable {
     private String getTime(int[]  time){
         return  hours[time[0]]+" : "+minutes[time[1]]+" "+amPm[time[2]];
     }
+
+    private String[] sliceTime(String time){
+        String slice[]= new String[3];
+        String temp[]= time.split(" ");
+        slice[2]=temp[1].trim();
+        String temp2[]=temp[0].split(":");
+        slice[0]=temp2[0].trim();
+        slice[1]=temp2[1].trim();
+        return slice;
+
+
+    }
    
 
+    private  String convert12to24(String input){
+       // 10:22:12 PM
+
+        DateFormat df = new SimpleDateFormat("hh:mm aa");
+
+        DateFormat outputformat = new SimpleDateFormat("HH:mm");
+        Date date;
+        String output;
+        try{
+            date= df.parse(input);
+            output = outputformat.format(date);
+            System.out.println(output);
+            return output;
+        }catch(Exception pe){
+            return pe.toString();
+        }
+    }
+
+
+    private  String convert24to12(String input){
+        // 10:22:12 PM
+
+
+
+        DateFormat df = new SimpleDateFormat("HH:mm");
+
+        DateFormat outputformat = new SimpleDateFormat("hh:mm aa");
+        Date date;
+        String output;
+        try{
+            date= df.parse(input);
+            output = outputformat.format(date);
+            System.out.println(output);
+            return output;
+        }catch(Exception pe){
+            return pe.toString();
+        }
+    }
 
 
 

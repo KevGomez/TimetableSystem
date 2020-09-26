@@ -12,7 +12,7 @@ import java.io.FileWriter;
 public class DaysHandler {
     static Boolean  monday,tuesday, wednesday, thursday, friday,saturday,sunday;
     static int nDaysPerWeek=7,tempnDaysPerWeek=7;
-    static String sTime="6 0",eTime="6 0",lunch="0 0";
+    static String sTime="08:00 AM",eTime="06:00 PM",lunch="12:00 PM";
 
     private String filePath = "./src/data/days.json";
     private File daysdat= new File(filePath);
@@ -112,12 +112,12 @@ public class DaysHandler {
 
     }
 
-    public void setWorkingTime(String key ,int value[]){
+    public void setWorkingTime(String key ,String value){
 
         try {
 
             JSONObject writeJsonObject=readFile();
-            writeJsonObject.put(key,value[0]+" "+value[1]+" "+value[2]);
+            writeJsonObject.put(key,value);
             FileWriter fileWriter= new FileWriter(filePath,false);
             fileWriter.write(writeJsonObject.toString());
             fileWriter.close();
