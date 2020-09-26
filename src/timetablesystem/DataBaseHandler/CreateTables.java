@@ -14,6 +14,7 @@ public class CreateTables {
             "  RoomName varchar(60) NOT NULL," +
             "  Capacity int(11) NOT NULL," +
             "  BuildingName varchar(60) NOT NULL," +
+            "  Notreservedtime varchar(60),"+
             "  ID int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT" +
             ")";
 

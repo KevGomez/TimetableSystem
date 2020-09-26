@@ -36,6 +36,7 @@ public class AddLocationsController implements Initializable {
     @FXML private  TextField room_search;
     @FXML private  TextField room_capacity_text;
     @FXML private ComboBox room_buiding_dop;
+    @FXML private  TextField notReservedTime_text;
 
     @FXML private TableView<Model.Building> building_table;
 
@@ -47,6 +48,7 @@ public class AddLocationsController implements Initializable {
     @FXML private TableColumn<Room,String> room_name;
     @FXML private TableColumn<Room,String> room_building;
     @FXML private TableColumn<Room,String> room_capacity;
+    @FXML private TableColumn<Room,String> room_NotReserd_colum;
 
 
 
@@ -95,6 +97,7 @@ public class AddLocationsController implements Initializable {
                 String roomname=addRoom_text.getText().trim();
                 String roomcapasity=room_capacity_text.getText().trim();
                 String building_room=room_buiding_dop.getValue().toString();
+                String notreservedtime=notReservedTime_text.getText().trim();
 
                 System.out.println(building_room);
                 if (roomname.isEmpty()){
@@ -105,6 +108,7 @@ public class AddLocationsController implements Initializable {
                     room.setRoomName(roomname);
                     room.setRoomCapacity(roomcapasity);
                     room.setBuildingName(building_room);
+                    room.setNotReservedTime(notreservedtime);
                     room.CreateRoom();
                     addRoom_text.clear();
                     room_capacity_text.clear();
@@ -227,6 +231,7 @@ public class AddLocationsController implements Initializable {
                 String roomName=(room_table.getSelectionModel().getSelectedItem().getRoomName());
                 String roomCapasity=(room_table.getSelectionModel().getSelectedItem().getRoomCapacity());
                 String roomBuilding=(room_table.getSelectionModel().getSelectedItem().getBuildingName());
+                String roomNotreservedTime=(room_table.getSelectionModel().getSelectedItem().getNotReservedTime());
 
 
                 if(!roomID.isEmpty()){
@@ -234,6 +239,8 @@ public class AddLocationsController implements Initializable {
                     addRoom_text.setText(roomName);
                     room_capacity_text.setText(roomCapasity);
                     room_buiding_dop.setValue(roomBuilding);
+                    notReservedTime_text.setText(roomNotreservedTime);
+
 
                     update_room_btn.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -241,14 +248,17 @@ public class AddLocationsController implements Initializable {
                             String newRoomvalue=addRoom_text.getText().trim();
                             String newRoomCapasityvalue=room_capacity_text.getText().trim();
                             String newRoomBuilding=room_buiding_dop.getValue().toString();
+                            String newRoomNotReservdTime=notReservedTime_text.getText().trim();
 
 
                             if(!newRoomvalue.isEmpty()){
-                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue,newRoomBuilding);
+                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue,newRoomBuilding,newRoomNotReservdTime);
                                 showRoomsTable();
                                 togalUpdateAndAddButtonRoom();
                                 addRoom_text.clear();
                                 room_capacity_text.clear();
+                                notReservedTime_text.clear();
+
 
                                 System.out.println("Room updated");
                             }else{
@@ -293,6 +303,7 @@ public class AddLocationsController implements Initializable {
         room_name.setCellValueFactory(new  PropertyValueFactory<>("RoomName"));
         room_capacity.setCellValueFactory(new  PropertyValueFactory<>("RoomCapacity"));
         room_building.setCellValueFactory(new  PropertyValueFactory<>("BuildingName"));
+        room_NotReserd_colum.setCellValueFactory(new PropertyValueFactory<>("NotReservedTime"));
 
 
         try {

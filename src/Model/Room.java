@@ -12,13 +12,14 @@ public class Room {
     String RoomId;
     String RoomCapacity;
     String BuildingName;
+    String NotReservedTime;
 
-    public Room(String roomName, String roomId, String roomCapacity, String buildingName) {
+    public Room(String roomName, String roomId, String roomCapacity, String buildingName, String NotReservedTime) {
         this.RoomName = roomName;
         this.RoomId = roomId;
         this.RoomCapacity=roomCapacity;
         this.BuildingName=buildingName;
-
+        this.NotReservedTime=NotReservedTime;
 
     }
 
@@ -59,8 +60,16 @@ public class Room {
         RoomId = roomId;
     }
 
+    public String getNotReservedTime() {
+        return NotReservedTime;
+    }
+
+    public void setNotReservedTime(String notReservedTime) {
+        NotReservedTime = notReservedTime;
+    }
+
     public void CreateRoom(){
-        String insertBuilding="INSERT INTO  room (RoomName,Capacity,BuildingName) VALUES ('"+this.RoomName+"',"+this.RoomCapacity+",'"+this.BuildingName+"')";
+        String insertBuilding="INSERT INTO  room (RoomName,Capacity,BuildingName,Notreservedtime) VALUES ('"+this.RoomName+"',"+this.RoomCapacity+",'"+this.BuildingName+"','"+this.NotReservedTime+"')";
 //        SQLConnection sqlConnection=new SQLConnection();
         DBHandler sqlConnection=new DBHandler();
         sqlConnection.DbInsert(insertBuilding);
@@ -87,7 +96,7 @@ public class Room {
     public ObservableList<Room> getObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<Room> RoomList = FXCollections.observableArrayList();
         while (resultSet.next()){
-            RoomList.add(new Room(resultSet.getString("RoomName"),String.valueOf(resultSet.getInt("ID")),String.valueOf(resultSet.getInt("Capacity")),resultSet.getString("BuildingName")));
+            RoomList.add(new Room(resultSet.getString("RoomName"),String.valueOf(resultSet.getInt("ID")),String.valueOf(resultSet.getInt("Capacity")),resultSet.getString("BuildingName"),resultSet.getString("Notreservedtime")));
             System.out.println("ID"+String.valueOf(resultSet.getInt("ID"))+" cap:"+String.valueOf(resultSet.getInt("Capacity")));
         }
 
@@ -102,8 +111,8 @@ public class Room {
         sqlConnection.DbInsert(deletequery);
     }
 
-    public void UpdateData(String id,String RoomNamevalue,String RoomCapasity,String newBuilding){
-        String updateQuery="UPDATE room SET RoomName = '"+RoomNamevalue+"',Capacity = "+RoomCapasity+",BuildingName ='"+newBuilding+"' WHERE ID ="+id;
+    public void UpdateData(String id,String RoomNamevalue,String RoomCapasity,String newBuilding,String newNotresrvedTime){
+        String updateQuery="UPDATE room SET RoomName = '"+RoomNamevalue+"',Capacity = "+RoomCapasity+",Notreservedtime = '"+newNotresrvedTime+"',BuildingName ='"+newBuilding+"' WHERE ID ="+id;
 //        SQLConnection sqlConnection=new SQLConnection();
         DBHandler sqlConnection=new DBHandler();
         sqlConnection.DbInsert(updateQuery);
