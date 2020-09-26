@@ -22,15 +22,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -130,7 +126,7 @@ public class MainController implements Initializable {
 
     public void showWorkingTimeSettngs(MouseEvent mouseEvent) {
         try {
-            Parent root = FXMLLoader.load(this.getClass().getResource("DateTimeManagement/WorkingTimeSettings.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/WorkingTimeSettings.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         } catch (IOException ex) {
@@ -143,7 +139,7 @@ public class MainController implements Initializable {
     private void onLocationClick(MouseEvent event) {
         System.out.println("Location call");
         try {
-            Parent root = FXMLLoader.load(this.getClass().getResource("./../View/AddLocations.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/AddLocations.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         } catch (IOException ex) {
@@ -170,7 +166,7 @@ public class MainController implements Initializable {
     private  void onLocationPreference(MouseEvent event){
         try{
 
-            Parent root = FXMLLoader.load(this.getClass().getResource("./../View/LocationPreference.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/LocationPreference.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         }catch (IOException ex){

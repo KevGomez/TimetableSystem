@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Building;
+import Model.Room;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -7,8 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import  timetablesystem.models.Building;
-import  timetablesystem.models.Room;
+
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -36,7 +37,7 @@ public class AddLocationsController implements Initializable {
     @FXML private  TextField room_capacity_text;
     @FXML private ComboBox room_buiding_dop;
 
-    @FXML private TableView<Building> building_table;
+    @FXML private TableView<Model.Building> building_table;
 
     @FXML private TableColumn<Building,String> building_id_row;
     @FXML private TableColumn<Building,String> building_name_row;

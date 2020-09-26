@@ -29,6 +29,13 @@ public class DBHandler {
         try {
 
             st.executeUpdate(CreateTables.timeSolts) ;
+
+            st.executeUpdate(CreateTables.building) ;
+            st.executeUpdate(CreateTables.lecturers) ;
+            st.executeUpdate(CreateTables.room) ;
+            st.executeUpdate(CreateTables.subject) ;
+            st.executeUpdate(CreateTables.student) ;
+
             System.out.println("Table Created SuccessFully");
         }
         catch (Exception e) {
