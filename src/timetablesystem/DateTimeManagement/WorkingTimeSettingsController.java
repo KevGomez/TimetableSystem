@@ -502,7 +502,7 @@ public class WorkingTimeSettingsController implements Initializable {
                     hour++;
                     min=0;
                     time=hour+":00";;
-                    System.out.println("qwe"+ hour);
+
                 }else{
                     time=hour+":"+min;
                 }
@@ -532,7 +532,7 @@ public class WorkingTimeSettingsController implements Initializable {
     }
 
     private void addSlot(String time){
-
+        TimeSlotsController.insertTimeSlots(time);
         Label label = new Label();
         label.setText(time);
         label.setMinHeight(10);

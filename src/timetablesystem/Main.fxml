@@ -104,7 +104,7 @@
 
 
 <!--add location button -->
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" onMouseClicked="#onLocationClick" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationClick" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -123,7 +123,7 @@
                   </HBox>
 <!-- statics button                 -->
 
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" onMouseClicked="#onStatisticClick" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onStatisticClick" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -144,7 +144,7 @@
 <!--         statistic button-->
 <!--             location preference     -->
 
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" onMouseClicked="#onLocationPreference" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationPreference" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -181,7 +181,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#showGenerateTimeTables" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -41,6 +41,7 @@ public class TimetableSystem extends Application {
 
         DBHandler dbHandler = new DBHandler();
         dbHandler.createTables();
+        dbHandler.insertSampleData();
         launch(args);
     }
     

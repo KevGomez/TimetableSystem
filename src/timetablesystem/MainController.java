@@ -123,7 +123,7 @@ public class MainController implements Initializable {
         }
     }
 
-
+    @FXML
     public void showWorkingTimeSettngs(MouseEvent mouseEvent) {
         try {
             Parent root = FXMLLoader.load(this.getClass().getResource("../View/WorkingTimeSettings.fxml"));
@@ -133,6 +133,18 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    @FXML
+    public void showGenerateTimeTables(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("../View/ShowTimeTable.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 
     //location window opener
     @FXML

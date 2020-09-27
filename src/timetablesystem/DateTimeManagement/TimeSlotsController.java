@@ -10,7 +10,7 @@ public class TimeSlotsController {
 
     public static String insertTimeSlots(String time){
 
-        String query="INSERT INTO `timeslots`(`id`, `tSlots`) VALUES (null,'"+time+"')";
+        String query="INSERT INTO `timeslots`(`tid`, `tSlots`) VALUES (null,'"+time+"')";
         return  new DBHandler().DbInsert(query);
     }
 
