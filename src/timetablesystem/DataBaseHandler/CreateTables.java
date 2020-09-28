@@ -18,12 +18,14 @@ public class CreateTables {
             "  ID int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT" +
             ")";
 
-    static String student = "CREATE TABLE IF NOT EXISTS student (" +
-            "  ID int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," +
-            "  Name varchar(60) NOT NULL," +
-            "  AcadamicYear varchar(60) NOT NULL," +
-            "  AcadamicSemester varchar(60) NOT NULL," +
-            "  SubgroupID int(11) NOT NULL " +
+    static String students = "CREATE TABLE IF NOT EXISTS students (" +
+            "  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," +
+            "  year varchar(60) NOT NULL," +
+            "  pro varchar(60) NOT NULL," +
+            "  grp_no varchar(60) NOT NULL," +
+            "  grp_id varchar(60) NOT NULL," +
+            "  sgrp_no varchar(60) NOT NULL," +
+            "  sgrp_id varchar(60) NOT NULL" +
             ")";
     static String subject ="CREATE TABLE IF NOT EXISTS subject (" +
           "ID int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,"+
@@ -48,6 +50,11 @@ public class CreateTables {
   "level varchar(50) NOT NULL,"+
   "rank varchar(20) NOT NULL"+
                     ")";
+    
+    static String tags = "CREATE TABLE IF NOT EXISTS tags (" +
+            "  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," +
+            "  name varchar(60) NOT NULL" +
+            ")";
 
     static String SQL=" CREATE TABLE workingday(\n" +
             "   idworkingday  INT NOT NULL IDENTITY,\n" +
