@@ -166,7 +166,7 @@ public class MainController implements Initializable {
     private  void onLocationPreference(MouseEvent event){
         try{
 
-            Parent root = FXMLLoader.load(this.getClass().getResource("/View/LocationPreference.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/Preferences.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         }catch (IOException ex){
@@ -174,4 +174,7 @@ public class MainController implements Initializable {
 
         }
     }
+
+
+
 }

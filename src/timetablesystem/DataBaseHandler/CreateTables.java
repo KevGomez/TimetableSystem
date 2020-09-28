@@ -49,6 +49,11 @@ public class CreateTables {
   "rank varchar(20) NOT NULL"+
                     ")";
 
+    static String SQL=" CREATE TABLE workingday(\n" +
+            "   idworkingday  INT NOT NULL IDENTITY,\n" +
+            "   day  VARCHAR(100) NULL,\n" +
+            "   workhoure  VARCHAR(45) NULL,\n" +
+            "  PRIMARY KEY ( idworkingday ))";
 
 
 

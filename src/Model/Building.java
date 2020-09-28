@@ -45,7 +45,7 @@ public class Building {
         sqlConnection.DbInsert(insertBuilding);
     }
 
-    public ResultSet getAllData(){
+    public static ResultSet getAllData(){
         String selectBuilding="SELECT * FROM building ";
 //        SQLConnection sqlConnection=new SQLConnection();
         DBHandler sqlConnection=new DBHandler();
@@ -72,7 +72,7 @@ public class Building {
         return  BuildingList;
     }
 
-    public ObservableList<String> getStringObservebleList(ResultSet resultSet) throws SQLException {
+    public static ObservableList<String> getStringObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<String> RoomList = FXCollections.observableArrayList();
         while (resultSet.next()){
             RoomList.add(resultSet.getString("BuildingName"));

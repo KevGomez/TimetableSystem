@@ -75,7 +75,7 @@ public class Room {
         sqlConnection.DbInsert(insertBuilding);
     }
 
-    public ResultSet getAllData(){
+    public static ResultSet getAllData(){
         String selectBuilding="SELECT * FROM room ";
 //      SQLConnection sqlConnection=new SQLConnection();
         DBHandler sqlConnection=new DBHandler();
@@ -104,6 +104,14 @@ public class Room {
     }
 
 
+    public static ObservableList<String> getStringObservebleList(ResultSet resultSet) throws SQLException {
+        ObservableList<String> RoomList = FXCollections.observableArrayList();
+        while (resultSet.next()){
+            RoomList.add(resultSet.getString("RoomName")+""+resultSet.getString("BuildingName")+" ("+resultSet.getString("ID")+")");
+        }
+
+        return  RoomList;
+    }
 
     public void DeleteData(String id){
         String deletequery="DELETE FROM room WHERE ID ="+id;

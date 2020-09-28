@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LocationPreferenceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TagPreferenceController">
     <children>
         <Pane layoutX="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="563.0" prefWidth="873.0">
             <children>
