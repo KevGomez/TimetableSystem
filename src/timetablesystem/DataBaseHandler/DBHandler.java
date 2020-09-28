@@ -34,7 +34,8 @@ public class DBHandler {
             st.executeUpdate(CreateTables.lecturers) ;
             st.executeUpdate(CreateTables.room) ;
             st.executeUpdate(CreateTables.subject) ;
-            st.executeUpdate(CreateTables.student) ;
+            st.executeUpdate(CreateTables.students) ;
+            st.executeUpdate(CreateTables.tags) ;
 
             System.out.println("Table Created SuccessFully");
         }
