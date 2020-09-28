@@ -109,6 +109,20 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
+            @FXML
+    private void sessionOnClick(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/Session.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 
 
         
