@@ -3,7 +3,7 @@ package Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
-import timetablesystem.Connections.SQLConnection;
+import timetablesystem.DataBaseHandler.DBHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -54,17 +54,18 @@ public class Lecture {
     }
 
     public ResultSet getAllData(){
-        String selectAllQuerry="SELECT * FROM lecture";
-        SQLConnection sqlConnection=new SQLConnection();
-        ResultSet getAllBuilding=sqlConnection.SelectQuery(selectAllQuerry);
+        String selectAllQuerry="SELECT * FROM lecturers";
+        DBHandler sqlConnection=new DBHandler();
+        ResultSet getAllBuilding=sqlConnection.DbGet(selectAllQuerry);
         return  getAllBuilding;
     }
 
     public ResultSet GroupBy(String group,String table,String uniq){
         String groupQuerry="SELECT COUNT("+uniq+"),"+group+" FROM "+table+" GROUP BY "+group;
         System.out.println(groupQuerry);
-        SQLConnection sqlConnection=new SQLConnection();
-        ResultSet getAllBuilding=sqlConnection.SelectQuery(groupQuerry);
+//        SQLConnection sqlConnection=new SQLConnection();
+        DBHandler sqlConnection=new DBHandler();
+        ResultSet getAllBuilding=sqlConnection.DbGet(groupQuerry);
         return  getAllBuilding;
     }
 

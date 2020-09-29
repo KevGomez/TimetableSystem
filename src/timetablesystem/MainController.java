@@ -126,7 +126,7 @@ public class MainController implements Initializable {
     @FXML
     public void showWorkingTimeSettngs(MouseEvent mouseEvent) {
         try {
-            Parent root = FXMLLoader.load(this.getClass().getResource("../View/WorkingTimeSettings.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/WorkingTimeSettings.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         } catch (IOException ex) {
@@ -151,7 +151,7 @@ public class MainController implements Initializable {
     private void onLocationClick(MouseEvent event) {
         System.out.println("Location call");
         try {
-            Parent root = FXMLLoader.load(this.getClass().getResource("./../View/AddLocations.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/AddLocations.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         } catch (IOException ex) {
@@ -178,7 +178,7 @@ public class MainController implements Initializable {
     private  void onLocationPreference(MouseEvent event){
         try{
 
-            Parent root = FXMLLoader.load(this.getClass().getResource("./../View/LocationPreference.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/Preferences.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         }catch (IOException ex){
@@ -186,4 +186,42 @@ public class MainController implements Initializable {
 
         }
     }
+
+    //student view navigation
+    @FXML
+    private void ClickStudent(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/Student.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    //tag view navigation
+    @FXML
+    private void ClickTags(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/Tags.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void sessionOnClick(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/Session.fxml"));
+            this.loadPane.getChildren().clear();
+            this.loadPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
+
 }

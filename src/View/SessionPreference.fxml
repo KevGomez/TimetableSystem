@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SessionPreferenceController">
+    <children>
+        <VBox alignment="CENTER_LEFT" layoutX="38.0" layoutY="10.0" prefHeight="469.0" prefWidth="699.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <HBox prefHeight="409.0" prefWidth="652.0" spacing="120.0">
+                    <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="359.0" prefWidth="736.0" spacing="5.0">
+                            <children>
+                                <Text fill="#686868" strokeType="OUTSIDE" strokeWidth="0.0" text="Add preference room for Session">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" top="2.0" />
+                                    </VBox.margin>
+                                </Text>
+                                <HBox prefHeight="32.0" prefWidth="471.0" spacing="10.0">
+                                    <children>
+                                        <ComboBox id="room_combo" fx:id="room_combo" prefHeight="25.0" prefWidth="89.0" promptText="Room" />
+                                        <ComboBox id="tag_combo" fx:id="session_combo" prefHeight="25.0" prefWidth="127.0" promptText="Session" />
+                                        <Button id="add_button" fx:id="add_preference_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Add">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Button id="add_button" fx:id="add_preference_btn2" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Update">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room List">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Text>
+                                <HBox prefHeight="43.0" prefWidth="295.0" spacing="5.0">
+                                    <children>
+                                        <TextField id="search_textfild" fx:id="tag_search_textfiled" prefHeight="25.0" prefWidth="178.0" promptText="Search" />
+                                        <Button id="search_button" fx:id="tax_search_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Search" />
+                                        <Button id="edite_buttin" fx:id="tag_edit_btn" mnemonicParsing="false" text="Edite" />
+                                        <Button id="delete_button" fx:id="tag_delete_btn" mnemonicParsing="false" text="Delete" />
+                                    </children>
+                                </HBox>
+                                <TableView id="preference_table" prefHeight="229.0" prefWidth="627.0">
+                                    <columns>
+                                        <TableColumn fx:id="room_column" prefWidth="170.0" text="Room" />
+                                        <TableColumn fx:id="lecture_column" prefWidth="204.0" text="Session" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+
+
+</AnchorPane>

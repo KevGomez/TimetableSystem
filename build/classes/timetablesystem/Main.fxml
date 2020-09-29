@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="600.0" minWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.MainController">
+<AnchorPane id="AnchorPane" minHeight="600.0" minWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.MainController">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="CENTER" prefHeight="600.0" prefWidth="216.0" style="-fx-background-color: rgba(0,0,0,0.1);">
                <children>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#showWorkingTimeSettngs" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#showWorkingTimeSettngs" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assert/icons8-parking-50.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="lblParkingGrid" style="-fx-background-color: #1c6494;" text="WORKING DAYS TIMES" textFill="WHITE">
+                        <Label fx:id="lblParkingGrid" text="WORKING DAYS TIMES" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -29,7 +32,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,7 +49,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -63,14 +66,14 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assert/Property%20Time_64px.png" />
+                              <Image url="@../assert/Property Time_64px.png" />
                            </image>
                         </ImageView>
-                        <Label text="STUDENTS" textFill="WHITE">
+                        <Label onMouseClicked="#ClickStudent" text="STUDENTS" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -80,14 +83,14 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assert/Receive%20Cash_64px.png" />
+                              <Image url="@../assert/Receive Cash_64px.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="lblPayment" text="TAGS" textFill="WHITE">
+                        <Label fx:id="lblPayment" onMouseClicked="#ClickTags" text="TAGS" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -97,14 +100,18 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+
+
+
+<!--add location button -->
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationClick" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assert/441046-200.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="location" alignment="TOP_LEFT" style="-fx-background-color: #1c6494;" text="LOCATION" textFill="WHITE">
+                        <Label fx:id="location" alignment="TOP_LEFT" text="LOCATION" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -114,7 +121,9 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+<!-- statics button                 -->
+
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onStatisticClick" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -131,7 +140,31 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+
+<!--         statistic button-->
+<!--             location preference     -->
+
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationPreference" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/icons8-send-letter-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="LOCATION PREFERENCE" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+
+<!--             location preference end-->
+
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#sessionOnClick" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -148,11 +181,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assert/Property%20Time_64px.png" />
+                              <Image url="@../assert/Property Time_64px.png" />
                            </image>
                         </ImageView>
                         <Label text="TIME TABLE" textFill="WHITE">
@@ -203,14 +236,14 @@
                   </HBox>
                   <VBox fx:id="loadPane" alignment="CENTER" VBox.vgrow="ALWAYS">
                      <children>
-            
-            
-            
-            
-            
-                        <ImageView fitHeight="152.0" fitWidth="160.0" pickOnBounds="true">
+
+
+
+
+
+                        <ImageView fitHeight="175.0" fitWidth="197.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../images/logo2.png" />
+                              <Image url="@../images/timetable_logo.png" />
                            </image>
                         </ImageView>
                      </children>

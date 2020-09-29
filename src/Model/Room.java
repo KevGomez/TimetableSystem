@@ -2,23 +2,24 @@ package Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import timetablesystem.Connections.SQLConnection;
+import timetablesystem.DataBaseHandler.DBSqlHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Room {
     String RoomName;
-    String RoomId;
-    String RoomCapacity;
-    String BuildingName;
+    String idroom;
+    String capacity;
+    String buildings_idbuildings;
+    String notreservedtime;
 
-    public Room(String roomName, String roomId, String roomCapacity, String buildingName) {
+    public Room(String roomName, String roomId, String roomCapacity, String buildingName, String NotReservedTime) {
         this.RoomName = roomName;
-        this.RoomId = roomId;
-        this.RoomCapacity=roomCapacity;
-        this.BuildingName=buildingName;
-
+        this.idroom = roomId;
+        this.capacity=roomCapacity;
+        this.buildings_idbuildings=buildingName;
+        this.notreservedtime=NotReservedTime;
 
     }
 
@@ -26,57 +27,68 @@ public class Room {
 
     }
 
-
     public String getRoomName() {
         return RoomName;
-    }
-
-    public String getRoomId() {
-        return RoomId;
-    }
-
-    public String getRoomCapacity() {
-        return RoomCapacity;
-    }
-
-    public String getBuildingName() {
-        return BuildingName;
-    }
-
-    public void setRoomCapacity(String roomCapacity) {
-        RoomCapacity = roomCapacity;
-    }
-
-    public void setBuildingName(String buildingName) {
-        BuildingName = buildingName;
     }
 
     public void setRoomName(String roomName) {
         RoomName = roomName;
     }
 
-    public void setRoomId(String roomId) {
-        RoomId = roomId;
+    public String getIdroom() {
+        return idroom;
+    }
+
+    public void setIdroom(String idroom) {
+        this.idroom = idroom;
+    }
+
+    public String getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(String capacity) {
+        this.capacity = capacity;
+    }
+
+    public String getBuildings_idbuildings() {
+        return buildings_idbuildings;
+    }
+
+    public void setBuildings_idbuildings(String buildings_idbuildings) {
+        this.buildings_idbuildings = buildings_idbuildings;
+    }
+
+    public String getNotreservedtime() {
+        return notreservedtime;
+    }
+
+    public void setNotreservedtime(String notreservedtime) {
+        this.notreservedtime = notreservedtime;
     }
 
     public void CreateRoom(){
-        String insertBuilding="INSERT INTO  room (RoomName,Capacity,BuildingName) VALUES ('"+this.RoomName+"',"+this.RoomCapacity+",'"+this.BuildingName+"')";
-        SQLConnection sqlConnection=new SQLConnection();
-        sqlConnection.InsertQuery(insertBuilding);
+        String insertBuilding="INSERT INTO  room (roomName,capacity,buildings_idbuildings,notreservedtime) VALUES ('"+this.RoomName+"','"+this.capacity+"',"+this.buildings_idbuildings+",'"+this.notreservedtime+"')";
+//      SQLConnection sqlConnection=new SQLConnection();
+        System.out.println(insertBuilding);
+        DBSqlHandler sqlConnection=new DBSqlHandler();
+        sqlConnection.DbInsert(insertBuilding);
     }
 
-    public ResultSet getAllData(){
+    public static ResultSet getAllData(){
         String selectBuilding="SELECT * FROM room ";
-        SQLConnection sqlConnection=new SQLConnection();
-        ResultSet getAllRoom=sqlConnection.SelectQuery(selectBuilding);
+//      SQLConnection sqlConnection=new SQLConnection();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
+        ResultSet getAllRoom=sqlConnection.DbGet(selectBuilding);
+
         return  getAllRoom;
     }
 
     public ResultSet getSelectedData(String keyword){
-        String selectBuilding="SELECT * FROM room WHERE RoomName LIKE '%"+keyword+"%' OR BuildingName LIKE '%"+keyword+"'";
+        String selectBuilding="SELECT * FROM room WHERE roomName LIKE '%"+keyword+"%' OR capacity LIKE '%"+keyword+"'";
         System.out.println(selectBuilding);
-        SQLConnection sqlConnection=new SQLConnection();
-        ResultSet getSelectedRoom=sqlConnection.SelectQuery(selectBuilding);
+        DBSqlHandler sqlConnection=new DBSqlHandler();
+        ResultSet getSelectedRoom=sqlConnection.DbGet(selectBuilding);
         return  getSelectedRoom;
     }
 
@@ -84,24 +96,34 @@ public class Room {
     public ObservableList<Room> getObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<Room> RoomList = FXCollections.observableArrayList();
         while (resultSet.next()){
-            RoomList.add(new Room(resultSet.getString("RoomName"),String.valueOf(resultSet.getInt("ID")),String.valueOf(resultSet.getInt("Capacity")),resultSet.getString("BuildingName")));
-            System.out.println("ID"+String.valueOf(resultSet.getInt("ID"))+" cap:"+String.valueOf(resultSet.getInt("Capacity")));
+            RoomList.add(new Room(resultSet.getString("roomName"),String.valueOf(resultSet.getInt("idroom")),resultSet.getString("capacity"),String.valueOf(resultSet.getInt("buildings_idbuildings")),resultSet.getString("notreservedtime")));
+
+//            System.out.println("ID"+String.valueOf(resultSet.getInt("ID"))+" cap:"+String.valueOf(resultSet.getInt("Capacity")));
         }
 
         return  RoomList;
     }
 
 
+    public static ObservableList<String> getStringObservebleList(ResultSet resultSet) throws SQLException {
+        ObservableList<String> RoomList = FXCollections.observableArrayList();
+        while (resultSet.next()){
+            RoomList.add(resultSet.getString("roomName")+""+resultSet.getString("buildings_idbuildings")+" ("+resultSet.getString("idroom")+")");
+        }
 
-    public void DeleteData(String id){
-        String deletequery="DELETE FROM room WHERE ID ="+id;
-        SQLConnection sqlConnection=new SQLConnection();
-        sqlConnection.InsertQuery(deletequery);
+        return  RoomList;
     }
 
-    public void UpdateData(String id,String RoomNamevalue,String RoomCapasity,String newBuilding){
-        String updateQuery="UPDATE room SET RoomName = '"+RoomNamevalue+"',Capacity = "+RoomCapasity+",BuildingName ='"+newBuilding+"' WHERE ID ="+id;
-        SQLConnection sqlConnection=new SQLConnection();
-        sqlConnection.InsertQuery(updateQuery);
+    public void DeleteData(String id){
+        String deletequery="DELETE FROM room WHERE idroom ="+id;
+        DBSqlHandler sqlConnection=new DBSqlHandler();
+        sqlConnection.DbInsert(deletequery);
+    }
+
+    public void UpdateData(String id,String RoomNamevalue,String RoomCapasity,String newBuilding,String newNotresrvedTime){
+        String updateQuery="UPDATE room SET roomName = '"+RoomNamevalue+"',capacity = "+RoomCapasity+",notreservedtime = '"+newNotresrvedTime+"',buildings_idbuildings ='"+newBuilding+"' WHERE idroom ="+id;
+//        SQLConnection sqlConnection=new SQLConnection();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
+        sqlConnection.DbInsert(updateQuery);
     }
 }

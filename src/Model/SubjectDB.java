@@ -26,7 +26,7 @@ public class SubjectDB {
        
        Connection conn;
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/spm?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/timeTableSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             return conn;
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());

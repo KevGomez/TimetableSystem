@@ -8,7 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.KeyCode;
+import javafx.util.StringConverter;
 
 
 import java.net.URL;
@@ -36,17 +37,21 @@ public class AddLocationsController implements Initializable {
     @FXML private  TextField room_search;
     @FXML private  TextField room_capacity_text;
     @FXML private ComboBox room_buiding_dop;
+    @FXML private  TextField notReservedTime_text;
 
     @FXML private TableView<Model.Building> building_table;
 
     @FXML private TableColumn<Building,String> building_id_row;
     @FXML private TableColumn<Building,String> building_name_row;
 
+
+
     @FXML private TableView<Room> room_table;
     @FXML private TableColumn<Room,String> room_id;
     @FXML private TableColumn<Room,String> room_name;
     @FXML private TableColumn<Room,String> room_building;
     @FXML private TableColumn<Room,String> room_capacity;
+    @FXML private TableColumn<Room,String> room_NotReserd_colum;
 
 
 
@@ -63,6 +68,7 @@ public class AddLocationsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Building=new Building();
         Rooms=new Room();
+
 
         add_building_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -88,13 +94,19 @@ public class AddLocationsController implements Initializable {
             }
         });
 
-
         add_room_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String roomname=addRoom_text.getText().trim();
                 String roomcapasity=room_capacity_text.getText().trim();
-                String building_room=room_buiding_dop.getValue().toString();
+                Building building = (Building) room_buiding_dop.getSelectionModel().getSelectedItem();
+                String building_room =building.getId();
+
+
+
+
+
+                String notreservedtime=notReservedTime_text.getText().trim();
 
                 System.out.println(building_room);
                 if (roomname.isEmpty()){
@@ -103,10 +115,12 @@ public class AddLocationsController implements Initializable {
                 }else{
                     Room room =new Room();
                     room.setRoomName(roomname);
-                    room.setRoomCapacity(roomcapasity);
-                    room.setBuildingName(building_room);
+                    room.setCapacity(roomcapasity);
+                    room.setBuildings_idbuildings(building_room);
+                    room.setNotreservedtime(notreservedtime);
                     room.CreateRoom();
                     addRoom_text.clear();
+                    room_capacity_text.clear();
                     room_capacity_text.clear();
                     showRoomsTable();
 
@@ -145,7 +159,6 @@ public class AddLocationsController implements Initializable {
             }
         });
 
-
         building_delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -166,7 +179,7 @@ public class AddLocationsController implements Initializable {
         delete_room.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                String roomID=room_table.getSelectionModel().getSelectedItem().getRoomId();
+                String roomID=room_table.getSelectionModel().getSelectedItem().getIdroom();
 
                 System.out.println(roomID);
                 if(!roomID.isEmpty()){
@@ -223,32 +236,42 @@ public class AddLocationsController implements Initializable {
 
             @Override
             public void handle(ActionEvent event) {
-                String roomID=(room_table.getSelectionModel().getSelectedItem().getRoomId());
+                String roomID=(room_table.getSelectionModel().getSelectedItem().getIdroom());
                 String roomName=(room_table.getSelectionModel().getSelectedItem().getRoomName());
-                String roomCapasity=(room_table.getSelectionModel().getSelectedItem().getRoomCapacity());
-                String roomBuilding=(room_table.getSelectionModel().getSelectedItem().getBuildingName());
+                String roomCapasity=(room_table.getSelectionModel().getSelectedItem().getCapacity());
+                String roomBuilding=(room_table.getSelectionModel().getSelectedItem().getBuildings_idbuildings());
+                String roomNotreservedTime=(room_table.getSelectionModel().getSelectedItem().getNotreservedtime());
 
 
                 if(!roomID.isEmpty()){
                     togalUpdateAndAddButtonRoom();
                     addRoom_text.setText(roomName);
                     room_capacity_text.setText(roomCapasity);
-                    room_buiding_dop.setValue(roomBuilding);
+//                    room_buiding_dop.setValue(roomBuilding);
+                    notReservedTime_text.setText(roomNotreservedTime);
+
 
                     update_room_btn.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
                             String newRoomvalue=addRoom_text.getText().trim();
                             String newRoomCapasityvalue=room_capacity_text.getText().trim();
-                            String newRoomBuilding=room_buiding_dop.getValue().toString();
+//                          String newRoomBuilding=room_buiding_dop.getValue().toString();
+
+                            Building building = (Building) room_buiding_dop.getSelectionModel().getSelectedItem();
+                            String newRoomBuilding=building.getId();
+
+                            String newRoomNotReservdTime=notReservedTime_text.getText().trim();
 
 
                             if(!newRoomvalue.isEmpty()){
-                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue,newRoomBuilding);
+                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue,newRoomBuilding,newRoomNotReservdTime);
                                 showRoomsTable();
                                 togalUpdateAndAddButtonRoom();
                                 addRoom_text.clear();
                                 room_capacity_text.clear();
+                                notReservedTime_text.clear();
+
 
                                 System.out.println("Room updated");
                             }else{
@@ -268,10 +291,20 @@ public class AddLocationsController implements Initializable {
             }
         });
 
+        room_buiding_dop.setOnKeyReleased(event -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                Building building =(Building) room_buiding_dop.getSelectionModel().getSelectedItem();
+                System.out.println("Drop down relece");
+
+                System.out.println(building.getId());
+            }
+        });
+
 
         showBuildingTable();
         showRoomsTable();
         getValueforBuldinnameDropdown();
+
     }
 
 
@@ -289,10 +322,11 @@ public class AddLocationsController implements Initializable {
 
     public void showRoomsTable(){
         //Room Table
-        room_id.setCellValueFactory(new PropertyValueFactory<>("RoomId"));
-        room_name.setCellValueFactory(new  PropertyValueFactory<>("RoomName"));
-        room_capacity.setCellValueFactory(new  PropertyValueFactory<>("RoomCapacity"));
-        room_building.setCellValueFactory(new  PropertyValueFactory<>("BuildingName"));
+        room_id.setCellValueFactory(new PropertyValueFactory<>("idroom"));
+        room_name.setCellValueFactory(new  PropertyValueFactory<>("roomName"));
+        room_capacity.setCellValueFactory(new  PropertyValueFactory<>("capacity"));
+        room_building.setCellValueFactory(new  PropertyValueFactory<>("buildings_idbuildings"));
+        room_NotReserd_colum.setCellValueFactory(new PropertyValueFactory<>("notreservedtime"));
 
 
         try {
@@ -331,18 +365,29 @@ public class AddLocationsController implements Initializable {
     }
 
     public void togalUpdateAndAddButtonRoom(){
+        System.out.println("call togalUpdateAndAddButtonRoom metjod ");
         update_room_btn.setVisible(!update_room_btn.isVisible());
         add_room_btn.setVisible(!add_room_btn.isVisible());
 
     }
 
+
     public void getValueforBuldinnameDropdown(){
 
         try {
-            room_buiding_dop.setItems(Building.getStringObservebleList(Building.getAllData()));
+            room_buiding_dop.setItems(Building.getObservebleList(Building.getAllData()));
+
+
+
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+
     }
+
+
+
 
 }

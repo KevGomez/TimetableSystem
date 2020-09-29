@@ -21,7 +21,7 @@ public class TimeSlotsController {
     }
 
     public static ArrayList<TimeSlots> getTimeSlots(){
-        String query="SELECT * FROM `timeslots` ORDER BY id";
+        String query="SELECT * FROM `timeslots` ORDER BY tid";
         ArrayList<TimeSlots> timeSlots= new ArrayList<>();
         try {
             ResultSet resultSet = new DBHandler().DbGet(query);

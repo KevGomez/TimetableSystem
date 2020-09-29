@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TagsController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="65.0" prefWidth="873.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TAGS">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <VBox layoutY="65.0" prefHeight="497.0" prefWidth="873.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TabPane prefHeight="501.0" prefWidth="873.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="ADD">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="472.0" prefWidth="873.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane prefHeight="472.0" prefWidth="490.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="431.0" layoutX="34.0" layoutY="14.0" opacity="0.12" stroke="BLACK" strokeType="INSIDE" width="431.0" />
+                                          <Label layoutX="145.0" layoutY="32.0" text="ADD TAGS DETAILS">
+                                             <font>
+                                                <Font name="System Bold Italic" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="name" alignment="CENTER" layoutX="125.0" layoutY="143.0" prefHeight="41.0" prefWidth="246.0" promptText="Type Tag Name" />
+                                          <Button layoutX="211.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#insert" prefHeight="23.0" prefWidth="69.0" style="-fx-background-color: #0328fc;" text="ADD" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="LIST">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="158.0" prefHeight="470.0" prefWidth="629.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="86.0">
+                                 <children>
+                                    <TableView fx:id="mainTable" editable="true" prefHeight="464.0" prefWidth="467.0">
+                                       <columns>
+                                          <TableColumn fx:id="namecol" prefWidth="454.0" text="Tag Name" />
+                                          <TableColumn fx:id="editcol" prefWidth="87.0" text="Edit" />
+                                          <TableColumn fx:id="deletecol" prefWidth="87.0" text="Delete" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
