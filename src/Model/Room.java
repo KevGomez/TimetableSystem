@@ -27,6 +27,13 @@ public class Room {
 
     }
 
+    @Override
+    public String toString() {
+        return this.getRoomName();
+    }
+
+
+
     public String getRoomName() {
         return RoomName;
     }
@@ -93,7 +100,7 @@ public class Room {
     }
 
 
-    public ObservableList<Room> getObservebleList(ResultSet resultSet) throws SQLException {
+    public static ObservableList<Room> getObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<Room> RoomList = FXCollections.observableArrayList();
         while (resultSet.next()){
             RoomList.add(new Room(resultSet.getString("roomName"),String.valueOf(resultSet.getInt("idroom")),resultSet.getString("capacity"),String.valueOf(resultSet.getInt("buildings_idbuildings")),resultSet.getString("notreservedtime")));

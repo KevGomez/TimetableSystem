@@ -113,7 +113,7 @@ public class CreateTables {
                             "  PRIMARY KEY ( idbuildings ))";
 
     static  String students_grp="CREATE TABLE   students_grp  (\n" +
-            "   idstudents_grp  INT NOT NULL,\n" +
+            "   idstudents_grp  INT NOT NULL IDENTITY,\n" +
             "   year_sem  VARCHAR(45) NULL,\n" +
             "   programme  VARCHAR(45) NULL,\n" +
             "   grp_no  INT NULL,\n" +
@@ -146,8 +146,8 @@ public class CreateTables {
             "   lecturer_idemployee  INT NOT NULL,\n" +
             "   subjects_idsubjects  INT NOT NULL,\n" +
             "   students_grp_idstudents_grp  INT NOT NULL,\n" +
-            "   room_idroom  INT NOT NULL,\n" +
-            "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ,  room_idroom ),\n" +
+            "   room_idroom  INT ,\n" +
+            "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ),\n" +
             "  CONSTRAINT  fk_sessions_tag1 \n" +
             "    FOREIGN KEY ( tag_idtag )\n" +
             "    REFERENCES   tag  ( idtag )\n" +
