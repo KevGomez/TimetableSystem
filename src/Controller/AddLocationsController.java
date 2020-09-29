@@ -44,6 +44,8 @@ public class AddLocationsController implements Initializable {
     @FXML private TableColumn<Building,String> building_id_row;
     @FXML private TableColumn<Building,String> building_name_row;
 
+
+
     @FXML private TableView<Room> room_table;
     @FXML private TableColumn<Room,String> room_id;
     @FXML private TableColumn<Room,String> room_name;
@@ -245,7 +247,7 @@ public class AddLocationsController implements Initializable {
                     togalUpdateAndAddButtonRoom();
                     addRoom_text.setText(roomName);
                     room_capacity_text.setText(roomCapasity);
-                    room_buiding_dop.setValue(roomBuilding);
+//                    room_buiding_dop.setValue(roomBuilding);
                     notReservedTime_text.setText(roomNotreservedTime);
 
 
@@ -254,7 +256,11 @@ public class AddLocationsController implements Initializable {
                         public void handle(ActionEvent event) {
                             String newRoomvalue=addRoom_text.getText().trim();
                             String newRoomCapasityvalue=room_capacity_text.getText().trim();
-                            String newRoomBuilding=room_buiding_dop.getValue().toString();
+//                          String newRoomBuilding=room_buiding_dop.getValue().toString();
+
+                            Building building = (Building) room_buiding_dop.getSelectionModel().getSelectedItem();
+                            String newRoomBuilding=building.getId();
+
                             String newRoomNotReservdTime=notReservedTime_text.getText().trim();
 
 
@@ -316,11 +322,11 @@ public class AddLocationsController implements Initializable {
 
     public void showRoomsTable(){
         //Room Table
-        room_id.setCellValueFactory(new PropertyValueFactory<>("RoomId"));
-        room_name.setCellValueFactory(new  PropertyValueFactory<>("RoomName"));
-        room_capacity.setCellValueFactory(new  PropertyValueFactory<>("RoomCapacity"));
-        room_building.setCellValueFactory(new  PropertyValueFactory<>("BuildingName"));
-        room_NotReserd_colum.setCellValueFactory(new PropertyValueFactory<>("NotReservedTime"));
+        room_id.setCellValueFactory(new PropertyValueFactory<>("idroom"));
+        room_name.setCellValueFactory(new  PropertyValueFactory<>("roomName"));
+        room_capacity.setCellValueFactory(new  PropertyValueFactory<>("capacity"));
+        room_building.setCellValueFactory(new  PropertyValueFactory<>("buildings_idbuildings"));
+        room_NotReserd_colum.setCellValueFactory(new PropertyValueFactory<>("notreservedtime"));
 
 
         try {
@@ -359,6 +365,7 @@ public class AddLocationsController implements Initializable {
     }
 
     public void togalUpdateAndAddButtonRoom(){
+        System.out.println("call togalUpdateAndAddButtonRoom metjod ");
         update_room_btn.setVisible(!update_room_btn.isVisible());
         add_room_btn.setVisible(!add_room_btn.isVisible());
 

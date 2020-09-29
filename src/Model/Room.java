@@ -69,8 +69,8 @@ public class Room {
 
     public void CreateRoom(){
         String insertBuilding="INSERT INTO  room (roomName,capacity,buildings_idbuildings,notreservedtime) VALUES ('"+this.RoomName+"','"+this.capacity+"',"+this.buildings_idbuildings+",'"+this.notreservedtime+"')";
-//        SQLConnection sqlConnection=new SQLConnection();
-        System.out.println("Create room method call");
+//      SQLConnection sqlConnection=new SQLConnection();
+        System.out.println(insertBuilding);
         DBSqlHandler sqlConnection=new DBSqlHandler();
         sqlConnection.DbInsert(insertBuilding);
     }

@@ -124,7 +124,7 @@ public class CreateTables {
 
 
     static String room="CREATE TABLE   room  (\n" +
-                    "   idroom  INT NOT NULL,\n" +
+                    "   idroom  INT NOT NULL IDENTITY ,\n" +
                     "   roomName  VARCHAR(45) NULL,\n" +
                     "   capacity  VARCHAR(45) NULL,\n" +
                     "   buildings_idbuildings  INT NULL,\n" +
@@ -192,7 +192,7 @@ static  String workingday_has_timeslot ="CREATE TABLE   workingday_has_timeslot 
         "    ON UPDATE NO ACTION)\n";
 
 static  String room_notReserved="CREATE TABLE   room_notReserved  (\n" +
-        "   idroom_notReserved  INT NOT NULL,\n" +
+        "   idroom_notReserved  INT NOT NULL IDENTITY,\n" +
         "   notRservedTime  INT NULL,\n" +
         "   room_idroom  INT NOT NULL,\n" +
         "  PRIMARY KEY ( idroom_notReserved ,  room_idroom ),\n" +
