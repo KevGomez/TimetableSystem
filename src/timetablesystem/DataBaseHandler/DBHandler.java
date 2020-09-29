@@ -35,7 +35,7 @@ public class DBHandler {
 //            st.executeUpdate(CreateTables.room) ;
 //            st.executeUpdate(CreateTables.subject) ;
 //            st.executeUpdate(CreateTables.student) ;
-            st.executeUpdate(CreateTables.SQL);
+//            st.executeUpdate(CreateTables.SQL);
 
             System.out.println("Table Created SuccessFully");
         }

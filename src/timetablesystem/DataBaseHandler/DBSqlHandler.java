@@ -26,4 +26,72 @@ public class DBSqlHandler {
             e.printStackTrace();
         }
     }
+
+
+    public void createTables(){
+        try {
+
+//            st.executeUpdate(CreateTables.timeSolts) ;
+//
+//            st.executeUpdate(CreateTables.building) ;
+//            st.executeUpdate(CreateTables.lecturers) ;
+//            st.executeUpdate(CreateTables.room) ;
+//            st.executeUpdate(CreateTables.subject) ;
+//            st.executeUpdate(CreateTables.student) ;
+            
+            //Azure SQL Credate table
+
+            st.executeUpdate(CreateTables.workingday);
+            st.executeUpdate(CreateTables.timeslot);
+            st.executeUpdate(CreateTables.lecturer);
+            st.executeUpdate(CreateTables.subjects);
+            st.executeUpdate(CreateTables.tag);
+            st.executeUpdate(CreateTables.buildings);
+            st.executeUpdate(CreateTables.students_grp);
+            st.executeUpdate(CreateTables.room);
+            st.executeUpdate(CreateTables.sessions);
+            st.executeUpdate(CreateTables.workingday_has_timeslot);
+            st.executeUpdate(CreateTables.room_notReserved);
+            st.executeUpdate(CreateTables.room_has_tag);
+            st.executeUpdate(CreateTables.room_has_lecturer);
+            st.executeUpdate(CreateTables.room_has_students_grp);
+
+
+
+
+
+
+            System.out.println("Table Created SuccessFully");
+        }
+        catch (Exception e) {
+            System.out.println(e);
+
+        }
+    }
+
+    public String DbInsert(String query){
+        String r;
+        try {
+            st.executeUpdate(query) ;
+            r="Success";
+        }
+        catch (Exception e) {
+            r= e.toString();
+        }
+        return r;
+    }
+
+    public  ResultSet DbGet(String query){
+        ResultSet r=null;
+
+        try {
+            r= st.executeQuery(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return r;
+    }
+
+
 }

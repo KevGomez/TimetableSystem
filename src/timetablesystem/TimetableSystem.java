@@ -10,8 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import timetablesystem.DataBaseHandler.DBHandler;
 import timetablesystem.DataBaseHandler.DBSqlHandler;
 
 /**
@@ -45,6 +43,7 @@ public class TimetableSystem extends Application {
 
         //Conncetion for azure database
         DBSqlHandler dbSqlHandler=new DBSqlHandler();
+        dbSqlHandler.createTables();
 
         launch(args);
     }

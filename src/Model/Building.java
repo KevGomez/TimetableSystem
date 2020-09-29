@@ -3,7 +3,6 @@ package Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
 import timetablesystem.DataBaseHandler.DBHandler;
 
 import java.sql.ResultSet;
