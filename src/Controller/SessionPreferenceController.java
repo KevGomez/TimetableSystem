@@ -56,8 +56,6 @@ public class SessionPreferenceController implements Initializable {
 
         try{
             session_combo.setItems(SessionRoomDAO.getObservebleList(SessionRoomDAO.GetAllSessions()));
-
-
         }catch (SQLException throwables) {
             throwables.printStackTrace();
         }

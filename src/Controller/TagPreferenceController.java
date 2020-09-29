@@ -29,20 +29,23 @@ public class TagPreferenceController implements Initializable {
     @FXML   TableView<TagHasRooms> tag_room_table;
     @FXML   TableColumn<TagHasRooms,String> room_column;
     @FXML   TableColumn<TagHasRooms,String> tag_column;
+    @FXML TableColumn<TagHasRooms,Integer> tag_id_column;
+    @FXML TableColumn<TagHasRooms,Integer> room_id_column;
 
 
-   TaghasLocationDAO taghasLocationDAO;
-   TagHasRooms tagHasRooms;
+
+//   TagHasRooms tagHasRooms;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        taghasLocationDAO=new TaghasLocationDAO();
-        tagHasRooms=new TagHasRooms();
+//        tagHasRooms=new TagHasRooms();
 
         LoadRoomList();
         ShowTagHasRoomTable();
         LoadTagList();
+
+
 
         add_preference_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -54,7 +57,33 @@ public class TagPreferenceController implements Initializable {
 
                 TaghasLocationDAO newTaghasRoom =new TaghasLocationDAO();
                 newTaghasRoom.InsertData(Roomid,Tagid);
+                //IF tag is lecture ,tutorial tag allocate to particular room
+                if(Integer.parseInt(Tagid)==1){
+                    newTaghasRoom.InsertData(Roomid,"2");
+
+                }else if(Integer.parseInt(Tagid)==2){
+                    //IF tag is tutorial ,lecture tag allocate to particular room
+
+                    newTaghasRoom.InsertData(Roomid,"1");
+
+                }
+
+                ShowTagHasRoomTable();
                 System.out.println("add new tag has room");
+
+            }
+        });
+
+        tag_delete_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String roomID= String.valueOf(tag_room_table.getSelectionModel().getSelectedItem().getRoom_idroom());
+                String tagID=String.valueOf(tag_room_table.getSelectionModel().getSelectedItem().getTag_idtag());
+
+                TaghasLocationDAO taghasLocationDAO=new TaghasLocationDAO();
+                taghasLocationDAO.DeleteData(roomID,tagID);
+                System.out.println("Add tag id and room id to delete");
+                ShowTagHasRoomTable();
 
             }
         });
@@ -82,14 +111,22 @@ public class TagPreferenceController implements Initializable {
     public void ShowTagHasRoomTable(){
         //Room tag tagble
         room_column.setCellValueFactory(new PropertyValueFactory<>("roomName"));
-        tag_column.setCellValueFactory(new PropertyValueFactory<>("roomName"));
+        tag_column.setCellValueFactory(new PropertyValueFactory<>("tag"));
+        room_id_column.setCellValueFactory(new PropertyValueFactory<>("room_idroom"));
+        tag_id_column.setCellValueFactory(new PropertyValueFactory<>("tag_id_column"));
 
-//        try{
-//            tag_room_table.setItems(TaghasLocationDAO.getObservebleList(TaghasLocationDAO.GetAllRoomsAndTags()));
-//
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+        try{
+//            tag_room_table.setItems(taghasLocationDAO.getObservebleList(taghasLocationDAO.GetAllRoomsAndTags()));
+            if(TaghasLocationDAO.getObservebleList(TaghasLocationDAO.GetAllRoomsAndTags())==null){
+                System.out.println(" taghasLocationDAO is null");
+            }else {
+                System.out.println("Not Null");
+                tag_room_table.setItems(TaghasLocationDAO.getObservebleList(TaghasLocationDAO.GetAllRoomsAndTags()));
+            }
+
+        } catch (Exception throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 }

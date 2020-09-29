@@ -57,7 +57,7 @@
                                     <Button id="delete_button" fx:id="tag_delete_btn" mnemonicParsing="false" text="Delete" />
                            </children>
                         </HBox>
-                              <TableView id="preference_table" prefHeight="229.0" prefWidth="400.0">
+                              <TableView id="preference_table" fx:id="tag_room_table" prefHeight="229.0" prefWidth="400.0">
                                   <columns>
                                       <TableColumn fx:id="room_column" prefWidth="170.0" text="Rooms" />
                               <TableColumn fx:id="tag_id_column" prefWidth="75.0" text="Tag id" />

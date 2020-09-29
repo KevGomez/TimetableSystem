@@ -147,6 +147,7 @@ public class CreateTables {
             "   subjects_idsubjects  INT NOT NULL,\n" +
             "   students_grp_idstudents_grp  INT NOT NULL,\n" +
             "   room_idroom  INT ,\n" +
+
             "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ),\n" +
             "  CONSTRAINT  fk_sessions_tag1 \n" +
             "    FOREIGN KEY ( tag_idtag )\n" +
