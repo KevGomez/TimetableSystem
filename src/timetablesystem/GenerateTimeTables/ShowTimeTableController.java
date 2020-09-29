@@ -55,9 +55,9 @@ public class ShowTimeTableController implements Initializable {
         String users[]={"Students","Lecturers"};
         ObservableList<String> ttusers= FXCollections.observableArrayList(users);
         ObservableList<String>  ttuserList = FXCollections.observableArrayList();
-        timetableuser.setItems(ttusers);
-
-        timetableuser.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+       timetableuser.setItems(ttusers);
+/*
+       timetableuser.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 if ((int)newValue==0){
@@ -71,7 +71,7 @@ public class ShowTimeTableController implements Initializable {
                 }
             }
         });
-
+*/
     }
 
 

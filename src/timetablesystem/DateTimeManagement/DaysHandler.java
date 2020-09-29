@@ -4,6 +4,7 @@ package timetablesystem.DateTimeManagement;
 import jdk.nashorn.internal.runtime.ECMAException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.io.File;
@@ -125,7 +126,31 @@ public class DaysHandler {
 
         }
     }
-
+    public ArrayList<String> getWorkingDays(){
+        ArrayList<String> days = new ArrayList<>();
+        if (monday){
+            days.add("Monday");
+        }
+        if (tuesday){
+            days.add("Tuesday");
+        }
+        if (wednesday){
+            days.add("Wednesday");
+        }
+        if (thursday){
+            days.add("Thursday");
+        }
+        if (friday){
+            days.add("Friday");
+        }
+        if (saturday){
+            days.add("Saturday");
+        }
+        if (sunday){
+            days.add("Sunday");
+        }
+        return days;
+    }
 
 
     private JSONObject readFile(){

@@ -57,19 +57,19 @@ public class DBHandler {
             for(int i=10;i<60;i++){
                 // add Lecturer
                 String query1="INSERT INTO `lecturer`(`empid`, `name`, `faculty`, `department`, `center`, `building`, `level_id`) VALUES ('0000"+i+"','Perera "+i+"','computing','SE','MORATUWA','Building',"+rand.nextInt(8)+")";
-              //  DbInsert(query1);
+                DbInsert(query1);
                 // add Subject
                 String query2_1="INSERT INTO `subjects`(`scodeid`, `name`, `year`, `semester`, `lecture_hours`, `tutorial_hours`, `lab_hours`, `evalution_houre`) VALUES ('IT10"+i+"-SE','name',"+rand.nextInt(5)+","+rand.nextInt(3)+","+rand.nextInt(2)+",2,2,1)";
-            //    DbInsert(query2_1);
+                DbInsert(query2_1);
 
                 String query2_2="INSERT INTO `subjects`(`scodeid`, `name`, `year`, `semester`, `lecture_hours`, `tutorial_hours`, `lab_hours`, `evalution_houre`) VALUES ('IT20"+i+"-SE','name',"+rand.nextInt(5)+","+rand.nextInt(3)+","+rand.nextInt(2)+",2,2,1)";
-            //    DbInsert(query2_2);
+                DbInsert(query2_2);
 
                 //
                 String query3_1="INSERT INTO `lecturersubjects`(`lecturerid`, `subjectid`) VALUES ('0000"+i+"','IT10"+i+"-SE')";
                 DbInsert(query3_1);
                 String query3_2="INSERT INTO `lecturersubjects`(`lecturerid`, `subjectid`) VALUES ('0000"+i+"','IT20"+i+"-SE')";
-           //     DbInsert(query3_2);
+                DbInsert(query3_2);
 
 
                 //
@@ -81,7 +81,7 @@ public class DBHandler {
                     query4_1="INSERT INTO `room`(`rid`, `islecturehall`, `capacity`) VALUES ('A"+(i/10)+"0"+(i%10)+"',0,50)";
                 }
 
-               // DbInsert(query4_1);
+                DbInsert(query4_1);
 
 
 

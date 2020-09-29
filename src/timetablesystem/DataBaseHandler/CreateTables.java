@@ -163,7 +163,7 @@ public class CreateTables {
 
 
     static String room="CREATE TABLE   room  ( " +
-                    "   idroom  INT NOT NULL IDENTITY , " +
+                    "   idroom  INT NOT NULL  , " +
                     "   roomName  VARCHAR(45) NULL, " +
                     "   capacity  VARCHAR(45) NULL, " +
                     "   buildings_idbuildings  INT NULL, " +
