@@ -2,6 +2,11 @@ package timetablesystem.DataBaseHandler;
 
 public class CreateTables {
 
+
+        public  CreateTables(){
+            System.out.println("table create");
+        }
+
     static String timeSolts="CREATE TABLE IF NOT EXISTS timeslots ( id int PRIMARY KEY AUTO_INCREMENT ,tSlots varchar(100) )";
 
     static String building ="CREATE TABLE IF NOT EXISTS building (" +

@@ -8,7 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.KeyCode;
+import javafx.util.StringConverter;
 
 
 import java.net.URL;
@@ -66,6 +67,7 @@ public class AddLocationsController implements Initializable {
         Building=new Building();
         Rooms=new Room();
 
+
         add_building_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -90,13 +92,18 @@ public class AddLocationsController implements Initializable {
             }
         });
 
-
         add_room_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String roomname=addRoom_text.getText().trim();
                 String roomcapasity=room_capacity_text.getText().trim();
-                String building_room=room_buiding_dop.getValue().toString();
+                Building building = (Building) room_buiding_dop.getSelectionModel().getSelectedItem();
+                String building_room =building.getId();
+
+
+
+
+
                 String notreservedtime=notReservedTime_text.getText().trim();
 
                 System.out.println(building_room);
@@ -106,11 +113,12 @@ public class AddLocationsController implements Initializable {
                 }else{
                     Room room =new Room();
                     room.setRoomName(roomname);
-                    room.setRoomCapacity(roomcapasity);
-                    room.setBuildingName(building_room);
-                    room.setNotReservedTime(notreservedtime);
+                    room.setCapacity(roomcapasity);
+                    room.setBuildings_idbuildings(building_room);
+                    room.setNotreservedtime(notreservedtime);
                     room.CreateRoom();
                     addRoom_text.clear();
+                    room_capacity_text.clear();
                     room_capacity_text.clear();
                     showRoomsTable();
 
@@ -149,7 +157,6 @@ public class AddLocationsController implements Initializable {
             }
         });
 
-
         building_delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -170,7 +177,7 @@ public class AddLocationsController implements Initializable {
         delete_room.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                String roomID=room_table.getSelectionModel().getSelectedItem().getRoomId();
+                String roomID=room_table.getSelectionModel().getSelectedItem().getIdroom();
 
                 System.out.println(roomID);
                 if(!roomID.isEmpty()){
@@ -227,11 +234,11 @@ public class AddLocationsController implements Initializable {
 
             @Override
             public void handle(ActionEvent event) {
-                String roomID=(room_table.getSelectionModel().getSelectedItem().getRoomId());
+                String roomID=(room_table.getSelectionModel().getSelectedItem().getIdroom());
                 String roomName=(room_table.getSelectionModel().getSelectedItem().getRoomName());
-                String roomCapasity=(room_table.getSelectionModel().getSelectedItem().getRoomCapacity());
-                String roomBuilding=(room_table.getSelectionModel().getSelectedItem().getBuildingName());
-                String roomNotreservedTime=(room_table.getSelectionModel().getSelectedItem().getNotReservedTime());
+                String roomCapasity=(room_table.getSelectionModel().getSelectedItem().getCapacity());
+                String roomBuilding=(room_table.getSelectionModel().getSelectedItem().getBuildings_idbuildings());
+                String roomNotreservedTime=(room_table.getSelectionModel().getSelectedItem().getNotreservedtime());
 
 
                 if(!roomID.isEmpty()){
@@ -278,10 +285,20 @@ public class AddLocationsController implements Initializable {
             }
         });
 
+        room_buiding_dop.setOnKeyReleased(event -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                Building building =(Building) room_buiding_dop.getSelectionModel().getSelectedItem();
+                System.out.println("Drop down relece");
+
+                System.out.println(building.getId());
+            }
+        });
+
 
         showBuildingTable();
         showRoomsTable();
         getValueforBuldinnameDropdown();
+
     }
 
 
@@ -347,13 +364,23 @@ public class AddLocationsController implements Initializable {
 
     }
 
+
     public void getValueforBuldinnameDropdown(){
 
         try {
-            room_buiding_dop.setItems(Building.getStringObservebleList(Building.getAllData()));
+            room_buiding_dop.setItems(Building.getObservebleList(Building.getAllData()));
+
+
+
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+
     }
+
+
+
 
 }

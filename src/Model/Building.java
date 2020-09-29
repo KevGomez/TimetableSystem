@@ -4,6 +4,7 @@ package Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import timetablesystem.DataBaseHandler.DBHandler;
+import timetablesystem.DataBaseHandler.DBSqlHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +21,11 @@ public class Building {
     public Building(String buildingName, String id) {
         BuildingName = buildingName;
         Id = id;
+    }
+
+    @Override
+    public String toString() {
+        return this.getBuildingName();
     }
 
     public String getBuildingName() {
@@ -39,24 +45,24 @@ public class Building {
     }
 
     public void CreateBuilding(){
-        String insertBuilding="INSERT INTO  building (BuildingName) VALUES ('"+this.BuildingName+"')";
-        DBHandler sqlConnection=new DBHandler();
+        String insertBuilding="INSERT INTO  buildings (name) VALUES ('"+this.BuildingName+"')";
+        DBSqlHandler sqlConnection=new DBSqlHandler();
         sqlConnection.DbInsert(insertBuilding);
     }
 
     public static ResultSet getAllData(){
-        String selectBuilding="SELECT * FROM building ";
+        String selectBuilding="SELECT * FROM buildings ";
 //        SQLConnection sqlConnection=new SQLConnection();
-        DBHandler sqlConnection=new DBHandler();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
         ResultSet getAllBuilding=sqlConnection.DbGet(selectBuilding);
         return  getAllBuilding;
     }
 
 
     public ResultSet getSelectedData(String keyword){
-        String selectBuilding="SELECT * FROM building WHERE BuildingName LIKE '%"+keyword+"%'";
+        String selectBuilding="SELECT * FROM buildings WHERE name LIKE '%"+keyword+"%'";
 //        SQLConnection sqlConnection=new SQLConnection();
-        DBHandler sqlConnection=new DBHandler();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
         ResultSet getAllBuilding=sqlConnection.DbGet(selectBuilding);
         return  getAllBuilding;
     }
@@ -64,7 +70,7 @@ public class Building {
     public ObservableList<Building> getObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<Building> BuildingList = FXCollections.observableArrayList();
         while (resultSet.next()){
-            BuildingList.add(new Building(resultSet.getString(1),Integer.toString(resultSet.getInt(2))));
+            BuildingList.add(new Building(resultSet.getString("name"),Integer.toString(resultSet.getInt("idbuildings"))));
 
         }
 
@@ -74,24 +80,24 @@ public class Building {
     public static ObservableList<String> getStringObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<String> RoomList = FXCollections.observableArrayList();
         while (resultSet.next()){
-            RoomList.add(resultSet.getString("BuildingName"));
+            RoomList.add(resultSet.getString("name"));
         }
 
         return  RoomList;
     }
 
     public void DeleteData(String id){
-        String deletequery="DELETE FROM building WHERE ID ="+id;
+        String deletequery="DELETE FROM buildings WHERE idbuildings ="+id;
 //        SQLConnection sqlConnection=new SQLConnection();
-        DBHandler sqlConnection=new DBHandler();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
         sqlConnection.DbInsert(deletequery);
     }
 
 
     public void UpdateData(String id,String value){
-        String updateQuery="UPDATE building SET BuildingName = '"+value+"' WHERE ID ="+id;
+        String updateQuery="UPDATE buildings SET name = '"+value+"' WHERE idbuildings ="+id;
 //        SQLConnection sqlConnection=new SQLConnection();
-        DBHandler sqlConnection=new DBHandler();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
         sqlConnection.DbInsert(updateQuery);
     }
 
