@@ -6,6 +6,8 @@ import Model.Room;
 import Model.TagData;
 import Model.TagHasRooms;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class TagPreferenceController implements Initializable {
     @FXML  private ComboBox   room_combo;
@@ -31,6 +34,7 @@ public class TagPreferenceController implements Initializable {
     @FXML   TableColumn<TagHasRooms,String> tag_column;
     @FXML TableColumn<TagHasRooms,Integer> tag_id_column;
     @FXML TableColumn<TagHasRooms,Integer> room_id_column;
+    @FXML TextField tag_search_textfiled;
 
 
 
@@ -44,6 +48,7 @@ public class TagPreferenceController implements Initializable {
         LoadRoomList();
         ShowTagHasRoomTable();
         LoadTagList();
+        FilterData();
 
 
 
@@ -82,11 +87,12 @@ public class TagPreferenceController implements Initializable {
 
                 TaghasLocationDAO taghasLocationDAO=new TaghasLocationDAO();
                 taghasLocationDAO.DeleteData(roomID,tagID);
-                System.out.println("Add tag id and room id to delete");
+                System.out.println("Add tag_id and room_id to delete");
                 ShowTagHasRoomTable();
 
             }
         });
+
 
 
     }
@@ -113,7 +119,7 @@ public class TagPreferenceController implements Initializable {
         room_column.setCellValueFactory(new PropertyValueFactory<>("roomName"));
         tag_column.setCellValueFactory(new PropertyValueFactory<>("tag"));
         room_id_column.setCellValueFactory(new PropertyValueFactory<>("room_idroom"));
-        tag_id_column.setCellValueFactory(new PropertyValueFactory<>("tag_id_column"));
+        tag_id_column.setCellValueFactory(new PropertyValueFactory<>("tag_idtag"));
 
         try{
 //            tag_room_table.setItems(taghasLocationDAO.getObservebleList(taghasLocationDAO.GetAllRoomsAndTags()));
@@ -122,6 +128,7 @@ public class TagPreferenceController implements Initializable {
             }else {
                 System.out.println("Not Null");
                 tag_room_table.setItems(TaghasLocationDAO.getObservebleList(TaghasLocationDAO.GetAllRoomsAndTags()));
+                FilterData();
             }
 
         } catch (Exception throwables) {
@@ -129,4 +136,39 @@ public class TagPreferenceController implements Initializable {
         }
 
     }
+
+    public void FilterData(){
+        try {
+            FilteredList<TagHasRooms> tagHasRoomsFilteredList =new FilteredList<TagHasRooms>(TaghasLocationDAO.getObservebleList(TaghasLocationDAO.GetAllRoomsAndTags()),b->true);
+            tag_search_textfiled.textProperty().addListener((observable, oldValue, newValue) -> {
+                tagHasRoomsFilteredList.setPredicate(tag_room->{
+                    if(newValue==null||newValue.isEmpty()){
+                        return true;
+                    }
+                    String lowerCaseFilter=newValue.toLowerCase();
+
+                    if(tag_room.getRoomName().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                        return true;
+                    }else if(tag_room.getTag().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                        return true;
+                    }else{
+                        return false;
+                    }
+
+
+                });
+
+                SortedList<TagHasRooms> sortedList=new SortedList<>(tagHasRoomsFilteredList);
+                sortedList.comparatorProperty().bind(tag_room_table.comparatorProperty());
+                tag_room_table.setItems(tagHasRoomsFilteredList);
+
+            });
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
 }

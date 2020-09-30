@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,10 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane prefHeight="400.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LecturerPreferenceController">
     <children>
         <VBox alignment="CENTER_LEFT" layoutX="38.0" layoutY="10.0" prefHeight="469.0" prefWidth="699.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="10.0">
@@ -37,11 +37,6 @@
                                                 <Font name="System Bold" size="12.0" />
                                             </font>
                                         </Button>
-                                        <Button id="add_button" fx:id="add_preference_btn2" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Update">
-                                            <font>
-                                                <Font name="System Bold" size="12.0" />
-                                            </font>
-                                        </Button>
                                     </children>
                                 </HBox>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room List">
@@ -51,16 +46,18 @@
                                 </Text>
                                 <HBox prefHeight="43.0" prefWidth="295.0" spacing="5.0">
                                     <children>
-                                        <TextField id="search_textfild" fx:id="tag_search_textfiled" prefHeight="25.0" prefWidth="178.0" promptText="Search" />
-                                        <Button id="search_button" fx:id="tax_search_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Search" />
-                                        <Button id="edite_buttin" fx:id="tag_edit_btn" mnemonicParsing="false" text="Edite" />
+                                        <TextField id="search_textfild" fx:id="lecture_search_textfiled" prefHeight="25.0" prefWidth="178.0" promptText="Search" />
                                         <Button id="delete_button" fx:id="tag_delete_btn" mnemonicParsing="false" text="Delete" />
                                     </children>
                                 </HBox>
-                                <TableView id="preference_table" prefHeight="229.0" prefWidth="627.0">
+                                <TableView id="preference_table" fx:id="Room_Lecture_Table" prefHeight="229.0" prefWidth="627.0">
                                     <columns>
-                                        <TableColumn fx:id="room_column" prefWidth="170.0" text="Room" />
-                                        <TableColumn fx:id="lecture_column" prefWidth="204.0" text="Lecturer" />
+                                        <TableColumn fx:id="empid_column" prefWidth="68.0" text="EmpID" />
+                                        <TableColumn fx:id="lecture_column" prefWidth="93.0" text="Lecture" />
+                              <TableColumn fx:id="level_column" minWidth="0.0" prefWidth="128.0" text="Level" />
+                              <TableColumn fx:id="room_column" prefWidth="68.0" text="Room ID" />
+                              <TableColumn fx:id="roomid_column" prefWidth="66.0" text="Room " />
+                              <TableColumn fx:id="buildingname" prefWidth="251.0" text="Building" />
                                     </columns>
                                 </TableView>
                             </children>
