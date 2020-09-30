@@ -164,7 +164,7 @@
 
 <!--             location preference end-->
 
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#sessionOnClick" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
+                  <HBox alignment="CENTER_LEFT"  onMouseClicked="#sessionOnClick"  prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
