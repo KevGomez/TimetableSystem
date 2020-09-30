@@ -89,7 +89,7 @@ public class StudentController implements Initializable {
     public Connection getConnection(){
         Connection conn;
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/timeTableSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            conn = DriverManager.getConnection("jdbc:sqlserver://spmservercode4.database.windows.net:1433;database=SPM_TIMETABLE;user=spmcode4@spmservercode4;password=code4@123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
             return conn;
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -101,7 +101,7 @@ public class StudentController implements Initializable {
         ObservableList<StudentData> studentList = FXCollections.observableArrayList();
         Connection conn = getConnection();
         
-        String query = "SELECT * FROM students";
+        String query = "SELECT * FROM students_grp";
         Statement st;
         ResultSet rs;
         
@@ -111,7 +111,7 @@ public class StudentController implements Initializable {
             StudentData students = null;
             
             while(rs.next()){
-                students = new StudentData(rs.getInt("id"), rs.getString("year"), rs.getString("pro"), rs.getString("grp_no"), rs.getString("grp_id"), rs.getString("sgrp_no"), rs.getString("sgrp_id"));
+                students = new StudentData(rs.getInt("idstudents_grp"), rs.getString("year"), rs.getString("pro"), rs.getString("grp_no"), rs.getString("grp_id"), rs.getString("sgrp_no"), rs.getString("sgrp_id"));
                 studentList.add(students);
             }
             
@@ -153,7 +153,7 @@ public class StudentController implements Initializable {
                         
                         String tempGrp_id = sd.getYear() + "." + sd.getPro() + "." + sd.getGrp_no();
                         String tempSgrp_id = sd.getYear() + "." + sd.getPro() + "." + sd.getGrp_no() + "." + sd.getSgrp_no();
-                        String query3 = "UPDATE students SET year='"+sd.getYear()+"', pro='"+sd.getPro()+"', grp_no='"+sd.getGrp_no()+"', grp_id='"+tempGrp_id+"', sgrp_no='"+sd.getSgrp_no()+"', sgrp_id='"+tempSgrp_id+"' WHERE id="+sd.getId()+" ";
+                        String query3 = "UPDATE students_grp SET year='"+sd.getYear()+"', pro='"+sd.getPro()+"', grp_no='"+sd.getGrp_no()+"', grp_id='"+tempGrp_id+"', sgrp_no='"+sd.getSgrp_no()+"', sgrp_id='"+tempSgrp_id+"' WHERE idstudents_grp="+sd.getId()+" ";
                         executeQuery(query3);
                         
                         getData();
@@ -202,7 +202,7 @@ public class StudentController implements Initializable {
 
                                 StudentData sd=getTableView().getItems().get(getIndex());
 
-                                String query2 = "DELETE FROM students WHERE id = "+sd.getId()+"";
+                                String query2 = "DELETE FROM students_grp WHERE idstudents_grp = "+sd.getId()+"";
                                 executeQuery(query2);
                                 
                                 getData();
@@ -236,10 +236,38 @@ public class StudentController implements Initializable {
     @FXML
     public void insert(MouseEvent event) throws IOException{
         
-        String group_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString();
-        String sgroup_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString() + "." + sgrp_no.getText().toString();
-        String query = "INSERT INTO students VALUES (null, '"+year.getText()+"' , '"+pro.getText()+"' , '"+grp_no.getText()+"' , '"+group_id+"' , '"+sgrp_no.getText()+"' , '"+sgroup_id+"')";
-        executeQuery(query);
+        String query2 = "select max(idstudents_grp) from students_grp";
+        int key, pkey;
+        Connection conn = getConnection();
+        Statement st;
+        ResultSet rs;
+        
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query2);
+            
+            while(rs.next()){
+             key = rs.getInt(1);
+                
+            pkey = key + 1;
+            String group_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString();
+            String sgroup_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString() + "." + sgrp_no.getText().toString();
+            String query = "INSERT INTO students_grp(idstudents_grp, year, pro, grp_no, grp_id, sgrp_no, sgrp_id) VALUES ('"+pkey+"', '"+year.getText()+"' , '"+pro.getText()+"' , '"+grp_no.getText()+"' , '"+group_id+"' , '"+sgrp_no.getText()+"' , '"+sgroup_id+"')";
+            executeQuery(query);
+       
+            }
+            
+            
+            
+            }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        
+//        String group_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString();
+//        String sgroup_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString() + "." + sgrp_no.getText().toString();
+//        String query = "INSERT INTO students_grp(idstudents_grp, year, pro, grp_no, grp_id, sgrp_no, sgrp_id) VALUES ('"+year.getText()+"' , '"+pro.getText()+"' , '"+grp_no.getText()+"' , '"+group_id+"' , '"+sgrp_no.getText()+"' , '"+sgroup_id+"')";
+//        executeQuery(query);
         
         year.setText(" ");
         pro.setText(" ");

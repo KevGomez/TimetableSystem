@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.StudetSubGroupPreferenceController"
+            prefHeight="400.0" prefWidth="600.0">
+=======
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -13,6 +28,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StudetSubGroupPreferenceController">
+>>>>>>> 08240612ee500a1e4052a73fb767165652efd85a
     <children>
         <VBox alignment="CENTER_LEFT" layoutX="38.0" layoutY="10.0" prefHeight="469.0" prefWidth="699.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="10.0">
             <children>
@@ -31,7 +47,11 @@
                                 <HBox prefHeight="32.0" prefWidth="471.0" spacing="10.0">
                                     <children>
                                         <ComboBox id="room_combo" fx:id="room_combo" prefHeight="25.0" prefWidth="89.0" promptText="Room" />
+<<<<<<< HEAD
+                                        <ComboBox id="tag_combo" fx:id="lecture_combo" prefHeight="25.0" prefWidth="127.0" promptText="Lecturer" />
+=======
                                         <ComboBox id="tag_combo" fx:id="subgroup_combo" prefHeight="25.0" prefWidth="127.0" promptText="Sub-group" />
+>>>>>>> 08240612ee500a1e4052a73fb767165652efd85a
                                         <Button id="add_button" fx:id="add_preference_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Add">
                                             <font>
                                                 <Font name="System Bold" size="12.0" />
