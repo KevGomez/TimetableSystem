@@ -150,8 +150,6 @@ public class StudetSubGroupPreferenceController implements Initializable {
                         return true;
                     }else if(subgroup_room.getYear_sem().toLowerCase().indexOf(lowerCaseFilter)!=-1){
                         return true;
-                    }else if(subgroup_room.getGrp_id().toLowerCase().indexOf(lowerCaseFilter)!=-1){
-                        return true;
                     }else if(subgroup_room.getSgrp_id().toLowerCase().indexOf(lowerCaseFilter)!=-1){
                         return true;
                     }
