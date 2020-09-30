@@ -4,15 +4,15 @@ public class StudentSubgroup {
     private int idstudents_grp;
     private  String year_sem;
     private  String programme;
-    private  int  grp_no;
-    private  int sgrp_no;
+    private String grp_no;
+    private String sgrp_no;
     private  String  grp_id;
     private String sgrp_id;
 
-    public StudentSubgroup() {
+    public StudentSubgroup(int idstudents_grp, String year, String pro, String grp_no, int sgrp_no, String grp_id, String sgrp_id) {
     }
 
-    public StudentSubgroup(int idstudents_grp, String year_sem, String programme, int grp_no, int sgrp_no, String grp_id, String sgrp_id) {
+    public StudentSubgroup(int idstudents_grp, String year_sem, String programme, String grp_no, String sgrp_no, String grp_id, String sgrp_id) {
         this.idstudents_grp = idstudents_grp;
         this.year_sem = year_sem;
         this.programme = programme;
@@ -46,19 +46,19 @@ public class StudentSubgroup {
         this.programme = programme;
     }
 
-    public int getGrp_no() {
+    public String getGrp_no() {
         return grp_no;
     }
 
-    public void setGrp_no(int grp_no) {
+    public void setGrp_no(String grp_no) {
         this.grp_no = grp_no;
     }
 
-    public int getSgrp_no() {
+    public String getSgrp_no() {
         return sgrp_no;
     }
 
-    public void setSgrp_no(int sgrp_no) {
+    public void setSgrp_no(String sgrp_no) {
         this.sgrp_no = sgrp_no;
     }
 

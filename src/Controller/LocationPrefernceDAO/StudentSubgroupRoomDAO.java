@@ -34,7 +34,7 @@ public class StudentSubgroupRoomDAO {
 
 
     public static  ResultSet GetAllSubGroupAndRoom(){
-        String getDataQuery="SELECT s.idstudents_grp, s.year_sem, s.programme, s.grp_id, s.sgrp_id, r.idroom,r.roomName,b.name " +
+        String getDataQuery="SELECT s.idstudents_grp, s.year, s.pro, s.grp_id, s.sgrp_id, r.idroom,r.roomName,b.name " +
                              "FROM students_grp s,room r,buildings b,room_has_students_grp rs " +
                              "WHERE s.idstudents_grp = rs.students_grp_idstudents_grp AND " +
                              " r.idroom = rs.room_idroom AND " +
@@ -48,8 +48,8 @@ public class StudentSubgroupRoomDAO {
         ObservableList<StudentSubgroup> subgroupList = FXCollections.observableArrayList();
 
         while (resultSet.next()){
-            subgroupList.add(new StudentSubgroup(resultSet.getInt("idstudents_grp"),resultSet.getString("year_sem"),resultSet.getString("programme"),resultSet.getInt("grp_no"),resultSet.getInt("sgrp_no"),resultSet.getString("grp_id"),resultSet.getString("sgrp_id")));
-            System.out.println(resultSet.getString("programme"));
+            subgroupList.add(new StudentSubgroup(resultSet.getInt("idstudents_grp"),resultSet.getString("year"),resultSet.getString("pro"),resultSet.getString("grp_no"),resultSet.getString("sgrp_no"),resultSet.getString("grp_id"),resultSet.getString("sgrp_id")));
+            System.out.println(resultSet.getString("pro"));
         }
 
         return  subgroupList;
@@ -60,8 +60,8 @@ public class StudentSubgroupRoomDAO {
         ObservableList<StudentGroupHasRoom> subgroupHasRoomList = FXCollections.observableArrayList();
 
         while (resultSet.next()){
-            subgroupHasRoomList.add(new StudentGroupHasRoom(resultSet.getInt("idstudents_grp"),resultSet.getString("programme"),resultSet.getString("year_sem"),resultSet.getString("grp_id"),resultSet.getString("sgrp_id"),resultSet.getInt("idroom"),resultSet.getString("roomName"),resultSet.getString("name")));
-            System.out.println(resultSet.getString("programme"));
+            subgroupHasRoomList.add(new StudentGroupHasRoom(resultSet.getInt("idstudents_grp"),resultSet.getString("pro"),resultSet.getString("year"),resultSet.getString("grp_id"),resultSet.getString("sgrp_id"),resultSet.getInt("idroom"),resultSet.getString("roomName"),resultSet.getString("name")));
+            System.out.println(resultSet.getString("pro"));
         }
 
         return  subgroupHasRoomList;
