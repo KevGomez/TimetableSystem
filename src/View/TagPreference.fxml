@@ -37,11 +37,6 @@
                                             <Font name="System Bold" size="12.0" />
                                         </font>
                                     </Button>
-                              <Button id="add_button" fx:id="add_preference_btn2" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Update">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
                            </children>
                         </HBox>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room List">
@@ -53,14 +48,15 @@
                            <children>
                                     <TextField id="search_textfild" fx:id="tag_search_textfiled" prefHeight="25.0" prefWidth="178.0" promptText="Search" />
                                     <Button id="search_button" fx:id="tax_search_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Search" />
-                                    <Button id="edite_buttin" fx:id="tag_edit_btn" mnemonicParsing="false" text="Edite" />
                                     <Button id="delete_button" fx:id="tag_delete_btn" mnemonicParsing="false" text="Delete" />
                            </children>
                         </HBox>
-                              <TableView id="preference_table" prefHeight="229.0" prefWidth="400.0">
+                              <TableView id="preference_table" fx:id="tag_room_table">
                                   <columns>
                                       <TableColumn fx:id="room_column" prefWidth="170.0" text="Rooms" />
+                              <TableColumn fx:id="room_id_column" prefWidth="75.0" text="Room ID" />
                                       <TableColumn fx:id="tag_column" prefWidth="204.0" text="Tag" />
+                              <TableColumn fx:id="tag_id_column" prefWidth="75.0" text="Tag ID" />
                                   </columns>
                               </TableView>
                      </children>

@@ -113,7 +113,7 @@ public class CreateTables {
                             "  PRIMARY KEY ( idbuildings ))";
 
     static  String students_grp="CREATE TABLE   students_grp  (\n" +
-            "   idstudents_grp  INT NOT NULL,\n" +
+            "   idstudents_grp  INT NOT NULL IDENTITY,\n" +
             "   year_sem  VARCHAR(45) NULL,\n" +
             "   programme  VARCHAR(45) NULL,\n" +
             "   grp_no  INT NULL,\n" +
@@ -124,7 +124,7 @@ public class CreateTables {
 
 
     static String room="CREATE TABLE   room  (\n" +
-                    "   idroom  INT NOT NULL,\n" +
+                    "   idroom  INT NOT NULL IDENTITY ,\n" +
                     "   roomName  VARCHAR(45) NULL,\n" +
                     "   capacity  VARCHAR(45) NULL,\n" +
                     "   buildings_idbuildings  INT NULL,\n" +
@@ -146,8 +146,9 @@ public class CreateTables {
             "   lecturer_idemployee  INT NOT NULL,\n" +
             "   subjects_idsubjects  INT NOT NULL,\n" +
             "   students_grp_idstudents_grp  INT NOT NULL,\n" +
-            "   room_idroom  INT NOT NULL,\n" +
-            "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ,  room_idroom ),\n" +
+            "   room_idroom  INT ,\n" +
+
+            "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ),\n" +
             "  CONSTRAINT  fk_sessions_tag1 \n" +
             "    FOREIGN KEY ( tag_idtag )\n" +
             "    REFERENCES   tag  ( idtag )\n" +
@@ -192,7 +193,7 @@ static  String workingday_has_timeslot ="CREATE TABLE   workingday_has_timeslot 
         "    ON UPDATE NO ACTION)\n";
 
 static  String room_notReserved="CREATE TABLE   room_notReserved  (\n" +
-        "   idroom_notReserved  INT NOT NULL,\n" +
+        "   idroom_notReserved  INT NOT NULL IDENTITY,\n" +
         "   notRservedTime  INT NULL,\n" +
         "   room_idroom  INT NOT NULL,\n" +
         "  PRIMARY KEY ( idroom_notReserved ,  room_idroom ),\n" +

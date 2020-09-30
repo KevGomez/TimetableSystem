@@ -53,11 +53,19 @@
                                         <TextField fx:id="addRoom_text" prefHeight="25.0" prefWidth="204.0" promptText="Add Room" />
                                     <Pane prefHeight="25.0" prefWidth="61.0">
                                        <children>
+<<<<<<< HEAD
                                           <Button fx:id="update_room_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Update" />
                                               <Button fx:id="add_room_btn" layoutX="-9.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Add" />
                                        </children>
                                     </Pane>
                                         <Button fx:id="clear_room" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Clear" />
+=======
+                                          <Button fx:id="add_room_btn" mnemonicParsing="false" text="Add" />
+                                          <Button fx:id="update_room_btn" layoutX="-6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Update" visible="false" />
+                                              <Button fx:id="clear_room" layoutX="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Clear" />
+                                       </children>
+                                    </Pane>
+>>>>>>> 08240612ee500a1e4052a73fb767165652efd85a
                                  </children>
                               </HBox>
                               <TextField fx:id="notReservedTime_text" prefHeight="25.0" prefWidth="196.0" promptText="Not reserved time">
