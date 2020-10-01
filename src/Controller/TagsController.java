@@ -33,6 +33,9 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import Model.TagData;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import timetablesystem.MainController;
 /**
  * FXML Controller class
  *
@@ -265,5 +268,7 @@ public class TagsController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    
     
 }

@@ -11,11 +11,13 @@ public class Session {
     private  int subjects_idsubjects;
     private int students_grp_idstudents_grp;
     private int room_idroom;
+    private int porder;
 
+    
     public Session() {
     }
 
-    public Session(int idsessions, int numberofstudents, String duration, String consecutive, String notavailble, int tag_idtag, int lecturer_idemployee, int subjects_idsubjects, int students_grp_idstudents_grp, int room_idroom) {
+    public Session(int idsessions, int numberofstudents, String duration, String consecutive, String notavailble, int tag_idtag, int lecturer_idemployee, int subjects_idsubjects, int students_grp_idstudents_grp, int room_idroom, int porder) {
         this.idsessions = idsessions;
         this.numberofstudents = numberofstudents;
         this.duration = duration;
@@ -26,6 +28,7 @@ public class Session {
         this.subjects_idsubjects = subjects_idsubjects;
         this.students_grp_idstudents_grp = students_grp_idstudents_grp;
         this.room_idroom = room_idroom;
+        this.porder = porder;
     }
 
     public int getIdsessions() {
@@ -106,6 +109,14 @@ public class Session {
 
     public void setRoom_idroom(int room_idroom) {
         this.room_idroom = room_idroom;
+    }
+    
+    public int getPorder() {
+        return porder;
+    }
+
+    public void setPorder(int porder) {
+        this.porder = porder;
     }
 
     @Override

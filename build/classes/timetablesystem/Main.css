@@ -51,14 +51,14 @@
 
 .preference-btn-subgroup{
     -fx-padding: 5,10,5,10;
-    -fx-background-color: linear-gradient(to right top, #97ffa9, #41edc3, #00d7d8, #00bee1, #07a3da);
+    -fx-background-color: linear-gradient(to right top, #16f85b, #00eb7f, #00dd98, #00cea8, #0abeae);
     -fx-border-radius: 5 5 5 5;
     -fx-background-radius: 5 5 5 5;
 }
 
 .preference-btn-subgroup:hover{
     -fx-padding: 5,10,5,10;
-    -fx-background-color: linear-gradient(to right top, #00bee1, #07a3da,  #00d7d8, #97ffa9, #41edc3);
+    -fx-background-color: linear-gradient(to right top, #00cea8, #0abeae, #00dd98, #16f85b, #00eb7f);
     -fx-border-radius: 5 5 5 5;
     -fx-background-radius: 5 5 5 5;
 }
@@ -69,6 +69,9 @@
     -fx-background-color:  linear-gradient(to right top, #97c0ff, #81abff, #7a93ff, #8277ff, #9652ff);
     -fx-border-radius: 5 5 5 5;
     -fx-background-radius: 5 5 5 5;
+
+
+
 }
 
 .preference-btn-session:hover{

@@ -44,14 +44,11 @@
                                         </Button>
                                     </children>
                                 </HBox>
-<<<<<<< HEAD
-=======
                         <Text fill="#b2b2b2" strokeType="OUTSIDE" strokeWidth="0.0" text="* consecutive sessions automaticly allocated to same room">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Text>
->>>>>>> 08240612ee500a1e4052a73fb767165652efd85a
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room List">
                                     <font>
                                         <Font size="13.0" />
