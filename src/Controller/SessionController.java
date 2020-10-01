@@ -146,12 +146,21 @@ public class SessionController implements Initializable {
         
         
          list.getItems().add(lecturers.getValue());
+         
+         System.out.println(list.getItems().get(0));
+         
+         LecturerModel l1=(LecturerModel) list.getItems().get(0);
+         int lectureid=l1.getId();
+         
+         System.out.println(lectureid);
+         
+         
     }
     
     @FXML
     public void InsertData(MouseEvent event)throws IOException
     {
-        
+     int count=0;
         String sql="insert into sessions (numberofstudents, duration, consecutive, notavailble , tag_idtag , lecturer_idemployee, subjects_idsubjects, students_grp_idstudents_grp,room_idroom,porder) values (?,?,?,?,?,?,?,?,?,?)";
     
         
@@ -171,7 +180,13 @@ public class SessionController implements Initializable {
         
         			Connection con = connect();
 			
-			
+			   for(int i=0;i<list.getItems().size();i++)
+        {
+            
+             LecturerModel l1=(LecturerModel) list.getItems().get(i);
+         int lectureid=l1.getId();
+            
+        
 
 			PreparedStatement st =con.prepareStatement(sql);
 			
@@ -180,15 +195,15 @@ public class SessionController implements Initializable {
 			st.setString(3,"1");
 			st.setString(4,"1");
 			st.setInt(5,tagid);
-                        st.setInt(6,lectid);
+                        st.setInt(6,lectureid);
 			st.setInt(7,subjid);
 			st.setInt(8,studid);
 			st.setInt(9,1);
                         st.setInt(10,1);
 			
 			
-			int count=st.executeUpdate();
-			
+			count=st.executeUpdate();
+		}	
                         if(count>0)
                         {
                              Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -207,7 +222,7 @@ public class SessionController implements Initializable {
         alert.showAndWait();
                         }
                    
-			
+			con.close();
 		} catch (SQLException e)
 		{
 			// TODO Auto-generated catch block
