@@ -13,7 +13,6 @@ public class Session {
     private int room_idroom;
     private int porder;
 
-    
     public Session() {
     }
 
@@ -111,16 +110,16 @@ public class Session {
         this.room_idroom = room_idroom;
     }
     
+    @Override
+    public String toString() {
+        return Integer.toString(this.getIdsessions());
+    }
+    
     public int getPorder() {
         return porder;
     }
 
     public void setPorder(int porder) {
         this.porder = porder;
-    }
-
-    @Override
-    public String toString() {
-        return Integer.toString(this.getIdsessions());
     }
 }
