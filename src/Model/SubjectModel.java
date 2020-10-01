@@ -129,5 +129,10 @@ public class SubjectModel {
         this.buttondelete = buttondelete;
     }
 
+    @Override
+    public String toString() {
+        return this.getSubject(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

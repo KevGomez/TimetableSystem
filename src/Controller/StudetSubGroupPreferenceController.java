@@ -59,7 +59,7 @@ public class StudetSubGroupPreferenceController implements Initializable {
                 Room room =(Room) room_combo.getSelectionModel().getSelectedItem();
                 String Roomid=room.getIdroom();
 
-                StudentSubgroup studentSubgroup =(StudentSubgroup)subgroup_combo.getSelectionModel().getSelectedItem();
+                StudentSubgroup studentSubgroup =(StudentSubgroup) subgroup_combo.getSelectionModel().getSelectedItem();
                 String Subgroupid=Integer.toString(studentSubgroup.getIdstudents_grp());
 
                 StudentSubgroupRoomDAO newRoomD=new StudentSubgroupRoomDAO();

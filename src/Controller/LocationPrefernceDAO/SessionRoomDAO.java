@@ -1,6 +1,7 @@
 package Controller.LocationPrefernceDAO;
 
 import Model.Session;
+import Model.SessionHasRoom;
 import Model.StudentSubgroup;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,14 +15,18 @@ public class SessionRoomDAO {
     public SessionRoomDAO() {
     }
 
-    public void InsertData(String room_idroom,String idsessions){
+    public void InsertData(String room_idroom,String idsessions,String tag){
 
         String insertQuery="UPDATE sessions SET room_idroom = "+room_idroom+"WHERE idsessions = "+idsessions;
         DBSqlHandler dbSqlHandler =new DBSqlHandler();
         dbSqlHandler.DbInsert(insertQuery);
         System.out.println("sessions updated");
 
-        consecutive(idsessions,room_idroom);
+        if(tag.equals("Lecture")){
+            consecutive(idsessions,room_idroom);
+
+        }
+
 
     }
 
@@ -30,6 +35,11 @@ public class SessionRoomDAO {
                                          " WHERE students_grp_idstudents_grp = (SELECT students_grp_idstudents_grp FROM sessions WHERE idsessions = "+idsession+")" +
                                          " AND subjects_idsubjects = (SELECT subjects_idsubjects FROM sessions WHERE idsessions = "+idsession+")" +
                                          " AND tag_idtag = 2" ;
+
+//        String alocateconsecutivesession= "UPDATE sessions SET room_idroom = "+room_idroom+" , consecutive = "+idsession+
+//                " WHERE students_grp_idstudents_grp = (SELECT students_grp_idstudents_grp FROM sessions WHERE idsessions = "+idsession+")" +
+//                " AND subjects_idsubjects = (SELECT subjects_idsubjects FROM sessions WHERE idsessions = "+idsession+")" +
+//                " OR tag_idtag = 2 OR tag_idtag=1" ;
 
         DBSqlHandler dbSqlHandler =new DBSqlHandler();
         dbSqlHandler.DbInsert(alocateconsecutivesession);
@@ -56,4 +66,31 @@ public class SessionRoomDAO {
 
         return  sessionsList;
     }
+
+    public static ResultSet GetAllSessionsAndRooms(){
+        String getDataQuery="\n" +
+                " SELECT s.idsessions,r.idroom,r.roomName,t.name,sb.name,sb.semester ,sb.year\n" +
+                " FROM  sessions s,room r,tag t,subjects sb\n" +
+                " WHERE s.tag_idtag=t.idtag AND s.subjects_idsubjects = sb.idsubjects AND s.room_idroom =r.idroom";
+
+        DBSqlHandler  dbSqlHandler =new DBSqlHandler();
+        ResultSet resultSet=   dbSqlHandler.DbGet(getDataQuery);
+        return resultSet;
+    }
+
+    public static ObservableList<SessionHasRoom> getObservebleSessionHasRoomList(ResultSet resultSet) throws SQLException {
+        ObservableList<SessionHasRoom> sessionsHasRoomsList = FXCollections.observableArrayList();
+
+        while (resultSet.next()){
+            sessionsHasRoomsList.add(new SessionHasRoom(resultSet.getInt("idsessions"),resultSet.getInt("idroom"),resultSet.getInt("semester"),resultSet.getString("roomName"),resultSet.getString(4),resultSet.getString(5),resultSet.getString("year") ));
+            System.out.println(resultSet.getString("idsessions"));
+        }
+
+        return  sessionsHasRoomsList;
+    }
+
+
+//    public void DeleteData(String rooID, String sessionID) {
+//        String deleteQuery="DELETE FORM "
+//    }
 }

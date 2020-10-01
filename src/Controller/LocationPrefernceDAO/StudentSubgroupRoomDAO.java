@@ -32,7 +32,6 @@ public class StudentSubgroupRoomDAO {
         return resultSet;
     }
 
-
     public static  ResultSet GetAllSubGroupAndRoom(){
         String getDataQuery="SELECT s.idstudents_grp, s.year, s.pro, s.grp_id, s.sgrp_id, r.idroom,r.roomName,b.name " +
                              "FROM students_grp s,room r,buildings b,room_has_students_grp rs " +
