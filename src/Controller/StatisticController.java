@@ -37,16 +37,16 @@ public class StatisticController implements Initializable {
 
         try {
             //lecture pie chart
-            lecture_center_pie.setData(lecture.getPiCtartData(lecture.GroupBy("faculty","lecturers","ID")));
-            lecture_level_pie.setData(lecture.getPiCtartData(lecture.GroupBy("department","lecturers","ID")));
-            lecture_departmet_pie.setData(lecture.getPiCtartData(lecture.GroupBy("level","lecturers","ID")));
+            lecture_center_pie.setData(lecture.getPiCtartData(lecture.GroupBy("centre","lecturer","idemployee")));
+            lecture_level_pie.setData(lecture.getPiCtartData(lecture.GroupBy("department","lecturer","idemployee")));
+            lecture_departmet_pie.setData(lecture.getPiCtartData(lecture.GroupBy("level","lecturer","idemployee")));
 
             //student pie chart
-            studet_accadamicyear_pichart.setData(lecture.getPiCtartData(student.GroupBy("AcadamicYear","student","ID")));
-            studet_accadamicsemester_pichart.setData(lecture.getPiCtartData(student.GroupBy("AcadamicSemester","student","ID")));
+            studet_accadamicyear_pichart.setData(lecture.getPiCtartData(student.GroupBy("year","students_grp","idstudents_grp")));
+            studet_accadamicsemester_pichart.setData(lecture.getPiCtartData(student.GroupBy("pro","students_grp","idstudents_grp")));
             //subject pie chart
-            subject_year_pichart.setData(lecture.getPiCtartData(student.GroupBy("Year","subject","ID")));
-            subject_code_pichart.setData(lecture.getPiCtartData(student.GroupBy("Code","subject","ID")));
+            subject_year_pichart.setData(lecture.getPiCtartData(student.GroupBy("year","subjects","idsubjects")));
+            subject_code_pichart.setData(lecture.getPiCtartData(student.GroupBy("semester","subjects","idsubjects")));
 
             subject_year_pichart.setTitle("Academic Year");
             subject_code_pichart.setTitle("Subject Code");

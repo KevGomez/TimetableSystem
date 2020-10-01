@@ -39,7 +39,7 @@ public class TaghasLocationDAO {
     }
 
     public static ResultSet GetAllRoomsAndTags(){
-        String getDataQuery="select r.roomName ,r.idroom ,t.tag ,t.idtag  from room r,room_has_tag tr,tag t where r.idroom = tr.room_idroom AND t.idtag = tr.tag_idtag";
+        String getDataQuery="select r.roomName ,r.idroom ,t.name ,t.idtag  from room r,room_has_tag tr,tag t where r.idroom = tr.room_idroom AND t.idtag = tr.tag_idtag";
         DBSqlHandler  dbSqlHandler =new DBSqlHandler();
         ResultSet resultSet=   dbSqlHandler.DbGet(getDataQuery);
         return resultSet;
@@ -68,8 +68,8 @@ public class TaghasLocationDAO {
         ObservableList<TagHasRooms> taghasroomList = FXCollections.observableArrayList();
 
         while (resultSet.next()){
-            taghasroomList.add(new TagHasRooms(resultSet.getInt("idroom"),resultSet.getInt("idtag"),resultSet.getString("roomName"),resultSet.getString("tag")));
-            System.out.println(resultSet.getString("tag"));
+            taghasroomList.add(new TagHasRooms(resultSet.getInt("idroom"),resultSet.getInt("idtag"),resultSet.getString("roomName"),resultSet.getString("name")));
+//            System.out.println(resultSet.getString("tag"));
         }
 
         return  taghasroomList;
@@ -79,8 +79,8 @@ public class TaghasLocationDAO {
         ObservableList<TagData> taghasroomList = FXCollections.observableArrayList();
 
         while (resultSet.next()){
-            taghasroomList.add(new TagData(resultSet.getInt("idtag"),resultSet.getString("tag")));
-            System.out.println(resultSet.getString("tag"));
+            taghasroomList.add(new TagData(resultSet.getInt("idtag"),resultSet.getString("name")));
+            System.out.println(resultSet.getString("name"));
         }
 
         return  taghasroomList;

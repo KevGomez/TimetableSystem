@@ -67,6 +67,16 @@ public class Building {
         return  getAllBuilding;
     }
 
+    public ResultSet getSelectedDataUseID(String keyword){
+        String selectBuilding="SELECT * FROM buildings WHERE idbuildings ="+keyword;
+//        SQLConnection sqlConnection=new SQLConnection();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
+        ResultSet getAllBuilding=sqlConnection.DbGet(selectBuilding);
+        return  getAllBuilding;
+    }
+
+
+
     public ObservableList<Building> getObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<Building> BuildingList = FXCollections.observableArrayList();
         while (resultSet.next()){
@@ -87,10 +97,11 @@ public class Building {
     }
 
     public void DeleteData(String id){
-        String deletequery="DELETE FROM buildings WHERE idbuildings ="+id;
+        String deletequery="DELETE FROM buildings WHERE idbuildings = "+id;
 //        SQLConnection sqlConnection=new SQLConnection();
         DBSqlHandler sqlConnection=new DBSqlHandler();
         sqlConnection.DbInsert(deletequery);
+        System.out.println("Delete query execute");
     }
 
 
