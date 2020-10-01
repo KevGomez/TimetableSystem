@@ -85,6 +85,9 @@ public class TagPreferenceController implements Initializable {
                 String roomID= String.valueOf(tag_room_table.getSelectionModel().getSelectedItem().getRoom_idroom());
                 String tagID=String.valueOf(tag_room_table.getSelectionModel().getSelectedItem().getTag_idtag());
 
+                tag_room_table.getItems().removeAll(tag_room_table.getSelectionModel().getSelectedItem());
+
+
                 TaghasLocationDAO taghasLocationDAO=new TaghasLocationDAO();
                 taghasLocationDAO.DeleteData(roomID,tagID);
                 System.out.println("Add tag_id and room_id to delete");

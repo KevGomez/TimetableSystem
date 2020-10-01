@@ -267,6 +267,13 @@ public class AddLocationsController implements Initializable {
                     togalUpdateAndAddButtonRoom();
                     addRoom_text.setText(roomName);
                     room_capacity_text.setText(roomCapasity);
+
+//                    notReservedTime_text.setVisible(true);
+//                    hours.setVisible(false);
+//                    minitues.setVisible(false);
+
+                    ToggleTime();
+
                     notReservedTime_text.setText(roomNotreservedTime);
 
 
@@ -276,28 +283,47 @@ public class AddLocationsController implements Initializable {
                         public void handle(ActionEvent event) {
                             String newRoomvalue=addRoom_text.getText().trim();
                             String newRoomCapasityvalue=room_capacity_text.getText().trim();
-//                          String newRoomBuilding=room_buiding_dop.getValue().toString();
-
-                            Building building = (Building) room_buiding_dop.getSelectionModel().getSelectedItem();
-                            String newRoomBuilding=building.getId();
-
                             String newRoomNotReservdTime=notReservedTime_text.getText().trim();
+                            String newBuildingID;
+                            Building dropDownValue= (Model.Building) room_buiding_dop.getSelectionModel().getSelectedItem();
 
+                           if(dropDownValue==null){
+                               System.out.println("Table Values "+roomBuilding);
+                               newBuildingID=roomBuilding;
+                           }else{
+                               if(dropDownValue.getId()==roomBuilding){
+                                   System.out.println("Table Values "+roomBuilding);
+                                   newBuildingID=roomBuilding;
+
+
+                               }else{
+                                   System.out.println("DropDown Values "+dropDownValue.getId());
+                                   newBuildingID=dropDownValue.getId();
+
+                               }
+                           }
 
                             if(!newRoomvalue.isEmpty()){
-                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue,newRoomBuilding,newRoomNotReservdTime);
-                                showRoomsTable();
-                                togalUpdateAndAddButtonRoom();
-                                addRoom_text.clear();
-                                room_capacity_text.clear();
-                                notReservedTime_text.clear();
 
+                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue, newBuildingID,newRoomNotReservdTime);
+                                    System.out.println(roomID+" "+newRoomvalue+" "+newRoomCapasityvalue+" "+newBuildingID+" "+newRoomNotReservdTime);
+                                    System.out.println("Room updated");
 
-                                System.out.println("Room updated");
                             }else{
                                 Alert alert = new Alert(Alert.AlertType.ERROR, "Rooms is Empty ");
                                 alert.showAndWait();
                             }
+
+
+
+
+                            showRoomsTable();
+                            togalUpdateAndAddButtonRoom();
+                            addRoom_text.clear();
+                            room_capacity_text.clear();
+                            notReservedTime_text.clear();
+                            ToggleTime();
+
 
 
                         }
@@ -436,6 +462,12 @@ public class AddLocationsController implements Initializable {
 
 
         return  hours_time+":"+minitues_time+":00";
+    }
+
+    public void ToggleTime(){
+        notReservedTime_text.setVisible(!notReservedTime_text.isVisible());
+        hours.setVisible(!hours.isVisible());
+        minitues.setVisible(!minitues.isVisible());
     }
 
 

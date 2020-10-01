@@ -72,11 +72,11 @@ public class DBSqlHandler {
     public String DbInsert(String query){
         String r;
         try {
-            st.executeUpdate(query) ;
+           int d= st.executeUpdate(query) ;
             r="Success";
-        }
+         }
         catch (Exception e) {
-            r= e.toString();
+             r= e.toString();
         }
         return r;
     }

@@ -100,8 +100,8 @@ public class Building {
         String deletequery="DELETE FROM buildings WHERE idbuildings = "+id;
 //        SQLConnection sqlConnection=new SQLConnection();
         DBSqlHandler sqlConnection=new DBSqlHandler();
-        sqlConnection.DbInsert(deletequery);
-        System.out.println("Delete query execute");
+        String val= sqlConnection.DbInsert(deletequery);
+        System.out.println("Delete query execute"+val);
     }
 
 
