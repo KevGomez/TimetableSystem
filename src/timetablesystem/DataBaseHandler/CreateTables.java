@@ -103,7 +103,7 @@ public class CreateTables {
 
     static String tag="CREATE TABLE   tag  (\n" +
             "   idtag  INT NOT NULL IDENTITY,\n" +
-            "   tag  VARCHAR(45) NULL,\n" +
+            "   name  VARCHAR(45) NULL,\n" +
             "  PRIMARY KEY ( idtag ))";
 
 
@@ -114,12 +114,12 @@ public class CreateTables {
 
     static  String students_grp="CREATE TABLE   students_grp  (\n" +
             "   idstudents_grp  INT NOT NULL IDENTITY,\n" +
-            "   year_sem  VARCHAR(45) NULL,\n" +
-            "   programme  VARCHAR(45) NULL,\n" +
-            "   grp_no  INT NULL,\n" +
-            "   sgrp_no  INT NULL,\n" +
+            "   year  VARCHAR(45) NULL,\n" +
+            "   pro  VARCHAR(45) NULL,\n" +
+            "   grp_no  VARCHAR(45) NULL,\n" +
             "   grp_id  VARCHAR(45) NULL,\n" +
-            "   sgrp_id  VARCHAR(45) NOT NULL,\n" +
+            "   sgrp_no  VARCHAR(45) NULL,\n" +
+            "   sgrp_id  VARCHAR(100) NOT NULL,\n" +
             "  PRIMARY KEY ( idstudents_grp ))";
 
 
@@ -147,6 +147,7 @@ public class CreateTables {
             "   subjects_idsubjects  INT NOT NULL,\n" +
             "   students_grp_idstudents_grp  INT NOT NULL,\n" +
             "   room_idroom  INT ,\n" +
+            "   porder  INT NULL,\n" +
 
             "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ),\n" +
             "  CONSTRAINT  fk_sessions_tag1 \n" +
