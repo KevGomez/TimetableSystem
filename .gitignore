@@ -10,5 +10,7 @@
 /out
 /dist
 TimetableSystem-dev.iml
+/nbproject
+/build
 
 
