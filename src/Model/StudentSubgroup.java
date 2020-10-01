@@ -80,6 +80,6 @@ public class StudentSubgroup {
 
     @Override
     public String toString() {
-        return this.getYear_sem()+this.getProgramme()+this.getGrp_id()+this.getSgrp_id();
+        return this.getGrp_id()+" | "+this.getSgrp_id();
     }
 }

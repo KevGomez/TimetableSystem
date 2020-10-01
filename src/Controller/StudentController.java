@@ -252,34 +252,27 @@ public class StudentController implements Initializable {
             pkey = key + 1;
             String group_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString();
             String sgroup_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString() + "." + sgrp_no.getText().toString();
-            String query = "INSERT INTO students_grp(idstudents_grp, year, pro, grp_no, grp_id, sgrp_no, sgrp_id) VALUES ('"+pkey+"', '"+year.getText()+"' , '"+pro.getText()+"' , '"+grp_no.getText()+"' , '"+group_id+"' , '"+sgrp_no.getText()+"' , '"+sgroup_id+"')";
+            String query = "INSERT INTO students_grp(year, pro, grp_no, grp_id, sgrp_no, sgrp_id) VALUES ('"+year.getText()+"' , '"+pro.getText()+"' , '"+grp_no.getText()+"' , '"+group_id+"' , '"+sgrp_no.getText()+"' , '"+sgroup_id+"')";
             executeQuery(query);
+            
+            year.setText(" ");
+            pro.setText(" ");
+            grp_no.setText(" ");
+            sgrp_no.setText(" ");
+        
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Data has been saved!");
+
+            alert.showAndWait();
        
             }
-            
-            
-            
+           
             }catch(Exception e){
                 e.printStackTrace();
         }
-        
-        
-//        String group_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString();
-//        String sgroup_id = year.getText().toString() + "." + pro.getText().toString() + "." + grp_no.getText().toString() + "." + sgrp_no.getText().toString();
-//        String query = "INSERT INTO students_grp(idstudents_grp, year, pro, grp_no, grp_id, sgrp_no, sgrp_id) VALUES ('"+year.getText()+"' , '"+pro.getText()+"' , '"+grp_no.getText()+"' , '"+group_id+"' , '"+sgrp_no.getText()+"' , '"+sgroup_id+"')";
-//        executeQuery(query);
-        
-        year.setText(" ");
-        pro.setText(" ");
-        grp_no.setText(" ");
-        sgrp_no.setText(" ");
-        
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Data has been saved!");
 
-        alert.showAndWait();
         getData();
     }
     

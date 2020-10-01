@@ -3,7 +3,6 @@ package Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
-import timetablesystem.DataBaseHandler.DBHandler;
 import timetablesystem.DataBaseHandler.DBSqlHandler;
 
 import java.sql.ResultSet;
@@ -13,10 +12,10 @@ public class Lecture {
 
     private  int idemployee;
     private  String name;
-    private  int level_id;
+    private String level_id;
     private  String notavaible;
-    private  int faculty_idfaculty;
-    private  int level;
+    private String faculty_idfaculty;
+    private String level;
     private String centre;
     private  String department;
 
@@ -24,7 +23,7 @@ public class Lecture {
     public Lecture() {
     }
 
-    public Lecture(int idemployee, String name, int level_id, String notavaible, int faculty_idfaculty, int level, String centre, String department) {
+    public Lecture(int idemployee, String name, String level_id, String notavaible, String faculty_idfaculty, String level, String centre, String department) {
         this.idemployee = idemployee;
         this.name = name;
         this.level_id = level_id;
@@ -51,11 +50,11 @@ public class Lecture {
         this.name = name;
     }
 
-    public int getLevel_id() {
+    public String getLevel_id() {
         return level_id;
     }
 
-    public void setLevel_id(int level_id) {
+    public void setLevel_id(String level_id) {
         this.level_id = level_id;
     }
 
@@ -67,19 +66,19 @@ public class Lecture {
         this.notavaible = notavaible;
     }
 
-    public int getFaculty_idfaculty() {
+    public String getFaculty_idfaculty() {
         return faculty_idfaculty;
     }
 
-    public void setFaculty_idfaculty(int faculty_idfaculty) {
+    public void setFaculty_idfaculty(String faculty_idfaculty) {
         this.faculty_idfaculty = faculty_idfaculty;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
@@ -100,7 +99,7 @@ public class Lecture {
     }
 
     public static ResultSet getAllData(){
-        String selectAllQuerry="SELECT * FROM lecturer";
+        String selectAllQuerry="SELECT * FROM lecturers";
         DBSqlHandler sqlConnection=new DBSqlHandler();
         ResultSet getAllBuilding=sqlConnection.DbGet(selectAllQuerry);
         return  getAllBuilding;
@@ -130,7 +129,7 @@ public class Lecture {
     public static ObservableList<Lecture> getObservebleList(ResultSet resultSet) throws SQLException {
         ObservableList<Lecture> LectureList = FXCollections.observableArrayList();
         while (resultSet.next()){
-            LectureList.add(new Lecture(resultSet.getInt("idemployee"),resultSet.getString("name"),resultSet.getInt("level_id"),resultSet.getString("notavaible"),resultSet.getInt("faculty_idfaculty"),resultSet.getInt("level"),resultSet.getString("centre"),resultSet.getString("department")));
+            LectureList.add(new Lecture(resultSet.getInt("idemployee"),resultSet.getString("name"),resultSet.getString("lectureID"),resultSet.getString("building"),resultSet.getString("faculty"),resultSet.getString("level"),resultSet.getString("center"),resultSet.getString("department")));
 
         }
 

@@ -69,8 +69,8 @@ public class SessionRoomDAO {
 
     public static ResultSet GetAllSessionsAndRooms(){
         String getDataQuery="\n" +
-                " SELECT s.idsessions,r.idroom,r.roomName,t.name,sb.name,sb.semester ,sb.year\n" +
-                " FROM  sessions s,room r,tag t,subjects sb\n" +
+                " SELECT s.idsessions,r.idroom,r.roomName,t.name,sb.subject,sb.semester ,sb.year\n" +
+                " FROM  sessions s,room r,tag t,subject sb\n" +
                 " WHERE s.tag_idtag=t.idtag AND s.subjects_idsubjects = sb.idsubjects AND s.room_idroom =r.idroom";
 
         DBSqlHandler  dbSqlHandler =new DBSqlHandler();

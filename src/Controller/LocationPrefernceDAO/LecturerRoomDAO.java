@@ -26,7 +26,7 @@ public class LecturerRoomDAO {
     public static ResultSet GetAllLecturerAndRooms() {
 
         String getDataQuery = "SELECT l.idemployee, l.name, l.level, r.idroom, r.roomName, b.name\n" +
-                "FROM lecturer l,room r,room_has_lecturer rl,buildings b\n" +
+                "FROM lecturers l,room r,room_has_lecturer rl,buildings b\n" +
                 "WHERE l.idemployee = rl.lecturer_idemployee AND\n" +
                 " r.idroom = rl.room_idroom AND \n" +
                 " b.idbuildings = r.buildings_idbuildings";
