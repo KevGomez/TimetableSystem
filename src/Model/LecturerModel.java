@@ -127,6 +127,11 @@ public class LecturerModel {
         this.buttondelete = buttondelete;
     }
 
+    @Override
+    public String toString() {
+        return this.getName(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 
     

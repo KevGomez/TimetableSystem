@@ -77,10 +77,10 @@ public class CreateTables {
                         "   timeslot  VARCHAR(45) NULL,\n" +
                         "  PRIMARY KEY ( idtimeslot ))\n";
 
-    static  String lecturer= "CREATE TABLE   lecturer  (\n" +
-            "   idemployee  INT NOT NULL IDENTITY,\n" +
+    static  String lecturers= "CREATE TABLE   lecturers  (\n" +
+            "   ID  INT NOT NULL IDENTITY,\n" +
             "   name  VARCHAR(45) NULL,\n" +
-            "   level_id  INT NULL,\n" +
+            "   lectureID VARCHAR(50) NULL,\n" +
             "   notavaible  VARCHAR(45) NULL,\n" +
             "   faculty_idfaculty  INT NULL,\n" +
             "   level  INT NULL,\n" +

@@ -27,7 +27,7 @@ public class LecturerDB {
        
        Connection conn;
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/timeTableSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            conn = DriverManager.getConnection("jdbc:sqlserver://spmservercode4.database.windows.net:1433;database=SPM_TIMETABLE;user=spmcode4@spmservercode4;password=code4@123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
             return conn;
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -40,7 +40,7 @@ public class LecturerDB {
    public int createPatientAsForm(String name,String lectureID,String faculty,String department,String center,String building,String level,String rank )
 	{
             int count=0;
-        String sql="insert into lecturers (name, lectureID, faculty, department , center , building, level, rank) values (?,?,?,?,?,?,?,?)";
+        String sql="insert into lecturer (name, lectureID, faculty, department , center , building, level, rank) values (?,?,?,?,?,?,?,?)";
         
         
         try {
