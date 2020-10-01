@@ -100,7 +100,7 @@ public class LecturerDB {
             LecturerModel lecturers;
             while(rs.next()){
                // button[1]=new Button();
-                lecturers = new LecturerModel(rs.getInt("ID"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
+                lecturers = new LecturerModel(rs.getInt("idemployee"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
                 lecturelist.add(lecturers);
             }
         }catch(Exception e){
@@ -126,7 +126,7 @@ public class LecturerDB {
 	     
 	  
 	      //create a prepared statement   
-	      String sql = "delete from lecturers where ID=?"; 
+	      String sql = "delete from lecturers where idemployee=?"; 
 	      PreparedStatement st =con.prepareStatement(sql); 
 	      
 	      //binding values    
@@ -160,7 +160,7 @@ public class LecturerDB {
 				return 0;
 			}
 			// create a prepared statement
-			String query = "update lecturers set name = ? , lectureID = ? , faculty = ?,department = ?, center = ? , building = ?,level = ? , rank = ?  where ID = ?";
+			String query = "update lecturers set name = ? , lectureID = ? , faculty = ?,department = ?, center = ? , building = ?,level = ? , rank = ?  where idemployee = ?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values
