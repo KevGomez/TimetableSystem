@@ -9,6 +9,8 @@ import Controller.LocationPrefernceDAO.TaghasLocationDAO;
 import Model.LecturerDB;
 import Model.LecturerModel;
 import Model.Room;
+import Model.Session;
+import Model.SessionHasRoom;
 import Model.StudentData;
 import Model.SubjectDB;
 import Model.SubjectModel;
@@ -19,17 +21,24 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -69,6 +78,16 @@ public class SessionController implements Initializable {
            
            @FXML
     private ListView list;
+           
+           
+        @FXML private TableView<Session> sessiontable;
+    @FXML private TableColumn<Session,String> Lecturers;
+    @FXML private TableColumn<Session,String> Tag;
+    @FXML private TableColumn<Session,String> Subject;
+    @FXML private TableColumn<Session,String> Group;
+    @FXML private TableColumn<Session,String> Students;
+    @FXML private TableColumn<Session,String> Duration;
+        
     /**
      * Initializes the controller class.
      */
@@ -235,6 +254,45 @@ public class SessionController implements Initializable {
     }
     
     
+    
+    public void getAllSession(){
+        
+        
+              Lecturers.setCellValueFactory(new PropertyValueFactory<>("idsessions"));
+        Tag.setCellValueFactory(new PropertyValueFactory<>("idroom"));
+        Subject.setCellValueFactory(new PropertyValueFactory<>("roomName"));
+        Group.setCellValueFactory(new PropertyValueFactory<>("semester"));
+        Students.setCellValueFactory(new PropertyValueFactory<>("subjects"));
+        Duration.setCellValueFactory(new PropertyValueFactory<>("tag"));
+        
+        
+    }
+    
+    
+       public ObservableList<Session> getAllData(){
+        ObservableList<Session> sessionlist = FXCollections.observableArrayList();
+        Connection conn = connect();
+        
+        String query = "SELECT * FROM sessions";
+        Statement st;
+        ResultSet rs;
+
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            Session session;
+            while(rs.next()){
+               // button[1]=new Button();
+                //session = new LecturerModel(rs.getInt("idemployee"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
+               // lecturelist.add(lecturers);
+            }
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return sessionlist;
+    }
+   
     
  
 }
