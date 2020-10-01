@@ -73,4 +73,10 @@ public class Student {
         return lecture_groups;
 
     }
+
+  
+    
+    
+    
+    
 }
