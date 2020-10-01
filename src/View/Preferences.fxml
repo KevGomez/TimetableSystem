@@ -36,7 +36,7 @@
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assert/lecture.png" />
+                              <Image url="@../assert/tag.png" />
                            </image>
                         </ImageView>
                      </graphic>
