@@ -40,16 +40,16 @@ public class TimetableSystem extends Application {
     public static void main(String[] args) {
 
 
-        DBHandler dbHandler = new DBHandler();
-        dbHandler.createTables();
-        dbHandler.insertSampleData();
+      //  DBHandler dbHandler = new DBHandler();
+      //  dbHandler.createTables();
+    //    dbHandler.insertSampleData();
 
 //        DBHandler dbHandler = new DBHandler();
 //        dbHandler.createTables();
 
         //Conncetion for azure database
       //  DBSqlHandler dbSqlHandler=new DBSqlHandler();
-      //  dbSqlHandler.createTables();
+       // dbSqlHandler.createTables();
 
 
         launch(args);

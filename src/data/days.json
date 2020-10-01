@@ -1,1 +1,1 @@
-{"sunday":true,"saturday":true,"lunch":"9:00 PM","tuesday":true,"wednesday":true,"thursday":true,"friday":true,"startTime":"8:00 AM","ndpWeek":7,"endTime":"10:00 PM","monday":true}
+{"sunday":false,"saturday":false,"lunch":"12:00 PM","tuesday":true,"wednesday":true,"thursday":true,"friday":true,"startTime":"08:00 AM","ndpWeek":5,"endTime":"5:00 PM","monday":true,"isthirtyMin":"false"}

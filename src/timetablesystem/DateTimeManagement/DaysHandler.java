@@ -11,9 +11,9 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class DaysHandler {
-    static Boolean  monday,tuesday, wednesday, thursday, friday,saturday,sunday;
-    static int nDaysPerWeek=7,tempnDaysPerWeek=7;
-    static String sTime="08:00 AM",eTime="06:00 PM",lunch="12:00 PM";
+    public static Boolean  monday,tuesday, wednesday, thursday, friday,saturday,sunday;
+    public static int nDaysPerWeek=7,tempnDaysPerWeek=7;
+    public static String sTime="08:00 AM",eTime="06:00 PM",lunch="12:00 PM",isthirtyMin="true";
 
     private String filePath = "./src/data/days.json";
     private File daysdat= new File(filePath);
@@ -36,6 +36,7 @@ public class DaysHandler {
                 writeJsonObject.put("startTime",sTime);
                 writeJsonObject.put("endTime",eTime);
                 writeJsonObject.put("lunch",lunch);
+                writeJsonObject.put("isthirtyMin",isthirtyMin);
                 FileWriter fileWriter= new FileWriter(filePath);
                 fileWriter.write(writeJsonObject.toString());
                 fileWriter.close();
@@ -63,6 +64,8 @@ public class DaysHandler {
             sTime= (String)readJsonObject.get("startTime");
             eTime= (String)readJsonObject.get("endTime");
             lunch= (String)readJsonObject.get("lunch");
+            isthirtyMin= (String) readJsonObject.get("isthirtyMin");
+
         }catch (Exception e){
             System.out.println("getData "+e);
         }
@@ -113,7 +116,7 @@ public class DaysHandler {
 
     }
 
-    public void setWorkingTime(String key ,String value){
+    public void changeValue(String key ,String value){
 
         try {
 

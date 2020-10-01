@@ -226,7 +226,12 @@ public class WorkingTimeSettingsController implements Initializable {
         from.setText(sTime);
         duration.getItems().add("30 Min");
         duration.getItems().add("1 Hour");
-        duration.getSelectionModel().select(0);
+        if (DaysHandler.isthirtyMin.equals("true")){
+            duration.getSelectionModel().select(0);
+        }else{
+            duration.getSelectionModel().select(1);
+        }
+
 
 
 
@@ -265,7 +270,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 String time= ((int)newValue+1)+":"+temStime[1]+" "+temStime[2];
                 sTime=time;
                 timeSlotTime=time;
-                daysHandler.setWorkingTime("startTime",sTime);
+                daysHandler.changeValue("startTime",sTime);
                 from.setText(sTime);
 
                 clearTimeSlots();
@@ -279,7 +284,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 String time= temStime[0]+":"+minutes[((int)newValue)]+" "+temStime[2];
                 sTime=time;
                 timeSlotTime=time;
-                daysHandler.setWorkingTime("startTime",sTime);
+                daysHandler.changeValue("startTime",sTime);
                 from.setText(sTime);
 
                 clearTimeSlots();
@@ -293,7 +298,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 String time= temStime[0]+":"+temStime[1]+" "+amPm[((int)newValue)];
                 sTime=time;
                 timeSlotTime=time;
-                daysHandler.setWorkingTime("startTime",sTime);
+                daysHandler.changeValue("startTime",sTime);
                 from.setText(sTime);
 
                 clearTimeSlots();
@@ -314,7 +319,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 String time=((int)newValue+1)+":"+temp[1]+" "+temp[2];
                 if (isTimesEquals(sTime,time)){
                     eTime=time;
-                    daysHandler.setWorkingTime("endTime",eTime);
+                    daysHandler.changeValue("endTime",eTime);
                     showError("");
                     clearTimeSlots();
                 }else{
@@ -332,7 +337,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 String time=temp[0]+":"+minutes[((int)newValue)]+" "+temp[2];
                 if (isTimesEquals(sTime,time)){
                     eTime=time;
-                    daysHandler.setWorkingTime("endTime",eTime);
+                    daysHandler.changeValue("endTime",eTime);
                     showError("");
                     clearTimeSlots();
                 }else{
@@ -348,7 +353,7 @@ public class WorkingTimeSettingsController implements Initializable {
                 String time=temp[0]+":"+temp[1]+" "+amPm[((int)newValue)];
                 if (isTimesEquals(sTime,time)){
                     eTime=time;
-                    daysHandler.setWorkingTime("endTime",eTime);
+                    daysHandler.changeValue("endTime",eTime);
                     showError("");
                     clearTimeSlots();
                 }else{
@@ -372,7 +377,7 @@ public class WorkingTimeSettingsController implements Initializable {
                     if (isTimesEquals(time,eTime)){
                         showError("");
                         lTime=time;
-                        daysHandler.setWorkingTime("lunch",lTime);
+                        daysHandler.changeValue("lunch",lTime);
                     }else{
                         showError("Invalid Lunch Time");
                     }
@@ -392,7 +397,7 @@ public class WorkingTimeSettingsController implements Initializable {
                     if (isTimesEquals(time,eTime)){
                         showError("");
                         lTime=time;
-                        daysHandler.setWorkingTime("lunch",lTime);
+                        daysHandler.changeValue("lunch",lTime);
                     }else{
                         showError("Invalid Lunch Time");
                     }
@@ -413,7 +418,7 @@ public class WorkingTimeSettingsController implements Initializable {
                     if (isTimesEquals(time,eTime)){
                         showError("");
                         lTime=time;
-                        daysHandler.setWorkingTime("lunch",lTime);
+                        daysHandler.changeValue("lunch",lTime);
                     }else{
                         showError("Invalid Lunch Time");
                     }
@@ -431,6 +436,11 @@ public class WorkingTimeSettingsController implements Initializable {
         duration.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if ((int)newValue==0){
+                    daysHandler.changeValue("isthirtyMin","true");
+                }else{
+                    daysHandler.changeValue("isthirtyMin","false");
+                }
                 clearTimeSlots();
             }
         });
@@ -506,7 +516,8 @@ public class WorkingTimeSettingsController implements Initializable {
                     hour++;
                 time=hour+":"+min;
             }
-            addSlot(prev+" to "+ convert24to12(time));
+            time=convert24to12(time);
+            addSlot(prev+" to "+time );
             prev=time;
           }
         }catch (Exception e){

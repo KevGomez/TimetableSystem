@@ -3,55 +3,16 @@ package timetablesystem.DataBaseHandler;
 public class CreateTables {
 
 
-    static String timeSolts="CREATE TABLE IF NOT EXISTS `timeslots` (" +
-            "  tid int(11) PRIMARY KEY AUTO_INCREMENT ," +
-            "  tSlots varchar(100) DEFAULT NULL" +
-            ")";
+    public  CreateTables(){
+        System.out.println("table create");
+    }
+
+    static String timeSolts="CREATE TABLE IF NOT EXISTS timeslots ( id int PRIMARY KEY AUTO_INCREMENT ,tSlots varchar(100) )";
 
     static String building ="CREATE TABLE IF NOT EXISTS building (" +
             "  BuildingName varchar(60) NOT NULL ," +
             "  ID int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT" +
             ")";
-
-
-    static String lecture="CREATE TABLE IF NOT EXISTS lecturer (" +
-            "  empid varchar(6) PRIMARY KEY," +    // emp id has 6 characters
-            "  name varchar(100)," +
-            "  faculty varchar(100)," +
-            "  department varchar(100)," +
-            "  center varchar(100)," +
-            "  building varchar(1000)," +
-            "  level_id int(11)" +
-            ")";
-
-
-
-    static String student = "CREATE TABLE IF NOT EXISTS student (" +
-            "              ID int PRIMARY KEY AUTO_INCREMENT," +
-            "              Name varchar(20) NOT NULL, "+               // eg Y1S1.01
-            "              AcadamicYear int NOT NULL," +    //  eg 1,2,3,4
-            "              AcadamicSemester int NOT NULL," +
-            "              SubgroupID int NOT NULL, " + // 1,2,3,4,5
-            "              center varchar(100),"+ // center name
-            "              capacity int"+ // group capacity <50
-            "            )";
-    static String subject ="CREATE TABLE IF NOT EXISTS subjects (" +
-            "  scodeid varchar(20) PRIMARY KEY," + // subject id eg IT1040-CS
-            "  name varchar(100) ," +
-            "  year int(11) ," +
-            "  semester int(11) ," +
-            "  lecture_hours int(11) ," +
-            "  tutorial_hours int(11)," +
-            "  lab_hours int(11) ," + // 1,2,3,
-            "  evalution_houre int(11)" +
-            ")";
-    static String lecturersubjects="CREATE TABLE IF NOT EXISTS lecturersubjects (" +
-            "  lecturerid varchar(20)," +
-            "  subjectid varchar(20)," +
-            "   UNIQUE KEY lecturerid (lecturerid,subjectid)," +
-            "CONSTRAINT FK_lecturerid FOREIGN KEY (lecturerid) REFERENCES lecturer(empid),"+
-            "CONSTRAINT FK_subjectid FOREIGN KEY (subjectid) REFERENCES subjects(scodeid)"+
-            "  )";
 
 
 //    static String room ="CREATE TABLE IF NOT EXISTS room (" +
@@ -94,7 +55,7 @@ public class CreateTables {
 //  "level varchar(50) NOT NULL,"+
 //  "rank varchar(20) NOT NULL"+
 //                    ")";
-    
+
 //    static String tags = "CREATE TABLE IF NOT EXISTS tags (" +
 //                    "  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," +
 //            "  name varchar(60) NOT NULL" +
@@ -105,189 +66,189 @@ public class CreateTables {
 
     //SQL Create table
 
-    static String workingday=" CREATE TABLE workingday( " +
-            "   idworkingday  INT NOT NULL IDENTITY, " +
-            "   day  VARCHAR(100) NULL, " +
-            "   workhoure  VARCHAR(45) NULL, " +
+    static String workingday=" CREATE TABLE workingday(\n" +
+            "   idworkingday  INT NOT NULL IDENTITY,\n" +
+            "   day  VARCHAR(100) NULL,\n" +
+            "   workhoure  VARCHAR(45) NULL,\n" +
             "  PRIMARY KEY ( idworkingday ))";
 
-    static String timeslot ="CREATE TABLE   timeslot  ( " +
-                        "   idtimeslot  INT NOT NULL IDENTITY, " +
-                        "   timeslot  VARCHAR(45) NULL, " +
-                        "  PRIMARY KEY ( idtimeslot )) ";
+    static String timeslot ="CREATE TABLE   timeslot  (\n" +
+            "   idtimeslot  INT NOT NULL IDENTITY,\n" +
+            "   timeslot  VARCHAR(45) NULL,\n" +
+            "  PRIMARY KEY ( idtimeslot ))\n";
 
-    static  String lecturer= "CREATE TABLE   lecturer  ( " +
-            "   idemployee  INT NOT NULL IDENTITY, " +
-            "   name  VARCHAR(45) NULL, " +
-            "   level_id  INT NULL, " +
-            "   notavaible  VARCHAR(45) NULL, " +
-            "   faculty_idfaculty  INT NULL, " +
-            "   level  INT NULL, " +
-            "   centre  VARCHAR(45) NULL, " +
-            "   department  VARCHAR(45) NULL, " +
+    static  String lecturer= "CREATE TABLE   lecturer  (\n" +
+            "   idemployee  INT NOT NULL IDENTITY,\n" +
+            "   name  VARCHAR(45) NULL,\n" +
+            "   level_id  INT NULL,\n" +
+            "   notavaible  VARCHAR(45) NULL,\n" +
+            "   faculty_idfaculty  INT NULL,\n" +
+            "   level  INT NULL,\n" +
+            "   centre  VARCHAR(45) NULL,\n" +
+            "   department  VARCHAR(45) NULL,\n" +
             "  PRIMARY KEY ( idemployee ))";
 
-    static  String subjects ="CREATE TABLE   subjects  ( " +
-            "   idsubjects  INT NOT NULL IDENTITY, " +
-            "   name  VARCHAR(45) NULL, " +
-            "   code  VARCHAR(45) NULL, " +
-            "   lecture_hours  VARCHAR(45) NULL, " +
-            "   tutorial_hours  VARCHAR(45) NULL, " +
-            "   lab_hours  VARCHAR(45) NULL, " +
-            "   year  VARCHAR(45) NULL, " +
-            "   evalution_houre  VARCHAR(45) NULL, " +
-            "   semester  INT NULL, " +
-            "   year_idyear  INT NULL, " +
+    static  String subjects ="CREATE TABLE   subjects  (\n" +
+            "   idsubjects  INT NOT NULL IDENTITY,\n" +
+            "   name  VARCHAR(45) NULL,\n" +
+            "   code  VARCHAR(45) NULL,\n" +
+            "   lecture_hours  VARCHAR(45) NULL,\n" +
+            "   tutorial_hours  VARCHAR(45) NULL,\n" +
+            "   lab_hours  VARCHAR(45) NULL,\n" +
+            "   year  VARCHAR(45) NULL,\n" +
+            "   evalution_houre  VARCHAR(45) NULL,\n" +
+            "   semester  INT NULL,\n" +
+            "   year_idyear  INT NULL,\n" +
             "  PRIMARY KEY ( idsubjects ))";
 
-    static String tag="CREATE TABLE   tag  ( " +
-            "   idtag  INT NOT NULL IDENTITY, " +
-            "   tag  VARCHAR(45) NULL, " +
+    static String tag="CREATE TABLE   tag  (\n" +
+            "   idtag  INT NOT NULL IDENTITY,\n" +
+            "   tag  VARCHAR(45) NULL,\n" +
             "  PRIMARY KEY ( idtag ))";
 
 
-    static  String buildings ="CREATE TABLE   buildings  ( " +
-                            "   idbuildings  INT NOT NULL IDENTITY, " +
-                            "   name  VARCHAR(45) NULL, " +
-                            "  PRIMARY KEY ( idbuildings ))";
+    static  String buildings ="CREATE TABLE   buildings  (\n" +
+            "   idbuildings  INT NOT NULL IDENTITY,\n" +
+            "   name  VARCHAR(45) NULL,\n" +
+            "  PRIMARY KEY ( idbuildings ))";
 
-    static  String students_grp="CREATE TABLE   students_grp  ( " +
-            "   idstudents_grp  INT NOT NULL, " +
-            "   year_sem  VARCHAR(45) NULL, " +
-            "   programme  VARCHAR(45) NULL, " +
-            "   grp_no  INT NULL, " +
-            "   sgrp_no  INT NULL, " +
-            "   grp_id  VARCHAR(45) NULL, " +
-            "   sgrp_id  VARCHAR(45) NOT NULL, " +
+    static  String students_grp="CREATE TABLE   students_grp  (\n" +
+            "   idstudents_grp  INT NOT NULL IDENTITY,\n" +
+            "   year_sem  VARCHAR(45) NULL,\n" +
+            "   programme  VARCHAR(45) NULL,\n" +
+            "   grp_no  INT NULL,\n" +
+            "   sgrp_no  INT NULL,\n" +
+            "   grp_id  VARCHAR(45) NULL,\n" +
+            "   sgrp_id  VARCHAR(45) NOT NULL,\n" +
             "  PRIMARY KEY ( idstudents_grp ))";
 
 
-    static String room="CREATE TABLE   room  ( " +
-                    "   idroom  INT NOT NULL  , " +
-                    "   roomName  VARCHAR(45) NULL, " +
-                    "   capacity  VARCHAR(45) NULL, " +
-                    "   buildings_idbuildings  INT NULL, " +
-                    "   notreservedtime  VARCHAR(45) NULL, " +
-                    "  PRIMARY KEY ( idroom ), " +
-                    "  CONSTRAINT  fk_room_buildings1  " +
-                    "    FOREIGN KEY ( buildings_idbuildings ) " +
-                    "    REFERENCES   buildings  ( idbuildings ) " +
-                    "    ON DELETE NO ACTION " +
-                    "    ON UPDATE NO ACTION)";
+    static String room="CREATE TABLE   room  (\n" +
+            "   idroom  INT NOT NULL IDENTITY ,\n" +
+            "   roomName  VARCHAR(45) NULL,\n" +
+            "   capacity  VARCHAR(45) NULL,\n" +
+            "   buildings_idbuildings  INT NULL,\n" +
+            "   notreservedtime  VARCHAR(45) NULL,\n" +
+            "  PRIMARY KEY ( idroom ),\n" +
+            "  CONSTRAINT  fk_room_buildings1 \n" +
+            "    FOREIGN KEY ( buildings_idbuildings )\n" +
+            "    REFERENCES   buildings  ( idbuildings )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION)";
 
-    static String sessions = "CREATE TABLE   sessions  ( " +
-            "   idsessions  INT NOT NULL IDENTITY, " +
-            "   numberofstudents  INT NULL, " +
-            "   duration  VARCHAR(45) NULL, " +
-            "   consecutive  VARCHAR(45) NULL, " +
-            "   notavailble  VARCHAR(45) NULL, " +
-            "   tag_idtag  INT NOT NULL, " +
-            "   lecturer_idemployee  INT NOT NULL, " +
-            "   subjects_idsubjects  INT NOT NULL, " +
-            "   students_grp_idstudents_grp  INT NOT NULL, " +
-            "   room_idroom  INT NOT NULL, " +
-            "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ,  room_idroom ), " +
-            "  CONSTRAINT  fk_sessions_tag1  " +
-            "    FOREIGN KEY ( tag_idtag ) " +
-            "    REFERENCES   tag  ( idtag ) " +
-            "    ON DELETE NO ACTION " +
-            "    ON UPDATE NO ACTION, " +
-            "  CONSTRAINT  fk_sessions_lecturer1  " +
-            "    FOREIGN KEY ( lecturer_idemployee ) " +
-            "    REFERENCES   lecturer  ( idemployee ) " +
-            "    ON DELETE NO ACTION " +
-            "    ON UPDATE NO ACTION, " +
-            "  CONSTRAINT  fk_sessions_subjects1  " +
-            "    FOREIGN KEY ( subjects_idsubjects ) " +
-            "    REFERENCES   subjects  ( idsubjects ) " +
-            "    ON DELETE NO ACTION " +
-            "    ON UPDATE NO ACTION, " +
-            "  CONSTRAINT  fk_sessions_students_grp1  " +
-            "    FOREIGN KEY ( students_grp_idstudents_grp ) " +
-            "    REFERENCES   students_grp  ( idstudents_grp ) " +
-            "    ON DELETE NO ACTION " +
-            "    ON UPDATE NO ACTION, " +
-            "  CONSTRAINT  fk_sessions_room1  " +
-            "    FOREIGN KEY ( room_idroom ) " +
-            "    REFERENCES   room  ( idroom ) " +
-            "    ON DELETE NO ACTION " +
+    static String sessions = "CREATE TABLE   sessions  (\n" +
+            "   idsessions  INT NOT NULL IDENTITY,\n" +
+            "   numberofstudents  INT NULL,\n" +
+            "   duration  VARCHAR(45) NULL,\n" +
+            "   consecutive  VARCHAR(45) NULL,\n" +
+            "   notavailble  VARCHAR(45) NULL,\n" +
+            "   tag_idtag  INT NOT NULL,\n" +
+            "   lecturer_idemployee  INT NOT NULL,\n" +
+            "   subjects_idsubjects  INT NOT NULL,\n" +
+            "   students_grp_idstudents_grp  INT NOT NULL,\n" +
+            "   room_idroom  INT ,\n" +
+
+            "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ),\n" +
+            "  CONSTRAINT  fk_sessions_tag1 \n" +
+            "    FOREIGN KEY ( tag_idtag )\n" +
+            "    REFERENCES   tag  ( idtag )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_sessions_lecturer1 \n" +
+            "    FOREIGN KEY ( lecturer_idemployee )\n" +
+            "    REFERENCES   lecturer  ( idemployee )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_sessions_subjects1 \n" +
+            "    FOREIGN KEY ( subjects_idsubjects )\n" +
+            "    REFERENCES   subjects  ( idsubjects )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_sessions_students_grp1 \n" +
+            "    FOREIGN KEY ( students_grp_idstudents_grp )\n" +
+            "    REFERENCES   students_grp  ( idstudents_grp )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_sessions_room1 \n" +
+            "    FOREIGN KEY ( room_idroom )\n" +
+            "    REFERENCES   room  ( idroom )\n" +
+            "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION)";
 
 
 
-static  String workingday_has_timeslot ="CREATE TABLE   workingday_has_timeslot  ( " +
-        "   workingday_idworkingday  INT NOT NULL, " +
-        "   timeslot_idtimeslot  INT NOT NULL, " +
-        "  PRIMARY KEY ( workingday_idworkingday ,  timeslot_idtimeslot ), " +
-        "  CONSTRAINT  fk_workingday_has_timeslot_workingday1  " +
-        "    FOREIGN KEY ( workingday_idworkingday ) " +
-        "    REFERENCES   workingday  ( idworkingday ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION, " +
-        "  CONSTRAINT  fk_workingday_has_timeslot_timeslot1  " +
-        "    FOREIGN KEY ( timeslot_idtimeslot ) " +
-        "    REFERENCES   timeslot  ( idtimeslot ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION) ";
+    static  String workingday_has_timeslot ="CREATE TABLE   workingday_has_timeslot  (\n" +
+            "   workingday_idworkingday  INT NOT NULL,\n" +
+            "   timeslot_idtimeslot  INT NOT NULL,\n" +
+            "  PRIMARY KEY ( workingday_idworkingday ,  timeslot_idtimeslot ),\n" +
+            "  CONSTRAINT  fk_workingday_has_timeslot_workingday1 \n" +
+            "    FOREIGN KEY ( workingday_idworkingday )\n" +
+            "    REFERENCES   workingday  ( idworkingday )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_workingday_has_timeslot_timeslot1 \n" +
+            "    FOREIGN KEY ( timeslot_idtimeslot )\n" +
+            "    REFERENCES   timeslot  ( idtimeslot )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION)\n";
 
-static  String room_notReserved="CREATE TABLE   room_notReserved  ( " +
-        "   idroom_notReserved  INT NOT NULL IDENTITY, " +
-        "   notRservedTime  INT NULL, " +
-        "   room_idroom  INT NOT NULL, " +
-        "  PRIMARY KEY ( idroom_notReserved ,  room_idroom ), " +
-        "  CONSTRAINT  fk_room_notReserved_room1  " +
-        "    FOREIGN KEY ( room_idroom ) " +
-        "    REFERENCES   room  ( idroom ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION)";
+    static  String room_notReserved="CREATE TABLE   room_notReserved  (\n" +
+            "   idroom_notReserved  INT NOT NULL IDENTITY,\n" +
+            "   notRservedTime  INT NULL,\n" +
+            "   room_idroom  INT NOT NULL,\n" +
+            "  PRIMARY KEY ( idroom_notReserved ,  room_idroom ),\n" +
+            "  CONSTRAINT  fk_room_notReserved_room1 \n" +
+            "    FOREIGN KEY ( room_idroom )\n" +
+            "    REFERENCES   room  ( idroom )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION)";
 
-static String room_has_tag = "CREATE TABLE   room_has_tag  ( " +
-        "   room_idroom  INT NOT NULL, " +
-        "   tag_idtag  INT NOT NULL, " +
-        "  PRIMARY KEY ( room_idroom ,  tag_idtag ), " +
-        "  CONSTRAINT  fk_room_has_tag_room1  " +
-        "    FOREIGN KEY ( room_idroom ) " +
-        "    REFERENCES   room  ( idroom ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION, " +
-        "  CONSTRAINT  fk_room_has_tag_tag1  " +
-        "    FOREIGN KEY ( tag_idtag ) " +
-        "    REFERENCES   tag  ( idtag ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION)";
+    static String room_has_tag = "CREATE TABLE   room_has_tag  (\n" +
+            "   room_idroom  INT NOT NULL,\n" +
+            "   tag_idtag  INT NOT NULL,\n" +
+            "  PRIMARY KEY ( room_idroom ,  tag_idtag ),\n" +
+            "  CONSTRAINT  fk_room_has_tag_room1 \n" +
+            "    FOREIGN KEY ( room_idroom )\n" +
+            "    REFERENCES   room  ( idroom )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_room_has_tag_tag1 \n" +
+            "    FOREIGN KEY ( tag_idtag )\n" +
+            "    REFERENCES   tag  ( idtag )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION)";
 
 
-static  String room_has_lecturer="CREATE TABLE   room_has_lecturer  ( " +
-        "   room_idroom  INT NOT NULL, " +
-        "   lecturer_idemployee  INT NOT NULL, " +
-        "  PRIMARY KEY ( room_idroom ,  lecturer_idemployee ), " +
-        "  CONSTRAINT  fk_room_has_lecturer_room1  " +
-        "    FOREIGN KEY ( room_idroom ) " +
-        "    REFERENCES   room  ( idroom ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION, " +
-        "  CONSTRAINT  fk_room_has_lecturer_lecturer1  " +
-        "    FOREIGN KEY ( lecturer_idemployee ) " +
-        "    REFERENCES   lecturer  ( idemployee ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION) " +
-        " ";
+    static  String room_has_lecturer="CREATE TABLE   room_has_lecturer  (\n" +
+            "   room_idroom  INT NOT NULL,\n" +
+            "   lecturer_idemployee  INT NOT NULL,\n" +
+            "  PRIMARY KEY ( room_idroom ,  lecturer_idemployee ),\n" +
+            "  CONSTRAINT  fk_room_has_lecturer_room1 \n" +
+            "    FOREIGN KEY ( room_idroom )\n" +
+            "    REFERENCES   room  ( idroom )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_room_has_lecturer_lecturer1 \n" +
+            "    FOREIGN KEY ( lecturer_idemployee )\n" +
+            "    REFERENCES   lecturer  ( idemployee )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION)\n" +
+            "\n";
 
-static String room_has_students_grp="CREATE TABLE   room_has_students_grp  ( " +
-        "   room_idroom  INT NOT NULL, " +
-        "   students_grp_idstudents_grp  INT NOT NULL, " +
-        "  PRIMARY KEY ( room_idroom ,  students_grp_idstudents_grp ), " +
-        "  CONSTRAINT  fk_room_has_students_grp_room1  " +
-        "    FOREIGN KEY ( room_idroom ) " +
-        "    REFERENCES   room  ( idroom ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION, " +
-        "  CONSTRAINT  fk_room_has_students_grp_students_grp1  " +
-        "    FOREIGN KEY ( students_grp_idstudents_grp ) " +
-        "    REFERENCES   students_grp  ( idstudents_grp ) " +
-        "    ON DELETE NO ACTION " +
-        "    ON UPDATE NO ACTION)";
-
+    static String room_has_students_grp="CREATE TABLE   room_has_students_grp  (\n" +
+            "   room_idroom  INT NOT NULL,\n" +
+            "   students_grp_idstudents_grp  INT NOT NULL,\n" +
+            "  PRIMARY KEY ( room_idroom ,  students_grp_idstudents_grp ),\n" +
+            "  CONSTRAINT  fk_room_has_students_grp_room1 \n" +
+            "    FOREIGN KEY ( room_idroom )\n" +
+            "    REFERENCES   room  ( idroom )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION,\n" +
+            "  CONSTRAINT  fk_room_has_students_grp_students_grp1 \n" +
+            "    FOREIGN KEY ( students_grp_idstudents_grp )\n" +
+            "    REFERENCES   students_grp  ( idstudents_grp )\n" +
+            "    ON DELETE NO ACTION\n" +
+            "    ON UPDATE NO ACTION)";
 
 
 }

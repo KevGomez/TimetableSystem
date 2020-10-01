@@ -12,7 +12,7 @@ public class DBHandler {
 
 
     public DBHandler(){
-        url="jdbc:mysql://localhost:3306/timetablesystem?serverTimezone=UTC";
+        url="jdbc:mysql://localhost/timeTableSystem";
         user="root";
         pass="";
         try {
@@ -33,11 +33,11 @@ public class DBHandler {
             st.executeUpdate(CreateTables.timeSolts) ;
 
             st.executeUpdate(CreateTables.building) ;
-            st.executeUpdate(CreateTables.lecture) ;
+          //  st.executeUpdate(CreateTables.lecture) ;
             st.executeUpdate(CreateTables.room) ;
-            st.executeUpdate(CreateTables.subject) ;
-            st.executeUpdate(CreateTables.student) ;
-            st.executeUpdate(CreateTables.lecturersubjects);
+         //   st.executeUpdate(CreateTables.subject) ;
+          //  st.executeUpdate(CreateTables.student) ;
+          //  st.executeUpdate(CreateTables.lecturersubjects);
 
 
             System.out.println("Table Created SuccessFully");
