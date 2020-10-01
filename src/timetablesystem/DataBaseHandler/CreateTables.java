@@ -231,7 +231,7 @@ static  String room_has_lecturer="CREATE TABLE   room_has_lecturer  (\n" +
         "    ON UPDATE NO ACTION,\n" +
         "  CONSTRAINT  fk_room_has_lecturer_lecturer1 \n" +
         "    FOREIGN KEY ( lecturer_idemployee )\n" +
-        "    REFERENCES   lecturer  ( ID )\n" +
+        "    REFERENCES   lecturers  ( idemployee )\n" +
         "    ON DELETE NO ACTION\n" +
         "    ON UPDATE NO ACTION)\n" +
         "\n";
