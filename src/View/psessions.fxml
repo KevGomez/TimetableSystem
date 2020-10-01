@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Tab?>
@@ -13,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PsessionsController">
    <children>
       <VBox alignment="CENTER" prefHeight="82.0" prefWidth="893.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -124,12 +128,27 @@
                                  <tabs>
                                     <Tab text="Allocate">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextField fx:id="orderID" layoutX="48.0" layoutY="119.0" prefHeight="33.0" prefWidth="154.0" promptText="Order " />
+                                                <Button fx:id="addParallel" layoutX="50.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#updateParallel" style="-fx-background-color: #214895;" text="Add parallel" textFill="WHITE" />
+                                                <Text layoutX="48.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session ID" />
+                                                <Text layoutX="48.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parallel Order" />
+                                                <ComboBox fx:id="sessionID" layoutX="47.0" layoutY="68.0" prefWidth="150.0" promptText="Session ID" />
+                                             </children></AnchorPane>
                                        </content>
                                     </Tab>
                                     <Tab text="Get List">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="parTable" layoutX="149.0" layoutY="38.0" prefHeight="200.0" prefWidth="263.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="sessionIDCol" prefWidth="130.0" text="Session ID" />
+                                                    <TableColumn fx:id="orderIDCol" prefWidth="132.0" text="Order ID" />
+                                                  </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
                                        </content>
                                     </Tab>
                                  </tabs>
