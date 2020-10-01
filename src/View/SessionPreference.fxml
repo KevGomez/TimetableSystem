@@ -37,11 +37,6 @@
                                                 <Font name="System Bold" size="12.0" />
                                             </font>
                                         </Button>
-                                        <Button id="add_button" fx:id="add_preference_btn2" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Update">
-                                            <font>
-                                                <Font name="System Bold" size="12.0" />
-                                            </font>
-                                        </Button>
                                     </children>
                                 </HBox>
                         <Text fill="#b2b2b2" strokeType="OUTSIDE" strokeWidth="0.0" text="* consecutive sessions automaticly allocated to same room">
@@ -57,15 +52,18 @@
                                 <HBox prefHeight="43.0" prefWidth="295.0" spacing="5.0">
                                     <children>
                                         <TextField id="search_textfild" fx:id="tag_search_textfiled" prefHeight="25.0" prefWidth="178.0" promptText="Search" />
-                                        <Button id="search_button" fx:id="tax_search_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Search" />
-                                        <Button id="edite_buttin" fx:id="tag_edit_btn" mnemonicParsing="false" text="Edite" />
                                         <Button id="delete_button" fx:id="tag_delete_btn" mnemonicParsing="false" text="Delete" />
                                     </children>
                                 </HBox>
-                                <TableView id="preference_table" prefHeight="229.0" prefWidth="627.0">
+                                <TableView id="preference_table" fx:id="sessionhasroom" prefHeight="229.0" prefWidth="627.0">
                                     <columns>
-                                        <TableColumn fx:id="room_column" prefWidth="170.0" text="Room" />
-                                        <TableColumn fx:id="lecture_column" prefWidth="204.0" text="Session" />
+                                        <TableColumn fx:id="idsessions" prefWidth="56.0" text="Session id" />
+                                        <TableColumn fx:id="idroom" prefWidth="61.0" text="Room ID" />
+                              <TableColumn fx:id="roomName" prefWidth="76.0" text="roomName" />
+                              <TableColumn fx:id="semester" prefWidth="103.0" text="Semesster" />
+                              <TableColumn fx:id="subjects" prefWidth="79.0" text="subjects" />
+                              <TableColumn fx:id="tag" prefWidth="67.0" text="Tag" />
+                              <TableColumn fx:id="year" prefWidth="67.0" text="Year" />
                                     </columns>
                                 </TableView>
                             </children>
