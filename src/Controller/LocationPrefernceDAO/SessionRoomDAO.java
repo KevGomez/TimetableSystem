@@ -50,7 +50,7 @@ public class SessionRoomDAO {
         ObservableList<Session> sessionsList = FXCollections.observableArrayList();
 
         while (resultSet.next()){
-            sessionsList.add(new Session(resultSet.getInt("idsessions"),resultSet.getInt("numberofstudents"),resultSet.getString("duration"),resultSet.getString("consecutive"),resultSet.getString("notavailble"),resultSet.getInt("tag_idtag"),resultSet.getInt("lecturer_idemployee"),resultSet.getInt("subjects_idsubjects"),resultSet.getInt("students_grp_idstudents_grp"),resultSet.getInt("room_idroom")));
+            sessionsList.add(new Session(resultSet.getInt("idsessions"),resultSet.getInt("numberofstudents"),resultSet.getString("duration"),resultSet.getString("consecutive"),resultSet.getString("notavailble"),resultSet.getInt("tag_idtag"),resultSet.getInt("lecturer_idemployee"),resultSet.getInt("subjects_idsubjects"),resultSet.getInt("students_grp_idstudents_grp"),resultSet.getInt("room_idroom"), resultSet.getInt("porder")));
             System.out.println(resultSet.getString("idsessions"));
         }
 

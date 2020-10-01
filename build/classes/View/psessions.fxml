@@ -131,7 +131,7 @@
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
                                                 <TextField fx:id="orderID" layoutX="48.0" layoutY="119.0" prefHeight="33.0" prefWidth="154.0" promptText="Order " />
-                                                <Button fx:id="addParallel" layoutX="50.0" layoutY="184.0" mnemonicParsing="false" style="-fx-background-color: #214895;" text="Add parallel" textFill="WHITE" />
+                                                <Button fx:id="addParallel" layoutX="50.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#updateParallel" style="-fx-background-color: #214895;" text="Add parallel" textFill="WHITE" />
                                                 <Text layoutX="48.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session ID" />
                                                 <Text layoutX="48.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parallel Order" />
                                                 <ComboBox fx:id="sessionID" layoutX="47.0" layoutY="68.0" prefWidth="150.0" promptText="Session ID" />
@@ -140,7 +140,15 @@
                                     </Tab>
                                     <Tab text="Get List">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="parTable" layoutX="149.0" layoutY="38.0" prefHeight="200.0" prefWidth="263.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="sessionIDCol" prefWidth="130.0" text="Session ID" />
+                                                    <TableColumn fx:id="orderIDCol" prefWidth="132.0" text="Order ID" />
+                                                  </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
                                        </content>
                                     </Tab>
                                  </tabs>
