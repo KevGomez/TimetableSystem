@@ -92,9 +92,9 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TextField layoutX="26.0" layoutY="49.0" prefHeight="37.0" prefWidth="160.0" promptText="Lecture ID" />
-                                                <TextField layoutX="26.0" layoutY="97.0" prefHeight="37.0" prefWidth="160.0" promptText="Tute ID" />
-                                                <Button layoutX="34.0" layoutY="172.0" mnemonicParsing="false" style="-fx-background-color: #1247A1;" text="Consecutive" textFill="WHITE" />
+                                                <Button fx:id="addCons" layoutX="22.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#updateConsecutive" style="-fx-background-color: #1247A1;" text="Consecutive" textFill="WHITE" />
+                                                <ComboBox fx:id="lectureSessionID" layoutX="22.0" layoutY="48.0" prefWidth="150.0" promptText="Lecture Session ID" />
+                                                <ComboBox fx:id="tuteSessionID" layoutX="22.0" layoutY="91.0" prefWidth="150.0" promptText="Tute Session ID" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -103,11 +103,10 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView layoutX="178.0" layoutY="38.0" prefHeight="200.0" prefWidth="227.0">
+                                                <TableView fx:id="consTable" layoutX="178.0" layoutY="38.0" prefHeight="200.0" prefWidth="227.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="75.0" text="ID" />
-                                                      <TableColumn prefWidth="75.0" text="Lecture ID" />
-                                                      <TableColumn prefWidth="75.0" text="Tute ID" />
+                                                      <TableColumn fx:id="consSessionCol" prefWidth="114.0" text="Session ID" />
+                                                      <TableColumn fx:id="consConsCol" prefWidth="112.0" text="Cons ID" />
                                                    </columns>
                                                 </TableView>
                                              </children>

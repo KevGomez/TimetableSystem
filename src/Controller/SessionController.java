@@ -5,10 +5,17 @@
  */
 package Controller;
 
+import Controller.LocationPrefernceDAO.TaghasLocationDAO;
 import Model.LecturerDB;
 import Model.LecturerModel;
+import Model.SubjectDB;
+import Model.SubjectModel;
+import Model.TagData;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -56,6 +63,8 @@ public class SessionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         getDataLecturers();
+        getDataSubjects();
+        getTagData();
     }
     
     
@@ -68,4 +77,31 @@ public class SessionController implements Initializable {
         
     }
     
+    
+    public void getDataSubjects(){
+        
+        
+       SubjectDB s1=new SubjectDB();
+        ObservableList<SubjectModel> list = s1.getAllSubjectData();
+        
+        subject.setItems(list);
+    }
+    
+    
+    public void getTagData(){
+        
+        try {
+            //        TagsController t1=new TagsController();
+//         ObservableList<TagData> list = t1.getAllData();
+//         
+//         tags.setItems(list);
+            
+            tags.setItems(TaghasLocationDAO.getObservebleTagList(TaghasLocationDAO.GetAllTags()));
+        } catch (SQLException ex) {
+            Logger.getLogger(SessionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+ 
 }

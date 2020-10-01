@@ -26,6 +26,8 @@ public class DBSqlHandler {
         }
 
     }
+    
+  
 
 
     public void createTables(){
@@ -43,7 +45,7 @@ public class DBSqlHandler {
 
             st.executeUpdate(CreateTables.workingday);
             st.executeUpdate(CreateTables.timeslot);
-            st.executeUpdate(CreateTables.lecturer);
+            st.executeUpdate(CreateTables.lecturers);
             st.executeUpdate(CreateTables.subjects);
             st.executeUpdate(CreateTables.tag);
             st.executeUpdate(CreateTables.buildings);

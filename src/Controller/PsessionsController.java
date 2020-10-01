@@ -62,14 +62,40 @@ public class PsessionsController implements Initializable {
     @FXML
     private TableView<Session> parTable;
     
+    //cons
+    @FXML  
+    private ComboBox lectureSessionID;
+    @FXML  
+    private ComboBox tuteSessionID;
+    
+    @FXML
+    private TableView<Session> consTable;
+    
+    @FXML
+    private TableColumn<Session, String> consSessionCol;
+    
+    @FXML
+    private TableColumn<Session, String> consConsCol;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         //for parallel
         loadSessionData();
+        
         try {
             getParData();
+        } catch (SQLException ex) {
+            Logger.getLogger(PsessionsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //for cons
+        loadLectSessionData();
+        loadTuteSessionData();
+        
+        try {
+            getConsData();
         } catch (SQLException ex) {
             Logger.getLogger(PsessionsController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -151,12 +177,124 @@ public class PsessionsController implements Initializable {
         
     }
     
+    //for parallel
     public void getParData() throws SQLException{
         ObservableList<Session> sessionList = getSessionData();
         sessionIDCol.setCellValueFactory(new PropertyValueFactory<Session, String>("idsessions"));
         orderIDCol.setCellValueFactory(new PropertyValueFactory<Session, String>("porder"));
         
         parTable.setItems(sessionList);
+    }
+    
+    //for cons
+    public ObservableList<Session> getLectSessionData() throws SQLException{
+        ObservableList<Session> sessionList = FXCollections.observableArrayList();
+        Connection conn = getConnection();
+        
+        String query = "SELECT * FROM sessions WHERE tag_idtag = 1";
+        Statement st;
+        ResultSet rs;
+        
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            Session session = null;
+            
+            while(rs.next()){
+                session = new Session(rs.getInt("idsessions"), rs.getInt("numberofstudents"), rs.getString("duration"), rs.getString("consecutive"), rs.getString("notavailble"), rs.getInt("tag_idtag"), rs.getInt("lecturer_idemployee"), rs.getInt("subjects_idsubjects"), rs.getInt("students_grp_idstudents_grp"), rs.getInt("room_idroom"), rs.getInt("porder"));
+                sessionList.add(session);
+            }
+            
+            
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return sessionList;
+    }
+    
+    //for cons
+    public void loadLectSessionData(){
+        try {
+            lectureSessionID.setItems(getLectSessionData());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
+    //for cons
+    public ObservableList<Session> getTuteSessionData() throws SQLException{
+        ObservableList<Session> sessionList = FXCollections.observableArrayList();
+        Connection conn = getConnection();
+        
+        String query = "SELECT * FROM sessions WHERE tag_idtag = 2";
+        Statement st;
+        ResultSet rs;
+        
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            Session session = null;
+            
+            while(rs.next()){
+                session = new Session(rs.getInt("idsessions"), rs.getInt("numberofstudents"), rs.getString("duration"), rs.getString("consecutive"), rs.getString("notavailble"), rs.getInt("tag_idtag"), rs.getInt("lecturer_idemployee"), rs.getInt("subjects_idsubjects"), rs.getInt("students_grp_idstudents_grp"), rs.getInt("room_idroom"), rs.getInt("porder"));
+                sessionList.add(session);
+            }
+            
+            
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return sessionList;
+    }
+    
+    //for cons
+    public void loadTuteSessionData(){
+        try {
+            tuteSessionID.setItems(getTuteSessionData());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
+    //for cons
+    @FXML
+    public void updateConsecutive(MouseEvent event) throws IOException, SQLException{
+        
+        Session sessionGotID =(Session) lectureSessionID.getSelectionModel().getSelectedItem();
+        int SessionID = sessionGotID.getIdsessions();
+        
+        Session sessionTuteID =(Session) tuteSessionID.getSelectionModel().getSelectedItem();
+        int TuteSessionID = sessionTuteID.getTag_idtag();
+        
+        
+        String query = "UPDATE sessions SET consecutive="+TuteSessionID+" WHERE idsessions="+SessionID+" ";
+        
+        try{
+            executeQuery(query);
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Data has been edited");
+
+                        alert.showAndWait();   
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        getConsData();
+        
+    }
+    
+    //for cons
+    public void getConsData() throws SQLException{
+        ObservableList<Session> sessionList = getSessionData();
+        consSessionCol.setCellValueFactory(new PropertyValueFactory<Session, String>("idsessions"));
+        consConsCol.setCellValueFactory(new PropertyValueFactory<Session, String>("consecutive"));
+        
+        consTable.setItems(sessionList);
     }
 
     private void executeQuery(String query) {

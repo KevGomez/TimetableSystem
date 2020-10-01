@@ -13,8 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <AnchorPane prefHeight="563.0" prefWidth="1111.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddLocationsController">
     <children>
       <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
@@ -64,25 +62,19 @@
                               </HBox>
                               <HBox prefHeight="25.0" prefWidth="201.0" spacing="8.0">
                                  <children>
-                                     <ComboBox fx:id="hours" prefHeight="25.0" prefWidth="55.0" promptText="H" >
+                                    <Pane prefHeight="25.0" prefWidth="274.0">
+                                       <children>
+                                           <ComboBox fx:id="hours" prefHeight="25.0" prefWidth="55.0" promptText="H">
 
                                      </ComboBox>
-                                     <ComboBox fx:id="minitues" prefHeight="25.0" prefWidth="55.0" promptText="M" >
+                                           <ComboBox fx:id="minitues" layoutX="64.0" prefHeight="25.0" prefWidth="55.0" promptText="M">
                                      </ComboBox>
-                                     <ComboBox fx:id="meridiem" prefHeight="25.0" prefWidth="80.0" promptText="am/pm" >
-                                         <items>
-                                             <FXCollections fx:factory="observableArrayList">
-                                                 <String fx:value="a.m" />
-                                                 <String fx:value="p.m" />
-                                             </FXCollections>
-                                         </items>
-                                     </ComboBox>
+                                          <Text fill="#909090" layoutX="128.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not rederved time" wrappingWidth="97.283203125" />
+                                          <TextField fx:id="notReservedTime_text" promptText="Not reserved time" visible="false" />
+                                       </children>
+                                    </Pane>
                                  </children>
                               </HBox>
-                              <TextField fx:id="notReservedTime_text" prefHeight="25.0" prefWidth="196.0" promptText="Not reserved time">
-                                 <VBox.margin>
-                                    <Insets right="180.0" />
-                                 </VBox.margin></TextField>
                               <HBox spacing="10.0">
                                  <children>
                                         <ComboBox fx:id="room_buiding_dop" prefHeight="25.0" prefWidth="79.0" promptText="Building" />
@@ -147,8 +139,8 @@
                <children>
                       <TableView fx:id="building_table" prefHeight="231.0" prefWidth="887.0">
                           <columns>
-                              <TableColumn fx:id="building_id_row" prefWidth="152.0" text="ID" />
-                              <TableColumn fx:id="building_name_row" prefWidth="658.0" text="Name" />
+                              <TableColumn fx:id="building_id_row" prefWidth="374.0" text="ID" />
+                              <TableColumn fx:id="building_name_row" prefWidth="436.0" text="Name" />
                           </columns>
                       </TableView>
                </children>
