@@ -81,25 +81,25 @@ public class CreateTables {
             "   ID  INT NOT NULL IDENTITY,\n" +
             "   name  VARCHAR(45) NULL,\n" +
             "   lectureID VARCHAR(50) NULL,\n" +
-            "   notavaible  VARCHAR(45) NULL,\n" +
-            "   faculty_idfaculty  INT NULL,\n" +
-            "   level  INT NULL,\n" +
-            "   centre  VARCHAR(45) NULL,\n" +
-            "   department  VARCHAR(45) NULL,\n" +
-            "  PRIMARY KEY ( idemployee ))";
+            "   faculty  VARCHAR(50) NULL,\n" +
+            "   department  VARCHAR(50) NULL,\n" +
+            "   center  VARCHAR(50) NULL,\n" +
+            "   building  VARCHAR(50) NULL,\n" +
+            "   level  VARCHAR(50) NULL,\n" +
+            "   rank  VARCHAR(20) NULL,\n" +
+            "  PRIMARY KEY ( ID ))";
 
-    static  String subjects ="CREATE TABLE   subjects  (\n" +
-            "   idsubjects  INT NOT NULL IDENTITY,\n" +
-            "   name  VARCHAR(45) NULL,\n" +
-            "   code  VARCHAR(45) NULL,\n" +
-            "   lecture_hours  VARCHAR(45) NULL,\n" +
-            "   tutorial_hours  VARCHAR(45) NULL,\n" +
-            "   lab_hours  VARCHAR(45) NULL,\n" +
-            "   year  VARCHAR(45) NULL,\n" +
-            "   evalution_houre  VARCHAR(45) NULL,\n" +
-            "   semester  INT NULL,\n" +
-            "   year_idyear  INT NULL,\n" +
-            "  PRIMARY KEY ( idsubjects ))";
+    static  String subjects ="CREATE TABLE   subject  (\n" +
+            "   ID  INT NOT NULL IDENTITY,\n" +
+            "   year  VARCHAR(50) NULL,\n" +
+            "   semester  VARCHAR(50) NULL,\n" +
+            "   subject  VARCHAR(50) NULL,\n" +
+            "   code  VARCHAR(50) NULL,\n" +
+            "   lecturehrs  VARCHAR(10) NULL,\n" +
+            "   tutehrs  VARCHAR(10) NULL,\n" +
+            "   labhrs  VARCHAR(10) NULL,\n" +
+            "   evaluationhrs  VARCHAR(10) NULL,\n" +
+            "  PRIMARY KEY ( ID ))";
 
     static String tag="CREATE TABLE   tag  (\n" +
             "   idtag  INT NOT NULL IDENTITY,\n" +
@@ -157,12 +157,12 @@ public class CreateTables {
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_lecturer1 \n" +
             "    FOREIGN KEY ( lecturer_idemployee )\n" +
-            "    REFERENCES   lecturer  ( idemployee )\n" +
+            "    REFERENCES   lecturer  ( ID )\n" +
             "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_subjects1 \n" +
             "    FOREIGN KEY ( subjects_idsubjects )\n" +
-            "    REFERENCES   subjects  ( idsubjects )\n" +
+            "    REFERENCES   subject  ( ID )\n" +
             "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_students_grp1 \n" +
@@ -231,7 +231,7 @@ static  String room_has_lecturer="CREATE TABLE   room_has_lecturer  (\n" +
         "    ON UPDATE NO ACTION,\n" +
         "  CONSTRAINT  fk_room_has_lecturer_lecturer1 \n" +
         "    FOREIGN KEY ( lecturer_idemployee )\n" +
-        "    REFERENCES   lecturer  ( idemployee )\n" +
+        "    REFERENCES   lecturer  ( ID )\n" +
         "    ON DELETE NO ACTION\n" +
         "    ON UPDATE NO ACTION)\n" +
         "\n";
