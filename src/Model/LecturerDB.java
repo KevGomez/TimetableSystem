@@ -40,7 +40,7 @@ public class LecturerDB {
    public int createPatientAsForm(String name,String lectureID,String faculty,String department,String center,String building,String level,String rank )
 	{
             int count=0;
-        String sql="insert into lecturer (name, lectureID, faculty, department , center , building, level, rank) values (?,?,?,?,?,?,?,?)";
+        String sql="insert into lecturers (name, lectureID, faculty, department , center , building, level, rank) values (?,?,?,?,?,?,?,?)";
         
         
         try {
