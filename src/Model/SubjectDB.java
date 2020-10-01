@@ -26,7 +26,7 @@ public class SubjectDB {
        
        Connection conn;
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/timeTableSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            conn = DriverManager.getConnection("jdbc:sqlserver://spmservercode4.database.windows.net:1433;database=SPM_TIMETABLE;user=spmcode4@spmservercode4;password=code4@123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
             return conn;
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -105,7 +105,7 @@ public class SubjectDB {
             SubjectModel subjects;
             while(rs.next()){
                // button[1]=new Button();
-                subjects = new SubjectModel(rs.getInt("ID"),rs.getString("year"),rs.getString("subject"),rs.getString("lecturehrs"),rs.getString("labhrs"),rs.getString("semester"),rs.getString("code"),rs.getString("tutehrs"),rs.getString("evaluationhrs"));
+                subjects = new SubjectModel(rs.getInt("idsubjects"),rs.getString("year"),rs.getString("subject"),rs.getString("lecturehrs"),rs.getString("labhrs"),rs.getString("semester"),rs.getString("code"),rs.getString("tutehrs"),rs.getString("evaluationhrs"));
                 subjectlist.add(subjects);
             }
         }catch(Exception e){
@@ -132,7 +132,7 @@ public class SubjectDB {
 	     
 	  
 	      //create a prepared statement   
-	      String sql = "delete from subject where ID=?"; 
+	      String sql = "delete from subject where idsubjects=?"; 
 	      PreparedStatement st =con.prepareStatement(sql); 
 	      
 	      //binding values    
@@ -167,7 +167,7 @@ public class SubjectDB {
 				return 0;
 			}
 			// create a prepared statement
-			String query = "update subject set year = ? , semester = ? , subject = ?,code = ?, lecturehrs = ? , tutehrs = ?,labhrs = ? , evaluationhrs = ?  where ID = ?";
+			String query = "update subject set year = ? , semester = ? , subject = ?,code = ?, lecturehrs = ? , tutehrs = ?,labhrs = ? , evaluationhrs = ?  where idsubjects = ?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values

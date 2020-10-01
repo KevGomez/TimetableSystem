@@ -78,7 +78,7 @@ public class CreateTables {
                         "  PRIMARY KEY ( idtimeslot ))\n";
 
     static  String lecturers= "CREATE TABLE   lecturers  (\n" +
-            "   ID  INT NOT NULL IDENTITY,\n" +
+            "   idemployee  INT NOT NULL IDENTITY,\n" +
             "   name  VARCHAR(45) NULL,\n" +
             "   lectureID VARCHAR(50) NULL,\n" +
             "   faculty  VARCHAR(50) NULL,\n" +
@@ -87,10 +87,10 @@ public class CreateTables {
             "   building  VARCHAR(50) NULL,\n" +
             "   level  VARCHAR(50) NULL,\n" +
             "   rank  VARCHAR(20) NULL,\n" +
-            "  PRIMARY KEY ( ID ))";
+            "  PRIMARY KEY ( idemployee ))";
 
     static  String subjects ="CREATE TABLE   subject  (\n" +
-            "   ID  INT NOT NULL IDENTITY,\n" +
+            "   idsubjects  INT NOT NULL IDENTITY,\n" +
             "   year  VARCHAR(50) NULL,\n" +
             "   semester  VARCHAR(50) NULL,\n" +
             "   subject  VARCHAR(50) NULL,\n" +
@@ -99,7 +99,7 @@ public class CreateTables {
             "   tutehrs  VARCHAR(10) NULL,\n" +
             "   labhrs  VARCHAR(10) NULL,\n" +
             "   evaluationhrs  VARCHAR(10) NULL,\n" +
-            "  PRIMARY KEY ( ID ))";
+            "  PRIMARY KEY ( idsubjects ))";
 
     static String tag="CREATE TABLE   tag  (\n" +
             "   idtag  INT NOT NULL IDENTITY,\n" +
@@ -157,12 +157,12 @@ public class CreateTables {
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_lecturer1 \n" +
             "    FOREIGN KEY ( lecturer_idemployee )\n" +
-            "    REFERENCES   lecturer  ( ID )\n" +
+            "    REFERENCES   lecturers  ( idemployee )\n" +
             "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_subjects1 \n" +
             "    FOREIGN KEY ( subjects_idsubjects )\n" +
-            "    REFERENCES   subject  ( ID )\n" +
+            "    REFERENCES   subject  ( idsubjects )\n" +
             "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_students_grp1 \n" +
