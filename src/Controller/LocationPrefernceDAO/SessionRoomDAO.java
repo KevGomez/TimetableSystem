@@ -40,7 +40,7 @@ public class SessionRoomDAO {
 //                " OR tag_idtag = 2 OR tag_idtag=1" ;
 
         String updateConsecutiveSessions= "UPDATE sessions SET room_idroom = "+room_idroom+
-                                          "WHERE consecutive = "+idsession;
+                                          "WHERE idsessions = (select consecutive from sessions where idsessions = "+idsession+")";
 
         DBSqlHandler dbSqlHandler =new DBSqlHandler();
         dbSqlHandler.DbInsert(updateConsecutiveSessions);

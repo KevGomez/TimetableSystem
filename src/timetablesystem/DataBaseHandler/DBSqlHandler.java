@@ -85,7 +85,7 @@ public class DBSqlHandler {
         catch (Exception e) {
              r= e.toString();
 
-            Alert alert = new Alert(Alert.AlertType.WARNING,"Delete Item use to another table , First Delete reference object ", ButtonType.CANCEL);
+            Alert alert = new Alert(Alert.AlertType.WARNING,e.getMessage(), ButtonType.CANCEL);
             alert.showAndWait();
         }
         return r;
