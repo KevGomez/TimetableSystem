@@ -4,7 +4,7 @@ public class SessionHasRoom {
 
     private int idsessions;
     private int idroom;
-    private int semester ;
+    private String semester ;
     private String roomName;
     private String tag;
     private String subjects;
@@ -13,7 +13,7 @@ public class SessionHasRoom {
     public SessionHasRoom() {
     }
 
-    public SessionHasRoom(int idsessions, int idroom, int semester, String roomName, String tag, String subjects, String year) {
+    public SessionHasRoom(int idsessions, int idroom, String semester, String roomName, String tag, String subjects, String year) {
         this.idsessions = idsessions;
         this.idroom = idroom;
         this.semester = semester;
@@ -40,11 +40,11 @@ public class SessionHasRoom {
         this.idroom = idroom;
     }
 
-    public int getSemester() {
+    public String getSemester() {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(String semester) {
         this.semester = semester;
     }
 
@@ -78,5 +78,10 @@ public class SessionHasRoom {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return this.getIdsessions()+": Y"+this.getYear()+":S"+this.getSemester()+" "+this.getSubjects()+":"+this.getTag();
     }
 }
