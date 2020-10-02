@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -17,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PsessionsController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PsessionsController">
    <children>
       <VBox alignment="CENTER" prefHeight="82.0" prefWidth="893.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -42,15 +39,47 @@
                                        <children>
                                           <TabPane layoutX="100.0" layoutY="39.0" prefHeight="335.0" prefWidth="512.0" tabClosingPolicy="UNAVAILABLE">
                                              <tabs>
-                                                <Tab text="Allocate">
+                                                <Tab text="Session">
                                                    <content>
                                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="497.0">
                                                          <children>
-                                                            <TextField layoutX="28.0" layoutY="47.0" prefHeight="37.0" prefWidth="160.0" promptText="Category" />
-                                                            <TextField layoutX="203.0" layoutY="46.0" prefHeight="37.0" prefWidth="160.0" promptText="ID" />
-                                                            <DatePicker layoutX="28.0" layoutY="96.0" />
-                                                            <TextField layoutX="28.0" layoutY="130.0" prefHeight="37.0" prefWidth="160.0" promptText="Time" />
-                                                            <Button layoutX="28.0" layoutY="206.0" mnemonicParsing="false" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <DatePicker fx:id="date" layoutX="28.0" layoutY="113.0" promptText="Date" />
+                                                            <TextField fx:id="time" layoutX="28.0" layoutY="172.0" prefHeight="37.0" prefWidth="160.0" promptText="Time [HH:MM:SS](24HR)" />
+                                                            <Button layoutX="28.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#insertSessionNA" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <ComboBox fx:id="categoryID" layoutX="26.0" layoutY="53.0" prefWidth="150.0" promptText="Category ID" />
+                                                            <Text layoutX="27.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category ID" />
+                                                            <Text layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select date" />
+                                                            <Text layoutX="28.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the time" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Group">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="497.0">
+                                                         <children>
+                                                            <DatePicker fx:id="date1" layoutX="28.0" layoutY="113.0" promptText="Date" />
+                                                            <TextField fx:id="time1" layoutX="28.0" layoutY="172.0" prefHeight="37.0" prefWidth="160.0" promptText="Time [HH:MM:SS](24HR)" />
+                                                            <Button layoutX="28.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#insertGroupNA" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <ComboBox fx:id="categoryID1" layoutX="28.0" layoutY="53.0" prefWidth="150.0" promptText="Category ID" />
+                                                            <Text layoutX="29.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category ID" />
+                                                            <Text layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select date" />
+                                                            <Text layoutX="28.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the time" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Lecture">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="497.0">
+                                                         <children>
+                                                            <DatePicker fx:id="date2" layoutX="28.0" layoutY="113.0" promptText="Date" />
+                                                            <TextField fx:id="time2" layoutX="28.0" layoutY="172.0" prefHeight="37.0" prefWidth="160.0" promptText="Time [HH:MM:SS](24HR)" />
+                                                            <Button layoutX="28.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#insertLectureNA" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <ComboBox fx:id="categoryID2" layoutX="29.0" layoutY="53.0" prefWidth="150.0" promptText="Category ID" />
+                                                            <Text layoutX="30.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category ID" />
+                                                            <Text layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select date" />
+                                                            <Text layoutX="28.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the time" />
                                                          </children>
                                                       </AnchorPane>
                                                    </content>
@@ -59,13 +88,13 @@
                                                    <content>
                                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView layoutX="71.0" layoutY="38.0" prefHeight="200.0" prefWidth="397.0">
+                                                            <TableView fx:id="naMainTable" layoutX="10.0" layoutY="38.0" prefHeight="200.0" prefWidth="486.0">
                                                                <columns>
-                                                                  <TableColumn prefWidth="75.0" text="ID" />
-                                                                  <TableColumn text="Category" />
-                                                                  <TableColumn text="Allocated ID" />
-                                                                  <TableColumn text="Date" />
-                                                                  <TableColumn text="Time" />
+                                                                  <TableColumn fx:id="naIdCol" prefWidth="51.0" text="ID" />
+                                                                  <TableColumn fx:id="naCatName" prefWidth="133.0" text="Category Name" />
+                                                                  <TableColumn fx:id="naCatID" prefWidth="90.0" text="Category ID" />
+                                                                  <TableColumn fx:id="naDate" prefWidth="113.0" text="Date" />
+                                                                  <TableColumn fx:id="naTime" prefWidth="98.0" text="Time" />
                                                                </columns>
                                                             </TableView>
                                                          </children>

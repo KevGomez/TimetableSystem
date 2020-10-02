@@ -5,6 +5,9 @@
  */
 package Controller;
 
+import Model.Lecture;
+import Model.LecturerModel;
+import Model.NotAvailable;
 import Model.Room;
 import Model.Session;
 import Model.StudentData;
@@ -25,6 +28,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -78,6 +83,35 @@ public class PsessionsController implements Initializable {
     private TableColumn<Session, String> consConsCol;
     
     
+    //not available
+    @FXML  
+    private ComboBox categoryID, categoryID1, categoryID2;
+    
+    @FXML  
+    private DatePicker date, date1, date2;
+    
+    @FXML
+    private TextField time, time1, time2;
+    
+    @FXML
+    private TableColumn<NotAvailable, String> naIdCol;
+    
+    @FXML
+    private TableColumn<NotAvailable, String> naCatName;
+    
+    @FXML
+    private TableColumn<NotAvailable, String> naCatID;
+    
+    @FXML
+    private TableColumn<NotAvailable, String> naDate;
+    
+    @FXML
+    private TableColumn<NotAvailable, String> naTime;
+    
+    @FXML
+    private TableView<NotAvailable> naMainTable;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -99,6 +133,18 @@ public class PsessionsController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(PsessionsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //for not available
+        loadSessionCatIds();
+        loadLectureCatIds();
+        loadGroupCatIds();
+        
+        try {
+            getNADataToTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(PsessionsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }    
     
     public Connection getConnection(){
@@ -296,6 +342,205 @@ public class PsessionsController implements Initializable {
         
         consTable.setItems(sessionList);
     }
+
+    //for not available
+    public void loadSessionCatIds(){
+        try {
+            categoryID.setItems(getSessionData());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
+    public ObservableList<LecturerModel> getLectureData() throws SQLException{
+        ObservableList<LecturerModel> lectureList = FXCollections.observableArrayList();
+        Connection conn = getConnection();
+        
+        String query = "SELECT * FROM lecturers";
+        Statement st;
+        ResultSet rs;
+        
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            LecturerModel lecture = null;
+            
+            while(rs.next()){
+                lecture = new LecturerModel(rs.getInt("idemployee"), rs.getString("name"), rs.getString("lectureID"), rs.getString("faculty"), rs.getString("department"), rs.getString("center"), rs.getString("building"), rs.getString("level"), rs.getString("rank"));
+                lectureList.add(lecture);
+            }
+            
+            
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return lectureList;
+    }
+    
+    
+    public void loadLectureCatIds(){
+        try {
+            categoryID2.setItems(getLectureData());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
+    public ObservableList<StudentData> getGroupData() throws SQLException{
+        ObservableList<StudentData> groupList = FXCollections.observableArrayList();
+        Connection conn = getConnection();
+        
+        String query = "SELECT * FROM students_grp";
+        Statement st;
+        ResultSet rs;
+        
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            StudentData group = null;
+            
+            while(rs.next()){
+                group = new StudentData(rs.getString("sgrp_id"));
+                groupList.add(group);
+            }
+            
+            
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return groupList;
+    }
+    
+    public void loadGroupCatIds(){
+        try {
+            categoryID1.setItems(getGroupData());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
+    
+    public void insertSessionNA(MouseEvent event) throws IOException, SQLException{
+        
+        Session sessionGotID =(Session) categoryID.getSelectionModel().getSelectedItem();
+        int SessionID = sessionGotID.getIdsessions();
+        
+        String stringID = Integer.toString(SessionID);
+        String dateSession = date.getValue().toString();
+        String timeSession = time.getText();
+        
+        String query = "INSERT INTO notAvailable values('Session', '"+stringID+"', '"+dateSession+"', '"+timeSession+"')";
+        
+        try{
+            executeQuery(query);
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Data has been edited");
+
+                        alert.showAndWait();   
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        getNADataToTable();
+        
+    }
+    
+    public ObservableList<NotAvailable> getNAData() throws SQLException{
+        ObservableList<NotAvailable> NaList = FXCollections.observableArrayList();
+        Connection conn = getConnection();
+        
+        String query = "SELECT * FROM notAvailable";
+        Statement st;
+        ResultSet rs;
+        
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            NotAvailable na = null;
+            
+            while(rs.next()){
+                na = new NotAvailable(rs.getInt("id"), rs.getString("catName"), rs.getString("catID"), rs.getString("date"), rs.getString("time"));
+                NaList.add(na);
+            }
+            
+            
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return NaList;
+    }
+    
+    public void getNADataToTable() throws SQLException{
+        ObservableList<NotAvailable> NaList = getNAData();
+        naIdCol.setCellValueFactory(new PropertyValueFactory<NotAvailable, String>("id"));
+        naCatName.setCellValueFactory(new PropertyValueFactory<NotAvailable, String>("catName"));
+        naCatID.setCellValueFactory(new PropertyValueFactory<NotAvailable, String>("catID"));
+        naDate.setCellValueFactory(new PropertyValueFactory<NotAvailable, String>("date"));
+        naTime.setCellValueFactory(new PropertyValueFactory<NotAvailable, String>("time"));
+        
+        naMainTable.setItems(NaList);
+    }
+    
+    public void insertGroupNA(MouseEvent event) throws IOException, SQLException{
+        
+        StudentData groupID =(StudentData) categoryID1.getSelectionModel().getSelectedItem();
+        String toGroupID = groupID.getSgrp_id();
+        
+        String dateSession = date1.getValue().toString();
+        String timeSession = time1.getText();
+        
+        String query = "INSERT INTO notAvailable values('Group', '"+toGroupID+"', '"+dateSession+"', '"+timeSession+"')";
+        
+        try{
+            executeQuery(query);
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Data has been edited");
+
+                        alert.showAndWait();   
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        getNADataToTable();
+        
+    }
+    
+    public void insertLectureNA(MouseEvent event) throws IOException, SQLException{
+        
+        LecturerModel lects =(LecturerModel) categoryID2.getSelectionModel().getSelectedItem();
+        String name = lects.getName();
+        
+        String dateSession = date2.getValue().toString();
+        String timeSession = time2.getText();
+        
+        String query = "INSERT INTO notAvailable values('Lecturer', '"+name+"', '"+dateSession+"', '"+timeSession+"')";
+        
+        try{
+            executeQuery(query);
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Data has been edited");
+
+                        alert.showAndWait();   
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        getNADataToTable();
+        
+    }
+    
 
     private void executeQuery(String query) {
         Connection conn = getConnection();

@@ -35,6 +35,10 @@ public class StudentData {
             this.delete = new Button("Delete");
     }
 
+    public StudentData(String sgrp_id) {
+        this.sgrp_id = sgrp_id;
+    }
+
     public int getId() {
         return id;
     }
