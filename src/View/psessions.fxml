@@ -185,28 +185,6 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Should not overlap">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TabPane layoutX="56.0" layoutY="23.0" prefHeight="305.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
-                                 <tabs>
-                                    <Tab text="Allocate">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                       </content>
-                                    </Tab>
-                                    <Tab text="Get List">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                       </content>
-                                    </Tab>
-                                 </tabs>
-                              </TabPane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
                </tabs>
             </TabPane>
          </children>

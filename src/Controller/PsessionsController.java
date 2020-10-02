@@ -209,12 +209,7 @@ public class PsessionsController implements Initializable {
         try{
             executeQuery(query);
             
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Success");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Data has been edited");
-
-                        alert.showAndWait();   
+            
         }catch(Exception e){
                 e.printStackTrace();
         }
@@ -320,12 +315,7 @@ public class PsessionsController implements Initializable {
         try{
             executeQuery(query);
             
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Success");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Data has been edited");
-
-                        alert.showAndWait();   
+             
         }catch(Exception e){
                 e.printStackTrace();
         }
@@ -436,12 +426,7 @@ public class PsessionsController implements Initializable {
         try{
             executeQuery(query);
             
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Success");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Data has been edited");
-
-                        alert.showAndWait();   
+              
         }catch(Exception e){
                 e.printStackTrace();
         }
@@ -500,12 +485,7 @@ public class PsessionsController implements Initializable {
         try{
             executeQuery(query);
             
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Success");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Data has been edited");
-
-                        alert.showAndWait();   
+            
         }catch(Exception e){
                 e.printStackTrace();
         }
@@ -527,12 +507,7 @@ public class PsessionsController implements Initializable {
         try{
             executeQuery(query);
             
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Success");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Data has been edited");
-
-                        alert.showAndWait();   
+      
         }catch(Exception e){
                 e.printStackTrace();
         }
@@ -549,8 +524,20 @@ public class PsessionsController implements Initializable {
         try{
             st = conn.createStatement();
             st.executeUpdate(query);
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Success");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Operation Success!");
+
+                                    alert.showAndWait();
         }catch(Exception e){
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Error");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Operation failed!");
+                                    alert.showAndWait();
         }
     }
     
