@@ -47,7 +47,7 @@
                                  <children>
                                     <AnchorPane prefHeight="438.0" prefWidth="452.0">
                                        <children>
-                                    <Button fx:id="submit" onMouseClicked="#InsertData" layoutX="302.0" layoutY="386.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="136.0" text="Save" />
+                                    <Button fx:id="submit" layoutX="302.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#InsertData" prefHeight="38.0" prefWidth="136.0" text="Save" />
                                           <ComboBox fx:id="subject" layoutX="14.0" layoutY="244.0" prefHeight="31.0" prefWidth="316.0" />
                                           <TextField fx:id="duration" layoutX="14.0" layoutY="326.0" prefHeight="31.0" prefWidth="281.0" />
                                           <Text layoutX="14.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Subject" />
@@ -67,17 +67,19 @@
                            <children>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="462.0" prefWidth="873.0">
                            <children>
-                              <TableView fx:id="sessiontable" layoutX="48.0" layoutY="47.0" prefHeight="379.0" prefWidth="752.0">
+                              <TableView fx:id="sessiontable" layoutX="48.0" layoutY="99.0" prefHeight="327.0" prefWidth="752.0">
                                 <columns>
-                                  <TableColumn fx:id="Lecturers" prefWidth="75.0" text="Lecturers" />
-                                  <TableColumn fx:id="Subject" prefWidth="75.0" text="Subject" />
-                                  <TableColumn fx:id="Tag" prefWidth="75.0" text="Tag Name" />
-                                  <TableColumn fx:id="Group" prefWidth="75.0" text="Group" />
-                                  <TableColumn fx:id="Students" prefWidth="75.0" text="Number of Students" />
-                                  <TableColumn fx:id="Duration" prefWidth="75.0" text="Duration" />
+                                  <TableColumn fx:id="Lecturers" prefWidth="121.0" text="Lecturers" />
+                                  <TableColumn fx:id="Subject" prefWidth="92.0" text="Subject" />
+                                  <TableColumn fx:id="Tag" prefWidth="94.0" text="Tag Name" />
+                                  <TableColumn fx:id="Group" minWidth="0.0" prefWidth="103.0" text="Group" />
+                                  <TableColumn fx:id="Students" prefWidth="136.0" text="Number of Students" />
+                                  <TableColumn fx:id="Duration" prefWidth="139.0" text="Duration" />
                                     
                                 </columns>
                               </TableView>
+                                    <TextField fx:id="search" layoutX="72.0" layoutY="35.0" prefHeight="31.0" prefWidth="653.0" />
+                                    <Button fx:id="searchbtn" layoutX="725.0" layoutY="34.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="52.0" text="Search" />
                            </children>
                         </AnchorPane>
                            </children>

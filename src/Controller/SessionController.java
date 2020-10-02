@@ -16,6 +16,7 @@ import Model.StudentData;
 import Model.SubjectDB;
 import Model.SubjectModel;
 import Model.TagData;
+import Model.TagHasRooms;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
@@ -30,6 +31,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -41,6 +44,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import timetablesystem.DataBaseHandler.DBSqlHandler;
 
 /**
  * FXML Controller class
@@ -80,6 +84,8 @@ public class SessionController implements Initializable {
            @FXML
     private ListView list;
            
+                   @FXML
+    private TextField search;
            
         @FXML private TableView<DisplaySession> sessiontable;
     @FXML private TableColumn<DisplaySession,String> Lecturers;
@@ -95,12 +101,14 @@ public class SessionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        getAllSession();
         getDataLecturers();
         getDataSubjects();
         getTagData();
         getStudentData();
         
-       
+          FilterData();
+
     }
     
         private static Connection connect() {
@@ -283,12 +291,23 @@ public class SessionController implements Initializable {
         Duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         
         
-    }
+        try{
+        sessiontable.setItems(getObservebleSessionDsiplay(getAllData()));
+       FilterData();
+
+        } catch (Exception throwables) {
+            throwables.printStackTrace();
+        }
+}
     
     
-       public ObservableList<Session> getAllData(){
-        ObservableList<Session> sessionlist = FXCollections.observableArrayList();
+       public ResultSet getAllData(){
+        
         Connection conn = connect();
+        String getDataQuery="\n" +
+                " SELECT l.name,sb.subject,t.name,st.sgrp_id,s.numberofstudents,s.duration\n" +
+                " FROM  sessions s,lecturers l,tag t,subject sb,students_grp st\n" +
+                " WHERE s.tag_idtag=t.idtag AND s.subjects_idsubjects = sb.idsubjects AND s.lecturer_idemployee =l.idemployee AND s.students_grp_idstudents_grp=st.idstudents_grp";
         
         String query = "SELECT * FROM sessions";
         Statement st;
@@ -296,20 +315,74 @@ public class SessionController implements Initializable {
 
         try{
             st = conn.createStatement();
-            rs = st.executeQuery(query);
-            DisplaySession session;
-            while(rs.next()){
-               
-                //session = new DisplaySession(rs.getInt("idemployee"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
-               // lecturelist.add(lecturers);
-            }
+            rs = st.executeQuery(getDataQuery);
+            //DisplaySession session;
+            return rs;
+      
         }catch(Exception e){
                 e.printStackTrace();
         }
         
-        return sessionlist;
+        return null;
     }
+       
+       
+           public static ObservableList<DisplaySession> getObservebleSessionDsiplay(ResultSet resultSet) throws SQLException {
+        ObservableList<DisplaySession> sessions = FXCollections.observableArrayList();
+
+        while (resultSet.next()){
+            sessions.add(new DisplaySession(resultSet.getString("name"),resultSet.getString("subject"),resultSet.getString(3),resultSet.getString("sgrp_id"),resultSet.getInt("numberofstudents"),resultSet.getString("duration")));
+            
+        }
+
+        return  sessions;
+    }
+
    
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+            public void FilterData(){
+        try {
+            FilteredList<DisplaySession> sessionFilteredList =new FilteredList<DisplaySession>(getObservebleSessionDsiplay(getAllData()),b->true);
+            search.textProperty().addListener((observable, oldValue, newValue) -> {
+                sessionFilteredList.setPredicate(session->{
+                    if(newValue==null||newValue.isEmpty()){
+                        return true;
+                    }
+                    String lowerCaseFilter=newValue.toLowerCase();
+
+        
+                    if(session.getLecturer().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                        return true;
+                    }else if(session.getSubjects().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                        return true;
+                    }else{
+                        return false;
+                    }
+
+
+                });
+
+                SortedList<DisplaySession> sortedList=new SortedList<>(sessionFilteredList);
+                sortedList.comparatorProperty().bind(sessiontable.comparatorProperty());
+                sessiontable.setItems(sessionFilteredList);
+
+            });
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
     
  
 }

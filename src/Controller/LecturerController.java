@@ -259,34 +259,42 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         editButton.setOnAction(event ->{
                         
                         LecturerModel my2=getTableView().getItems().get(getIndex());
+                        lecttable.getItems().removeAll(lecttable.getSelectionModel().getSelectedItem());
                         
-
-                        int value=l2.DeleteLecturer(my2.getId());
-                        
-                        if(value==1)
-                        {
-                            getData();
-                            
- Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
         alert.setHeaderText(null);
         alert.setContentText("Successfully deleted"+my2.getName());
         
         
         alert.showAndWait();
-                        }else{
-                            
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Failure");
-        alert.setHeaderText(null);
-        alert.setContentText("Error deleting"+my2.getName());
-        
-        
-        alert.showAndWait();
-                            
-                            
-                            
-                        }
+
+                        //int value=l2.DeleteLecturer(my2.getId());
+                        
+//                        if(value==1)
+//                        {
+//                            getData();
+//                            
+// Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Success");
+//        alert.setHeaderText(null);
+//        alert.setContentText("Successfully deleted"+my2.getName());
+//        
+//        
+//        alert.showAndWait();
+//                        }else{
+//                            
+//                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Failure");
+//        alert.setHeaderText(null);
+//        alert.setContentText("Error deleting"+my2.getName());
+//        
+//        
+//        alert.showAndWait();
+//                            
+//                            
+//                            
+//                        }
                         
                         });
                         

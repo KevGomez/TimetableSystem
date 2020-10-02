@@ -259,33 +259,42 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         
                         SubjectModel my2=getTableView().getItems().get(getIndex());
                         
-
-                        int value=s1.DeleteSubject(my2.getId());
+                              subjecttable.getItems().removeAll(subjecttable.getSelectionModel().getSelectedItem());
                         
-                        if(value==1)
-                        {
-                            getData();
-                            
- Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
         alert.setHeaderText(null);
         alert.setContentText("Successfully deleted"+my2.getLecture());
         
         
         alert.showAndWait();
-                        }else{
-                            
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Failure");
-        alert.setHeaderText(null);
-        alert.setContentText("Error deleting"+my2.getLecture());
-        
-        
-        alert.showAndWait();
-                            
-                            
-                            
-                        }
+
+//                        int value=s1.DeleteSubject(my2.getId());
+//                        
+//                        if(value==1)
+//                        {
+//                            getData();
+//                            
+// Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Success");
+//        alert.setHeaderText(null);
+//        alert.setContentText("Successfully deleted"+my2.getLecture());
+//        
+//        
+//        alert.showAndWait();
+//                        }else{
+//                            
+//                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Failure");
+//        alert.setHeaderText(null);
+//        alert.setContentText("Error deleting"+my2.getLecture());
+//        
+//        
+//        alert.showAndWait();
+//                            
+//                            
+//                            
+//                        }
                         
                         });
                         
