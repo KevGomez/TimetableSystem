@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PsessionsController">
    <children>
       <VBox alignment="CENTER" prefHeight="82.0" prefWidth="893.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -38,15 +39,47 @@
                                        <children>
                                           <TabPane layoutX="100.0" layoutY="39.0" prefHeight="335.0" prefWidth="512.0" tabClosingPolicy="UNAVAILABLE">
                                              <tabs>
-                                                <Tab text="Allocate">
+                                                <Tab text="Session">
                                                    <content>
                                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="497.0">
                                                          <children>
-                                                            <TextField layoutX="28.0" layoutY="47.0" prefHeight="37.0" prefWidth="160.0" promptText="Category" />
-                                                            <TextField layoutX="203.0" layoutY="46.0" prefHeight="37.0" prefWidth="160.0" promptText="ID" />
-                                                            <DatePicker layoutX="28.0" layoutY="96.0" />
-                                                            <TextField layoutX="28.0" layoutY="130.0" prefHeight="37.0" prefWidth="160.0" promptText="Time" />
-                                                            <Button layoutX="28.0" layoutY="206.0" mnemonicParsing="false" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <DatePicker fx:id="date" layoutX="28.0" layoutY="113.0" promptText="Date" />
+                                                            <TextField fx:id="time" layoutX="28.0" layoutY="172.0" prefHeight="37.0" prefWidth="160.0" promptText="Time [HH:MM:SS](24HR)" />
+                                                            <Button layoutX="28.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#insertSessionNA" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <ComboBox fx:id="categoryID" layoutX="26.0" layoutY="53.0" prefWidth="150.0" promptText="Category ID" />
+                                                            <Text layoutX="27.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category ID" />
+                                                            <Text layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select date" />
+                                                            <Text layoutX="28.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the time" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Group">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="497.0">
+                                                         <children>
+                                                            <DatePicker fx:id="date1" layoutX="28.0" layoutY="113.0" promptText="Date" />
+                                                            <TextField fx:id="time1" layoutX="28.0" layoutY="172.0" prefHeight="37.0" prefWidth="160.0" promptText="Time [HH:MM:SS](24HR)" />
+                                                            <Button layoutX="28.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#insertGroupNA" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <ComboBox fx:id="categoryID1" layoutX="28.0" layoutY="53.0" prefWidth="150.0" promptText="Category ID" />
+                                                            <Text layoutX="29.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category ID" />
+                                                            <Text layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select date" />
+                                                            <Text layoutX="28.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the time" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Lecture">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="497.0">
+                                                         <children>
+                                                            <DatePicker fx:id="date2" layoutX="28.0" layoutY="113.0" promptText="Date" />
+                                                            <TextField fx:id="time2" layoutX="28.0" layoutY="172.0" prefHeight="37.0" prefWidth="160.0" promptText="Time [HH:MM:SS](24HR)" />
+                                                            <Button layoutX="28.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#insertLectureNA" style="-fx-background-color: #1247A1;" text="Allocate" textFill="WHITE" />
+                                                            <ComboBox fx:id="categoryID2" layoutX="29.0" layoutY="53.0" prefWidth="150.0" promptText="Category ID" />
+                                                            <Text layoutX="30.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category ID" />
+                                                            <Text layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select date" />
+                                                            <Text layoutX="28.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the time" />
                                                          </children>
                                                       </AnchorPane>
                                                    </content>
@@ -55,13 +88,13 @@
                                                    <content>
                                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView layoutX="71.0" layoutY="38.0" prefHeight="200.0" prefWidth="397.0">
+                                                            <TableView fx:id="naMainTable" layoutX="10.0" layoutY="38.0" prefHeight="200.0" prefWidth="486.0">
                                                                <columns>
-                                                                  <TableColumn prefWidth="75.0" text="ID" />
-                                                                  <TableColumn text="Category" />
-                                                                  <TableColumn text="Allocated ID" />
-                                                                  <TableColumn text="Date" />
-                                                                  <TableColumn text="Time" />
+                                                                  <TableColumn fx:id="naIdCol" prefWidth="51.0" text="ID" />
+                                                                  <TableColumn fx:id="naCatName" prefWidth="133.0" text="Category Name" />
+                                                                  <TableColumn fx:id="naCatID" prefWidth="90.0" text="Category ID" />
+                                                                  <TableColumn fx:id="naDate" prefWidth="113.0" text="Date" />
+                                                                  <TableColumn fx:id="naTime" prefWidth="98.0" text="Time" />
                                                                </columns>
                                                             </TableView>
                                                          </children>
@@ -88,9 +121,9 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TextField layoutX="26.0" layoutY="49.0" prefHeight="37.0" prefWidth="160.0" promptText="Lecture ID" />
-                                                <TextField layoutX="26.0" layoutY="97.0" prefHeight="37.0" prefWidth="160.0" promptText="Tute ID" />
-                                                <Button layoutX="34.0" layoutY="172.0" mnemonicParsing="false" style="-fx-background-color: #1247A1;" text="Consecutive" textFill="WHITE" />
+                                                <Button fx:id="addCons" layoutX="22.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#updateConsecutive" style="-fx-background-color: #1247A1;" text="Consecutive" textFill="WHITE" />
+                                                <ComboBox fx:id="lectureSessionID" layoutX="22.0" layoutY="48.0" prefWidth="150.0" promptText="Lecture Session ID" />
+                                                <ComboBox fx:id="tuteSessionID" layoutX="22.0" layoutY="91.0" prefWidth="150.0" promptText="Tute Session ID" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -99,11 +132,10 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView layoutX="178.0" layoutY="38.0" prefHeight="200.0" prefWidth="227.0">
+                                                <TableView fx:id="consTable" layoutX="178.0" layoutY="38.0" prefHeight="200.0" prefWidth="227.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="75.0" text="ID" />
-                                                      <TableColumn prefWidth="75.0" text="Lecture ID" />
-                                                      <TableColumn prefWidth="75.0" text="Tute ID" />
+                                                      <TableColumn fx:id="consSessionCol" prefWidth="114.0" text="Session ID" />
+                                                      <TableColumn fx:id="consConsCol" prefWidth="112.0" text="Cons ID" />
                                                    </columns>
                                                 </TableView>
                                              </children>
@@ -124,34 +156,27 @@
                                  <tabs>
                                     <Tab text="Allocate">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextField fx:id="orderID" layoutX="48.0" layoutY="119.0" prefHeight="33.0" prefWidth="154.0" promptText="Order " />
+                                                <Button fx:id="addParallel" layoutX="50.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#updateParallel" style="-fx-background-color: #214895;" text="Add parallel" textFill="WHITE" />
+                                                <Text layoutX="48.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session ID" />
+                                                <Text layoutX="48.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parallel Order" />
+                                                <ComboBox fx:id="sessionID" layoutX="47.0" layoutY="68.0" prefWidth="150.0" promptText="Session ID" />
+                                             </children></AnchorPane>
                                        </content>
                                     </Tab>
                                     <Tab text="Get List">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                       </content>
-                                    </Tab>
-                                 </tabs>
-                              </TabPane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="Should not overlap">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TabPane layoutX="56.0" layoutY="23.0" prefHeight="305.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
-                                 <tabs>
-                                    <Tab text="Allocate">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                       </content>
-                                    </Tab>
-                                    <Tab text="Get List">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="parTable" layoutX="149.0" layoutY="38.0" prefHeight="200.0" prefWidth="263.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="sessionIDCol" prefWidth="130.0" text="Session ID" />
+                                                    <TableColumn fx:id="orderIDCol" prefWidth="132.0" text="Order ID" />
+                                                  </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
                                        </content>
                                     </Tab>
                                  </tabs>

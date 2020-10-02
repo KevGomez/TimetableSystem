@@ -1,5 +1,8 @@
 package timetablesystem.DataBaseHandler;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -26,6 +29,8 @@ public class DBSqlHandler {
         }
 
     }
+    
+  
 
 
     public void createTables(){
@@ -43,7 +48,7 @@ public class DBSqlHandler {
 
             st.executeUpdate(CreateTables.workingday);
             st.executeUpdate(CreateTables.timeslot);
-            st.executeUpdate(CreateTables.lecturer);
+            st.executeUpdate(CreateTables.lecturers);
             st.executeUpdate(CreateTables.subjects);
             st.executeUpdate(CreateTables.tag);
             st.executeUpdate(CreateTables.buildings);
@@ -56,6 +61,7 @@ public class DBSqlHandler {
             st.executeUpdate(CreateTables.room_has_lecturer);
             st.executeUpdate(CreateTables.room_has_students_grp);
 
+            
 
 
 
@@ -72,11 +78,15 @@ public class DBSqlHandler {
     public String DbInsert(String query){
         String r;
         try {
-            st.executeUpdate(query) ;
+           int d= st.executeUpdate(query) ;
+
             r="Success";
-        }
+         }
         catch (Exception e) {
-            r= e.toString();
+             r= e.toString();
+
+            Alert alert = new Alert(Alert.AlertType.WARNING,e.getMessage(), ButtonType.CANCEL);
+            alert.showAndWait();
         }
         return r;
     }

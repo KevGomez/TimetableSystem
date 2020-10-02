@@ -5,8 +5,8 @@
 .side-bar-button{
     -fx-padding: 5,10,5,10;
     -fx-background-color: linear-gradient(to right top, #2c00ff, #0049ff, #006aff, #0084ff, #009bff);
-    -fx-border-radius: 5 5 5 5;
-    -fx-background-radius: 5 5 5 5;
+    -fx-border-radius: 5 0 0 5;
+    -fx-background-radius: 5 0 0 5;
 
 }
 
@@ -16,7 +16,69 @@
     -fx-border-radius: 5 0 0 5;
     -fx-background-radius: 5 0 0 5;
 
+}
 
+.preference-btn-tag{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #ffff97, #edfe79, #d5fe5c, #b6ff3d, #8dff12);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.preference-btn-tag:hover{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top,#b6ff3d, #8dff12,  #d5fe5c, #ffff97, #edfe79);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+
+
+.preference-btn-lecture{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #bbff97, #a4ff84, #88ff72, #62ff61, #12ff50);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.preference-btn-lecture:hover{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #ffff97, #edfe79,  #d5fe5c, #b6ff3d, #8dff12);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+
+.preference-btn-subgroup{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #16f85b, #00eb7f, #00dd98, #00cea8, #0abeae);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.preference-btn-subgroup:hover{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #00cea8, #0abeae, #00dd98, #16f85b, #00eb7f);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+
+.preference-btn-session {
+    -fx-padding: 5, 10, 5, 10;
+    -fx-background-color:  linear-gradient(to right top, #97c0ff, #81abff, #7a93ff, #8277ff, #9652ff);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+
+
+
+}
+
+.preference-btn-session:hover{
+    -fx-padding: 5,10,5,10;
+    -fx-background-color: linear-gradient(to right top, #8277ff, #9652ff,  #7a93ff, #97c0ff, #81abff);
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
 }
 
 

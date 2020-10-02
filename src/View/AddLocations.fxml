@@ -42,7 +42,7 @@
                                        <children>
                                               <Button fx:id="add_building_btn" layoutX="-2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Add" />
                                           <Button fx:id="update_building_btn" layoutX="-1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Update" visible="false" />
-                                              <Button fx:id="clear_building" layoutX="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Clear" />
+                                              <Button fx:id="clear_building" layoutX="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Clear" />
                                        </children>
                                     </Pane>
                                  </children>
@@ -53,17 +53,28 @@
                                         <TextField fx:id="addRoom_text" prefHeight="25.0" prefWidth="204.0" promptText="Add Room" />
                                     <Pane prefHeight="25.0" prefWidth="61.0">
                                        <children>
-                                          <Button fx:id="add_room_btn" mnemonicParsing="false" text="Add" />
+                                          <Button fx:id="add_room_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Add" />
                                           <Button fx:id="update_room_btn" layoutX="-6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Update" visible="false" />
                                               <Button fx:id="clear_room" layoutX="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Clear" />
                                        </children>
                                     </Pane>
                                  </children>
                               </HBox>
-                              <TextField fx:id="notReservedTime_text" prefHeight="25.0" prefWidth="196.0" promptText="Not reserved time">
-                                 <VBox.margin>
-                                    <Insets right="180.0" />
-                                 </VBox.margin></TextField>
+                              <HBox prefHeight="25.0" prefWidth="201.0" spacing="8.0">
+                                 <children>
+                                    <Pane prefHeight="25.0" prefWidth="274.0">
+                                       <children>
+                                           <ComboBox fx:id="hours" prefHeight="25.0" prefWidth="55.0" promptText="H">
+
+                                     </ComboBox>
+                                           <ComboBox fx:id="minitues" layoutX="64.0" prefHeight="25.0" prefWidth="55.0" promptText="M">
+                                     </ComboBox>
+                                          <Text fill="#909090" layoutX="128.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not rederved time" wrappingWidth="97.283203125" />
+                                          <TextField fx:id="notReservedTime_text" promptText="Not reserved time" visible="false" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
                               <HBox spacing="10.0">
                                  <children>
                                         <ComboBox fx:id="room_buiding_dop" prefHeight="25.0" prefWidth="79.0" promptText="Building" />
@@ -128,8 +139,8 @@
                <children>
                       <TableView fx:id="building_table" prefHeight="231.0" prefWidth="887.0">
                           <columns>
-                              <TableColumn fx:id="building_id_row" prefWidth="152.0" text="ID" />
-                              <TableColumn fx:id="building_name_row" prefWidth="658.0" text="Name" />
+                              <TableColumn fx:id="building_id_row" prefWidth="374.0" text="ID" />
+                              <TableColumn fx:id="building_name_row" prefWidth="436.0" text="Name" />
                           </columns>
                       </TableView>
                </children>

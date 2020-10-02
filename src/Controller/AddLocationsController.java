@@ -2,8 +2,13 @@ package Controller;
 
 import Model.Building;
 import Model.Room;
+import Model.TagData;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -14,6 +19,9 @@ import javafx.util.StringConverter;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddLocationsController implements Initializable {
@@ -44,6 +52,13 @@ public class AddLocationsController implements Initializable {
     @FXML private TableColumn<Building,String> building_id_row;
     @FXML private TableColumn<Building,String> building_name_row;
 
+    //Time picker
+    @FXML private ComboBox hours;
+    @FXML private ComboBox minitues;
+    @FXML private ComboBox meridiem;
+
+
+
 
 
     @FXML private TableView<Room> room_table;
@@ -68,6 +83,7 @@ public class AddLocationsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Building=new Building();
         Rooms=new Room();
+        setTimeValues();
 
 
         add_building_btn.setOnAction(new EventHandler<ActionEvent>() {
@@ -102,11 +118,15 @@ public class AddLocationsController implements Initializable {
                 Building building = (Building) room_buiding_dop.getSelectionModel().getSelectedItem();
                 String building_room =building.getId();
 
+                setTimeValues();
 
 
 
 
-                String notreservedtime=notReservedTime_text.getText().trim();
+
+//                String notreservedtime=notReservedTime_text.getText().trim();
+                String notreservedtime=timeGenerator();
+
 
                 System.out.println(building_room);
                 if (roomname.isEmpty()){
@@ -247,8 +267,15 @@ public class AddLocationsController implements Initializable {
                     togalUpdateAndAddButtonRoom();
                     addRoom_text.setText(roomName);
                     room_capacity_text.setText(roomCapasity);
-//                    room_buiding_dop.setValue(roomBuilding);
+
+//                    notReservedTime_text.setVisible(true);
+//                    hours.setVisible(false);
+//                    minitues.setVisible(false);
+
+                    ToggleTime();
+
                     notReservedTime_text.setText(roomNotreservedTime);
+
 
 
                     update_room_btn.setOnAction(new EventHandler<ActionEvent>() {
@@ -256,28 +283,47 @@ public class AddLocationsController implements Initializable {
                         public void handle(ActionEvent event) {
                             String newRoomvalue=addRoom_text.getText().trim();
                             String newRoomCapasityvalue=room_capacity_text.getText().trim();
-//                          String newRoomBuilding=room_buiding_dop.getValue().toString();
-
-                            Building building = (Building) room_buiding_dop.getSelectionModel().getSelectedItem();
-                            String newRoomBuilding=building.getId();
-
                             String newRoomNotReservdTime=notReservedTime_text.getText().trim();
+                            String newBuildingID;
+                            Building dropDownValue= (Model.Building) room_buiding_dop.getSelectionModel().getSelectedItem();
 
+                           if(dropDownValue==null){
+                               System.out.println("Table Values "+roomBuilding);
+                               newBuildingID=roomBuilding;
+                           }else{
+                               if(dropDownValue.getId()==roomBuilding){
+                                   System.out.println("Table Values "+roomBuilding);
+                                   newBuildingID=roomBuilding;
+
+
+                               }else{
+                                   System.out.println("DropDown Values "+dropDownValue.getId());
+                                   newBuildingID=dropDownValue.getId();
+
+                               }
+                           }
 
                             if(!newRoomvalue.isEmpty()){
-                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue,newRoomBuilding,newRoomNotReservdTime);
-                                showRoomsTable();
-                                togalUpdateAndAddButtonRoom();
-                                addRoom_text.clear();
-                                room_capacity_text.clear();
-                                notReservedTime_text.clear();
 
+                                Rooms.UpdateData(roomID,newRoomvalue,newRoomCapasityvalue, newBuildingID,newRoomNotReservdTime);
+                                    System.out.println(roomID+" "+newRoomvalue+" "+newRoomCapasityvalue+" "+newBuildingID+" "+newRoomNotReservdTime);
+                                    System.out.println("Room updated");
 
-                                System.out.println("Room updated");
                             }else{
                                 Alert alert = new Alert(Alert.AlertType.ERROR, "Rooms is Empty ");
                                 alert.showAndWait();
                             }
+
+
+
+
+                            showRoomsTable();
+                            togalUpdateAndAddButtonRoom();
+                            addRoom_text.clear();
+                            room_capacity_text.clear();
+                            notReservedTime_text.clear();
+                            ToggleTime();
+
 
 
                         }
@@ -385,6 +431,43 @@ public class AddLocationsController implements Initializable {
         }
 
 
+    }
+
+    public void setTimeValues(){
+        ObservableList<String> minitusList = FXCollections.observableArrayList();
+        ObservableList<String> hoursList = FXCollections.observableArrayList();
+
+
+        for(int i=0;i<60;i++){
+            minitusList.add(String.valueOf(i+1));
+        }
+
+        for(int i=0;i<24;i++){
+            hoursList.add(String.valueOf(i+1));
+        }
+
+
+
+        minitues.setItems(minitusList);
+        hours.setItems(hoursList);
+
+
+    }
+
+
+    public String timeGenerator(){
+
+         String hours_time = hours.getSelectionModel().getSelectedItem().toString();
+         String minitues_time = minitues.getSelectionModel().getSelectedItem().toString();
+
+
+        return  hours_time+":"+minitues_time+":00";
+    }
+
+    public void ToggleTime(){
+        notReservedTime_text.setVisible(!notReservedTime_text.isVisible());
+        hours.setVisible(!hours.isVisible());
+        minitues.setVisible(!minitues.isVisible());
     }
 
 

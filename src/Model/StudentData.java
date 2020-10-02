@@ -35,6 +35,10 @@ public class StudentData {
             this.delete = new Button("Delete");
     }
 
+    public StudentData(String sgrp_id) {
+        this.sgrp_id = sgrp_id;
+    }
+
     public int getId() {
         return id;
     }
@@ -105,6 +109,14 @@ public class StudentData {
 
     public void setSgrp_id(String sgrp_id) {
         this.sgrp_id = sgrp_id;
-    } 
+    }
+
+    @Override
+    public String toString() {
+        return this.getSgrp_id(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
     
 }

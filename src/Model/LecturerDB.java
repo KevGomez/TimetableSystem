@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 /**
@@ -27,7 +28,7 @@ public class LecturerDB {
        
        Connection conn;
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/timeTableSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            conn = DriverManager.getConnection("jdbc:sqlserver://spmservercode4.database.windows.net:1433;database=SPM_TIMETABLE;user=spmcode4@spmservercode4;password=code4@123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
             return conn;
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -100,7 +101,7 @@ public class LecturerDB {
             LecturerModel lecturers;
             while(rs.next()){
                // button[1]=new Button();
-                lecturers = new LecturerModel(rs.getInt("ID"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
+                lecturers = new LecturerModel(rs.getInt("idemployee"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
                 lecturelist.add(lecturers);
             }
         }catch(Exception e){
@@ -111,7 +112,7 @@ public class LecturerDB {
     }
    
    
-   public int DeleteLecturer(int id)
+   public void DeleteLecturer(int id)
  {  
 	
 	 
@@ -119,14 +120,11 @@ public class LecturerDB {
 	  {   
 		  Connection con = connect();
 	 
-                  if(con==null)
-                  {
-                      return 0;
-                  }
+                 
 	     
 	  
 	      //create a prepared statement   
-	      String sql = "delete from lecturers where ID=?"; 
+	      String sql = "delete from lecturers where idemployee=?"; 
 	      PreparedStatement st =con.prepareStatement(sql); 
 	      
 	      //binding values    
@@ -135,16 +133,29 @@ public class LecturerDB {
               st.setInt(1, id);
 	      // execute the statement
 	      st.execute(); 
-	      con.close(); 
-	 
+	      con.close();                             
+              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Success");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Successfully deleted");
+                            
 	      
 	   } 
 	   catch (Exception e)
 	    {   
-		  
+		  Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Failure");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Error deleting lecturer because "+e.getMessage());
+                            
+                            
+                            alert.showAndWait();
+                                
 		  System.err.println(e.getMessage());
+                  
+                  
 		} 
-	 return 1;
+	
 	  
 	}
    
@@ -160,7 +171,7 @@ public class LecturerDB {
 				return 0;
 			}
 			// create a prepared statement
-			String query = "update lecturers set name = ? , lectureID = ? , faculty = ?,department = ?, center = ? , building = ?,level = ? , rank = ?  where ID = ?";
+			String query = "update lecturers set name = ? , lectureID = ? , faculty = ?,department = ?, center = ? , building = ?,level = ? , rank = ?  where idemployee = ?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values

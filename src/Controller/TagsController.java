@@ -33,6 +33,9 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import Model.TagData;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import timetablesystem.MainController;
 /**
  * FXML Controller class
  *
@@ -75,7 +78,7 @@ public class TagsController implements Initializable {
     public Connection getConnection(){
         Connection conn;
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/timeTableSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            conn = DriverManager.getConnection("jdbc:sqlserver://spmservercode4.database.windows.net:1433;database=SPM_TIMETABLE;user=spmcode4@spmservercode4;password=code4@123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
             return conn;
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -87,7 +90,7 @@ public class TagsController implements Initializable {
         ObservableList<TagData> tagList = FXCollections.observableArrayList();
         Connection conn = getConnection();
         
-        String query = "SELECT * FROM tags";
+        String query = "SELECT * FROM tag";
         Statement st;
         ResultSet rs;
         
@@ -97,7 +100,7 @@ public class TagsController implements Initializable {
             TagData tags = null;
             
             while(rs.next()){
-                tags = new TagData(rs.getInt("id"), rs.getString("name"));
+                tags = new TagData(rs.getInt("idtag"), rs.getString("name"));
                 tagList.add(tags);
             }
             
@@ -131,14 +134,9 @@ public class TagsController implements Initializable {
 
                             TagData sd=getTableView().getItems().get(getIndex());
                             
-                            String query3 = "UPDATE tags SET name='"+sd.getName()+"' WHERE id="+sd.getId()+" ";
+                            String query3 = "UPDATE tag SET name='"+sd.getName()+"' WHERE idtag="+sd.getId()+" ";
                             executeQuery(query3);
                             
-                            Alert alert = new Alert(AlertType.INFORMATION);
-                            alert.setTitle("Success");
-                            alert.setHeaderText(null);
-                            alert.setContentText("Data has been edited");
-                            alert.showAndWait();
 
                             });
 
@@ -177,17 +175,12 @@ public class TagsController implements Initializable {
 
                                 TagData sd=getTableView().getItems().get(getIndex());
 
-                                String query2 = "DELETE FROM tags WHERE id = "+sd.getId()+"";
+                                String query2 = "DELETE FROM tag WHERE idtag = "+sd.getId()+"";
                                 executeQuery(query2);
                                 
                                 getData();
 
-                                Alert alert = new Alert(AlertType.INFORMATION);
-                                alert.setTitle("Success");
-                                alert.setHeaderText(null);
-                                alert.setContentText("Data has been deleted!");
-
-                                alert.showAndWait();
+                                
 
                                 });
 
@@ -211,18 +204,31 @@ public class TagsController implements Initializable {
     @FXML
     public void insert(MouseEvent event) throws IOException{
         
-        String query = "INSERT INTO tags VALUES (null, '"+name.getText()+"')";
-        executeQuery(query);
+        String query2 = "select max(idtag) from tag";
+        int key, pkey;
+        Connection conn = getConnection();
+        Statement st;
+        ResultSet rs;
+        
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query2);
+            
+            while(rs.next()){
+             key = rs.getInt(1);
+                
+            pkey = key + 1;
+            String query = "INSERT INTO tag(name) VALUES ('"+name.getText()+"')";
+            executeQuery(query);
+       
+            }
+            }catch(Exception e){
+                e.printStackTrace();
+        }
         
         name.setText(" ");
         
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Data has been saved!");
-
-        alert.showAndWait();
-        getData();
+        
     }
     
     private void editableCols(){
@@ -242,9 +248,23 @@ public class TagsController implements Initializable {
         try{
             st = conn.createStatement();
             st.executeUpdate(query);
+            
+            Alert alert = new Alert(AlertType.INFORMATION);
+                                    alert.setTitle("Success");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Operation Success!");
+
+                                    alert.showAndWait();
         }catch(Exception e){
             e.printStackTrace();
+            Alert alert = new Alert(AlertType.INFORMATION);
+                                    alert.setTitle("Error");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Operation can not be done:  " + e.getMessage());
+                                    alert.showAndWait();
         }
     }
+    
+    
     
 }

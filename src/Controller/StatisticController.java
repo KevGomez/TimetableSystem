@@ -37,22 +37,23 @@ public class StatisticController implements Initializable {
 
         try {
             //lecture pie chart
-            lecture_center_pie.setData(lecture.getPiCtartData(lecture.GroupBy("faculty","lecturers","ID")));
-            lecture_level_pie.setData(lecture.getPiCtartData(lecture.GroupBy("department","lecturers","ID")));
-            lecture_departmet_pie.setData(lecture.getPiCtartData(lecture.GroupBy("level","lecturers","ID")));
+
+            lecture_center_pie.setData(lecture.getPiCtartData(lecture.GroupBy("center","lecturers","idemployee")));
+            lecture_level_pie.setData(lecture.getPiCtartData(lecture.GroupBy("department","lecturers","idemployee")));
+            lecture_departmet_pie.setData(lecture.getPiCtartData(lecture.GroupBy("level","lecturers","idemployee")));
 
             //student pie chart
-            studet_accadamicyear_pichart.setData(lecture.getPiCtartData(student.GroupBy("AcadamicYear","student","ID")));
-            studet_accadamicsemester_pichart.setData(lecture.getPiCtartData(student.GroupBy("AcadamicSemester","student","ID")));
+            studet_accadamicyear_pichart.setData(lecture.getPiCtartData(student.GroupBy("year","students_grp","idstudents_grp")));
+            studet_accadamicsemester_pichart.setData(lecture.getPiCtartData(student.GroupBy("pro","students_grp","idstudents_grp")));
             //subject pie chart
-            subject_year_pichart.setData(lecture.getPiCtartData(student.GroupBy("Year","subject","ID")));
-            subject_code_pichart.setData(lecture.getPiCtartData(student.GroupBy("Code","subject","ID")));
+            subject_year_pichart.setData(lecture.getPiCtartData(student.GroupBy("year","subject","idsubjects")));
+            subject_code_pichart.setData(lecture.getPiCtartData(student.GroupBy("semester","subject","idsubjects")));
 
             subject_year_pichart.setTitle("Academic Year");
-            subject_code_pichart.setTitle("Subject Code");
+            subject_code_pichart.setTitle("Subject Semester");
 
             studet_accadamicyear_pichart.setTitle("Academic Year");
-            studet_accadamicsemester_pichart.setTitle("Academic  Semester");
+            studet_accadamicsemester_pichart.setTitle("Academic Program");
 
 
 

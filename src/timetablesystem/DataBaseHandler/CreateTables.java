@@ -77,33 +77,33 @@ public class CreateTables {
             "   timeslot  VARCHAR(45) NULL,\n" +
             "  PRIMARY KEY ( idtimeslot ))\n";
 
-    static  String lecturer= "CREATE TABLE   lecturer  (\n" +
+    static  String lecturers= "CREATE TABLE   lecturers  (\n" +
             "   idemployee  INT NOT NULL IDENTITY,\n" +
             "   name  VARCHAR(45) NULL,\n" +
-            "   level_id  INT NULL,\n" +
-            "   notavaible  VARCHAR(45) NULL,\n" +
-            "   faculty_idfaculty  INT NULL,\n" +
-            "   level  INT NULL,\n" +
-            "   centre  VARCHAR(45) NULL,\n" +
-            "   department  VARCHAR(45) NULL,\n" +
+            "   lectureID VARCHAR(50) NULL,\n" +
+            "   faculty  VARCHAR(50) NULL,\n" +
+            "   department  VARCHAR(50) NULL,\n" +
+            "   center  VARCHAR(50) NULL,\n" +
+            "   building  VARCHAR(50) NULL,\n" +
+            "   level  VARCHAR(50) NULL,\n" +
+            "   rank  VARCHAR(20) NULL,\n" +
             "  PRIMARY KEY ( idemployee ))";
 
-    static  String subjects ="CREATE TABLE   subjects  (\n" +
+    static  String subjects ="CREATE TABLE   subject  (\n" +
             "   idsubjects  INT NOT NULL IDENTITY,\n" +
-            "   name  VARCHAR(45) NULL,\n" +
-            "   code  VARCHAR(45) NULL,\n" +
-            "   lecture_hours  VARCHAR(45) NULL,\n" +
-            "   tutorial_hours  VARCHAR(45) NULL,\n" +
-            "   lab_hours  VARCHAR(45) NULL,\n" +
-            "   year  VARCHAR(45) NULL,\n" +
-            "   evalution_houre  VARCHAR(45) NULL,\n" +
-            "   semester  INT NULL,\n" +
-            "   year_idyear  INT NULL,\n" +
+            "   year  VARCHAR(50) NULL,\n" +
+            "   semester  VARCHAR(50) NULL,\n" +
+            "   subject  VARCHAR(50) NULL,\n" +
+            "   code  VARCHAR(50) NULL,\n" +
+            "   lecturehrs  VARCHAR(10) NULL,\n" +
+            "   tutehrs  VARCHAR(10) NULL,\n" +
+            "   labhrs  VARCHAR(10) NULL,\n" +
+            "   evaluationhrs  VARCHAR(10) NULL,\n" +
             "  PRIMARY KEY ( idsubjects ))";
 
     static String tag="CREATE TABLE   tag  (\n" +
             "   idtag  INT NOT NULL IDENTITY,\n" +
-            "   tag  VARCHAR(45) NULL,\n" +
+            "   name  VARCHAR(45) NULL,\n" +
             "  PRIMARY KEY ( idtag ))";
 
 
@@ -114,12 +114,19 @@ public class CreateTables {
 
     static  String students_grp="CREATE TABLE   students_grp  (\n" +
             "   idstudents_grp  INT NOT NULL IDENTITY,\n" +
+
             "   year_sem  VARCHAR(45) NULL,\n" +
             "   programme  VARCHAR(45) NULL,\n" +
             "   grp_no  INT NULL,\n" +
             "   sgrp_no  INT NULL,\n" +
+
+            "   year  VARCHAR(45) NULL,\n" +
+            "   pro  VARCHAR(45) NULL,\n" +
+            "   grp_no  VARCHAR(45) NULL,\n" +
+
             "   grp_id  VARCHAR(45) NULL,\n" +
-            "   sgrp_id  VARCHAR(45) NOT NULL,\n" +
+            "   sgrp_no  VARCHAR(45) NULL,\n" +
+            "   sgrp_id  VARCHAR(100) NOT NULL,\n" +
             "  PRIMARY KEY ( idstudents_grp ))";
 
 
@@ -147,6 +154,8 @@ public class CreateTables {
             "   subjects_idsubjects  INT NOT NULL,\n" +
             "   students_grp_idstudents_grp  INT NOT NULL,\n" +
             "   room_idroom  INT ,\n" +
+            "   porder  INT NULL,\n" +
+
 
             "  PRIMARY KEY ( idsessions ,  tag_idtag ,  lecturer_idemployee ,  subjects_idsubjects ,  students_grp_idstudents_grp ),\n" +
             "  CONSTRAINT  fk_sessions_tag1 \n" +
@@ -156,12 +165,12 @@ public class CreateTables {
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_lecturer1 \n" +
             "    FOREIGN KEY ( lecturer_idemployee )\n" +
-            "    REFERENCES   lecturer  ( idemployee )\n" +
+            "    REFERENCES   lecturers  ( idemployee )\n" +
             "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_subjects1 \n" +
             "    FOREIGN KEY ( subjects_idsubjects )\n" +
-            "    REFERENCES   subjects  ( idsubjects )\n" +
+            "    REFERENCES   subject  ( idsubjects )\n" +
             "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION,\n" +
             "  CONSTRAINT  fk_sessions_students_grp1 \n" +
@@ -174,6 +183,7 @@ public class CreateTables {
             "    REFERENCES   room  ( idroom )\n" +
             "    ON DELETE NO ACTION\n" +
             "    ON UPDATE NO ACTION)";
+
 
 
 
@@ -252,3 +262,5 @@ public class CreateTables {
 
 
 }
+
+

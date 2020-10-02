@@ -222,7 +222,7 @@ public class ShowTimeTableController implements Initializable {
                 timetableGrid.add(labels.get(c++),i,4);//tute
                 timetableGrid.add(labels.get(c++),i,5);//lab
             }else{
-                System.out.println(labels.size());
+             //   System.out.println(labels.size());
                 timetableGrid.add(labels.get(c++),i,1);//lecture
                 timetableGrid.add(labels.get(c++),i,5);//tute
                 timetableGrid.add(labels.get(c++),i,6);//lab

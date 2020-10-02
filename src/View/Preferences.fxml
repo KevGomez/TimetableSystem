@@ -2,13 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="483.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PreferencesController">
+<AnchorPane prefHeight="583.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PreferencesController">
    <children>
       <VBox layoutX="7.0" prefHeight="325.0" prefWidth="668.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="5.0">
          <children>
@@ -25,43 +27,71 @@
                   <Insets left="5.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <HBox alignment="TOP_CENTER" prefHeight="49.0" prefWidth="668.0">
+            <HBox alignment="TOP_CENTER" prefHeight="120.0" prefWidth="654.0">
                <children>
-                  <Button fx:id="tag_room_btn" mnemonicParsing="false" prefHeight="37.0" prefWidth="136.0" styleClass="preference-btn-tag" stylesheets="/timetablesystem/Main.css" text="Tag">
+                  <Button fx:id="tag_room_btn" mnemonicParsing="false" prefHeight="71.0" prefWidth="136.0" styleClass="preference-btn-tag" stylesheets="/timetablesystem/Main.css" text="Tag">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/tag.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="lecture_room_btn" mnemonicParsing="false" prefHeight="71.0" prefWidth="95.0" styleClass="preference-btn-lecture" stylesheets="/timetablesystem/Main.css" text="Lecture">
+                  <Button fx:id="lecture_room_btn" mnemonicParsing="false" prefHeight="71.0" prefWidth="136.0" styleClass="preference-btn-lecture" stylesheets="/timetablesystem/Main.css" text="Lecture">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/lecture.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="subgroup_room_btn" mnemonicParsing="false" prefHeight="71.0" prefWidth="95.0" styleClass="preference-btn-subgroup" stylesheets="/timetablesystem/Main.css" text="Sub Group">
+                  <Button fx:id="subgroup_room_btn" mnemonicParsing="false" prefHeight="71.0" prefWidth="136.0" styleClass="preference-btn-subgroup" stylesheets="/timetablesystem/Main.css" text="Sub Group">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/sub-group.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="session_room_btn" mnemonicParsing="false" prefHeight="71.0" prefWidth="95.0" styleClass="preference-btn-session" stylesheets="/timetablesystem/Main.css" text="Session">
+                  <Button fx:id="session_room_btn" mnemonicParsing="false" prefHeight="71.0" prefWidth="136.0" styleClass="preference-btn-session" stylesheets="/timetablesystem/Main.css" text="Session">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/session.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <HBox fx:id="loadPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="668.0" />
+            <HBox fx:id="loadPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="448.0" prefWidth="654.0" />
          </children>
       </VBox>
    </children>

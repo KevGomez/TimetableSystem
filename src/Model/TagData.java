@@ -57,4 +57,13 @@ public class TagData {
             this.edit=new Button("Edit");
             this.delete=new Button("Delete");
     }
+
+
+
+    //toSring overide method
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

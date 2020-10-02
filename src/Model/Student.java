@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import timetablesystem.DataBaseHandler.DBHandler;
+import timetablesystem.DataBaseHandler.DBSqlHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,7 +49,7 @@ public class Student {
 
     public ResultSet getAllData(){
         String selectAllQuerry="SELECT * FROM subject";
-        DBHandler sqlConnection=new DBHandler();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
         ResultSet getAllBuilding=sqlConnection.DbGet(selectAllQuerry);
         return  getAllBuilding;
     }
@@ -57,7 +58,7 @@ public class Student {
         String groupQuerry="SELECT COUNT("+uniq+"),"+group+" FROM "+table+" GROUP BY "+group;
         System.out.println(groupQuerry);
 //        SQLConnection sqlConnection=new SQLConnection();
-        DBHandler sqlConnection=new DBHandler();
+        DBSqlHandler sqlConnection=new DBSqlHandler();
         ResultSet getAllBuilding=sqlConnection.DbGet(groupQuerry);
         return  getAllBuilding;
     }
@@ -72,4 +73,10 @@ public class Student {
         return lecture_groups;
 
     }
+
+  
+    
+    
+    
+    
 }
