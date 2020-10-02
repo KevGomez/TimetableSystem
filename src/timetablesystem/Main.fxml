@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="600.0" minWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.MainController">
+<AnchorPane id="AnchorPane" minHeight="600.0" minWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetablesystem.MainController">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -22,7 +22,7 @@
                               <Image url="@../assert/icons8-parking-50.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="lblParkingGrid" text="WORKING DAYS TIMES" textFill="WHITE">
+                        <Label fx:id="lblParkingGrid" onMouseClicked="#showWorkingTimeSettngs" text="WORKING DAYS TIMES" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -104,15 +104,7 @@
 
 
 <!--add location button -->
-
-
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationClick" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
-
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationClick" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
-
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationClick" prefWidth="200.0" spacing="5.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -129,19 +121,9 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  </HBox>
-                  </HBox>
 <!-- statics button                 -->
 
-
-
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onStatisticClick" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
-
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onStatisticClick" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
-
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#onStatisticClick" prefWidth="200.0" spacing="5.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -158,20 +140,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  </HBox>
-                  </HBox>
+
 <!--         statistic button-->
 <!--             location preference     -->
 
-
-
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationPreference" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
-
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationPreference" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
-
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#onLocationPreference" prefWidth="200.0" spacing="5.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -188,8 +161,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  </HBox>
-                  </HBox>
+
 <!--             location preference end-->
 
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#sessionOnClick" prefWidth="200.0" spacing="5.0" styleClass="side-bar-button" stylesheets="@Main.css">
@@ -209,22 +181,14 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-
-
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#showGenerateTimeTables" prefWidth="200.0" style="-fx-background-color: #1c6494;" styleClass="side-bar-button" stylesheets="@Main.css">
-
-                  <HBox alignment="CENTER_LEFT" prefWidth="200.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
-
                   <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="5.0" styleClass="side-bar-button" stylesheets="@Main.css">
-
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assert/Property Time_64px.png" />
                            </image>
                         </ImageView>
-                        <Label text="TIME TABLE" textFill="WHITE">
+                        <Label onMouseClicked="#showGenerateTimeTables" text="TIME TABLE" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -234,10 +198,6 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-
-                  </HBox>
-                  </HBox>
-
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#psessionOnClick" prefWidth="200.0" spacing="5.0" styleClass="side-bar-button" stylesheets="@Main.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -255,7 +215,6 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-
                </children>
                <padding>
                   <Insets left="5.0" right="5.0" />

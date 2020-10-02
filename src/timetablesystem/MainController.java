@@ -136,7 +136,7 @@ public class MainController implements Initializable {
     @FXML
     public void showGenerateTimeTables(MouseEvent mouseEvent) {
         try {
-            Parent root = FXMLLoader.load(this.getClass().getResource("../View/ShowTimeTable.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/View/ShowTimeTable.fxml"));
             this.loadPane.getChildren().clear();
             this.loadPane.getChildren().add(root);
         } catch (IOException ex) {
