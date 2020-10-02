@@ -18,7 +18,7 @@
                         <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="200.0" stylesheets="@../timetablesystem/style.css">
                             <children>
                                 <Label prefHeight="17.0" prefWidth="33.0" text="User" />
-                                <ChoiceBox fx:id="timetableuser" prefWidth="150.0" styleClass="choice-box2" stylesheets="@../timetablesystem/DateTimeManagement/DateTimeManagement.css" />
+                                <ChoiceBox fx:id="timetableuser" prefHeight="25.0" prefWidth="158.0" styleClass="choice-box2" stylesheets="@../timetablesystem/DateTimeManagement/DateTimeManagement.css" />
                             </children>
                             <HBox.margin>
                                 <Insets top="20.0" />
@@ -27,7 +27,7 @@
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0">
                             <children>
                                 <Label fx:id="tsuserlabel" text="Message" />
-                                <ChoiceBox fx:id="tsuserList" prefWidth="150.0" styleClass="choice-box2" stylesheets="@../timetablesystem/DateTimeManagement/DateTimeManagement.css" />
+                                <ChoiceBox fx:id="tsuserList" minWidth="250.0" prefHeight="25.0" prefWidth="300.0" styleClass="choice-box2" stylesheets="@../timetablesystem/DateTimeManagement/DateTimeManagement.css" VBox.vgrow="ALWAYS" />
                             </children>
                             <HBox.margin>
                                 <Insets top="20.0" />

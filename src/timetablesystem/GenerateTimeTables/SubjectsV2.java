@@ -1,10 +1,11 @@
 package timetablesystem.GenerateTimeTables;
 
 public class SubjectsV2 {
-    String sid,temID;
-    int year, semester,lhours,thours,labhours,ehours;
+    String sid,temID,year, semester;
+    int lhours,thours,labhours,ehours;
 
-    public SubjectsV2(String sid, String temID, int year, int semester, int lhours, int thours, int labhours, int ehours) {
+
+    public SubjectsV2(String sid, String temID, String year, String semester, int lhours, int thours, int labhours, int ehours) {
         this.sid = sid;
         this.temID=temID;
         this.year = year;
@@ -23,11 +24,11 @@ public class SubjectsV2 {
         return sid;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public int getSemester() {
+    public String getSemester() {
         return semester;
     }
 
