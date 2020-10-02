@@ -51,22 +51,22 @@ public class SessionPreferenceController implements Initializable {
                 Room room =(Room) room_combo.getSelectionModel().getSelectedItem();
                 String Roomid=room.getIdroom();
 
-                Session session=(Session) session_combo.getSelectionModel().getSelectedItem();
+                SessionHasRoom session=(SessionHasRoom) session_combo.getSelectionModel().getSelectedItem();
                 String sessionid= Integer.toString(session.getIdsessions());
 
-
-                try {
-                    SessionHasRoom tag = (SessionHasRoom) SessionRoomDAO.getObservebleSessionHasRoomList(SessionRoomDAO.GetAllSessionsAndRooms());
-                    String tag_name=tag.getTag();
+//
+//                try {
+//                    SessionHasRoom tag = (SessionHasRoom) SessionRoomDAO.getObservebleSessionHasRoomList(SessionRoomDAO.GetTagUseSessionID(sessionid));
+//                    String tag_name=tag.getTag();
 
                     SessionRoomDAO sessionRoomDAO =new SessionRoomDAO();
-                    sessionRoomDAO.InsertData(Roomid,sessionid,tag_name);
+                    sessionRoomDAO.InsertData(Roomid,sessionid);
                     System.out.println("Session and room id added");
                     LoadSessionHasRoomTable();
 
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
 
 
             }
@@ -97,7 +97,9 @@ public class SessionPreferenceController implements Initializable {
     public void LoardSessionList(){
 
         try{
-            session_combo.setItems(SessionRoomDAO.getObservebleList(SessionRoomDAO.GetAllSessions()));
+//            session_combo.setItems(SessionRoomDAO.getObservebleList(SessionRoomDAO.GetAllSessions()));
+            session_combo.setItems(SessionRoomDAO.getObservebleSessionHasRoomList(SessionRoomDAO.GetAllSessionsAndRooms()));
+
         }catch (SQLException throwables) {
             throwables.printStackTrace();
         }
