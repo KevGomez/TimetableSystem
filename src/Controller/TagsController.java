@@ -227,6 +227,7 @@ public class TagsController implements Initializable {
         }
         
         name.setText(" ");
+        getData();
         
         
     }
