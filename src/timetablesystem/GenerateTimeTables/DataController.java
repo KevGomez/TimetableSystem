@@ -106,7 +106,7 @@ public class DataController {
                 thours =Integer.parseInt(resultSet.getString(7));
                 labhours =Integer.parseInt(resultSet.getString(8));
                 ehours =Integer.parseInt(resultSet.getString(9));
-                String tempid="Y"+year+"S"+semester;
+                String tempid="Y"+year+".S"+semester+".";
                 subjectsV2s.add(new SubjectsV2(resultSet.getString(5),tempid, year,semester,lhours,thours,labhours,ehours));
             }
         }catch (Exception e){

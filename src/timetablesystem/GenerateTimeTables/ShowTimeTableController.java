@@ -112,7 +112,7 @@ public class ShowTimeTableController implements Initializable {
                 timetableGrid=null;
                 timetableGrid= new GridPane();
                 timetableGrid.getChildren().clear();
-              //  tiimeTableArea.getChildren().clear();
+                tiimeTableArea.setContent(timetableGrid);
 
             }
         });
@@ -124,7 +124,7 @@ public class ShowTimeTableController implements Initializable {
                 timetableGrid=null;
                 timetableGrid= new GridPane();
                 timetableGrid.getChildren().clear();
-               // tiimeTableArea.getChildren().clear();
+                tiimeTableArea.setContent(timetableGrid);
             }
         });
 
@@ -167,6 +167,7 @@ public class ShowTimeTableController implements Initializable {
         ArrayList<LocationV2> temparr;
         ArrayList<Label> labels= new ArrayList<>();
 
+        System.out.print("Subjects"+subjectsV2s.size()+" Location"+locationV2s.size()+"  Students "+students.size());
 
         Random random= new Random();
         int subjects[]=new int[2];
@@ -192,7 +193,7 @@ public class ShowTimeTableController implements Initializable {
             for (int b=0;b<4;b++){
 
                 int l=random.nextInt(temparr.size());
-                System.out.print("l "+l+" ");
+
 
                 Label label = new Label();
                 label.setMinWidth(150.00);
@@ -267,7 +268,10 @@ public class ShowTimeTableController implements Initializable {
 
         String timeTableCategory=tsuserList.getSelectionModel().getSelectedItem();
         String userid=tsuserList.getSelectionModel().getSelectedItem();
+        System.out.println("User id"+userid);
         List<SubjectsV2> subjectsV2s=DataController.getSubjectsV2().stream().filter(subjectsV2 ->userid.startsWith(subjectsV2.temID)).collect(Collectors.toList());
+        System.out.println("tem Id"+DataController.getSubjectsV2().get(0).temID);
+
         ArrayList<LocationV2> locationV2s=DataController.getLoactionV2();
         ArrayList<LocationV2> temparr;
         ArrayList<Label> labels= new ArrayList<>();
@@ -291,7 +295,7 @@ public class ShowTimeTableController implements Initializable {
             for (int b=0;b<3;b++){
 
                 int l=random.nextInt(temparr.size());
-                System.out.print("l "+l+" ");
+                System.out.println("Location "+l+" "+subjectsV2s.get(a).sid);
 
                 Label label = new Label();
                 label.setMinWidth(150.00);

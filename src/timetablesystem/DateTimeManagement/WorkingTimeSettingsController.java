@@ -103,7 +103,7 @@ public class WorkingTimeSettingsController implements Initializable {
 
        // dbHandler.createTables(); // create tables
 
-        dbHandler.createTables(); // create tables
+     //   dbHandler.createTables(); // create tables
 
 
         timeSlots=TimeSlotsController.getTimeSlots();
