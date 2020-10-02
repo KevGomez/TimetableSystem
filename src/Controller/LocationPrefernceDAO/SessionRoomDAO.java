@@ -22,10 +22,8 @@ public class SessionRoomDAO {
         dbSqlHandler.DbInsert(insertQuery);
         System.out.println("sessions updated");
 
-//        if(tag.equals("Lecture")){
             consecutive(idsessions,room_idroom);
 
-//        }
 
 
     }
@@ -41,8 +39,8 @@ public class SessionRoomDAO {
 //                " AND subjects_idsubjects = (SELECT subjects_idsubjects FROM sessions WHERE idsessions = "+idsession+")" +
 //                " OR tag_idtag = 2 OR tag_idtag=1" ;
 
-        String updateConsecutiveSessions= "UPDATE sessions SET room_idroom ="+room_idroom+
-                                          "WHERE consecutive ="+idsession+" AND tag_idtag ="+2;
+        String updateConsecutiveSessions= "UPDATE sessions SET room_idroom = "+room_idroom+
+                                          "WHERE consecutive = "+idsession;
 
         DBSqlHandler dbSqlHandler =new DBSqlHandler();
         dbSqlHandler.DbInsert(updateConsecutiveSessions);
@@ -82,10 +80,11 @@ public class SessionRoomDAO {
     }
 
     public static ResultSet GetAllSessionsAndRooms(){
-        String getDataQuery="\n" +
-                " SELECT s.idsessions,r.idroom,r.roomName,t.name,sb.subject,sb.semester ,sb.year\n" +
-                " FROM  sessions s,room r,tag t,subject sb\n" +
-                " WHERE s.tag_idtag=t.idtag AND s.subjects_idsubjects = sb.idsubjects AND s.room_idroom =r.idroom";
+        String getDataQuery="SELECT sessions.idsessions,room.idroom,room.roomName,tag.name,subject.subject,subject.semester ,subject.year\n" +
+                "FROM  sessions  \n" +
+                "INNER JOIN tag ON sessions.tag_idtag=tag.idtag \n" +
+                "INNER JOIN room ON sessions.room_idroom=room.idroom \n" +
+                "INNER JOIN subject ON  sessions.subjects_idsubjects=subject.idsubjects ";
 
         DBSqlHandler  dbSqlHandler =new DBSqlHandler();
         ResultSet resultSet=   dbSqlHandler.DbGet(getDataQuery);
@@ -103,8 +102,39 @@ public class SessionRoomDAO {
         return  sessionsHasRoomsList;
     }
 
+    public static ObservableList<SessionHasRoom> getObservebleSessionHasRoomWithoutRoomList(ResultSet resultSet) throws SQLException {
+        ObservableList<SessionHasRoom> sessionsHasRoomsList = FXCollections.observableArrayList();
 
-//    public void DeleteData(String rooID, String sessionID) {
-//        String deleteQuery="DELETE FORM "
-//    }
+        while (resultSet.next()){
+            sessionsHasRoomsList.add(new SessionHasRoom(resultSet.getInt("idsessions"),0,resultSet.getString("semester"),null,resultSet.getString("name"),resultSet.getString("subject"),resultSet.getString("year") ));
+            System.out.println(resultSet.getString("idsessions"));
+        }
+
+        return  sessionsHasRoomsList;
+    }
+
+
+
+
+    public String DeleteData(String room_idroom, String sessionID) {
+        String insertQuery="UPDATE sessions SET room_idroom = NULL WHERE idsessions = "+sessionID;
+
+        DBSqlHandler dbSqlHandler =new DBSqlHandler();
+       String e= dbSqlHandler.DbInsert(insertQuery);
+        System.out.println("room remove form session"+e);
+        return  e;
+    }
+
+    public static ResultSet GetAllSessionsAndRoomsWithoutRoomID(){
+
+
+        String getSessionWithoutRoom="SELECT sessions.idsessions,tag.name,subject.subject,subject.semester ,subject.year\n" +
+                                     "FROM  sessions  \n" +
+                                     "INNER JOIN tag ON sessions.tag_idtag=tag.idtag \n" +
+                                     "INNER JOIN subject ON  sessions.subjects_idsubjects=subject.idsubjects\n";
+
+        DBSqlHandler  dbSqlHandler =new DBSqlHandler();
+        ResultSet resultSet=   dbSqlHandler.DbGet(getSessionWithoutRoom);
+        return resultSet;
+    }
 }

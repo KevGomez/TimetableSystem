@@ -1,5 +1,8 @@
 package timetablesystem.DataBaseHandler;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -75,10 +78,14 @@ public class DBSqlHandler {
         String r;
         try {
            int d= st.executeUpdate(query) ;
+
             r="Success";
          }
         catch (Exception e) {
              r= e.toString();
+
+            Alert alert = new Alert(Alert.AlertType.WARNING,"Delete Item use to another table , First Delete reference object ", ButtonType.CANCEL);
+            alert.showAndWait();
         }
         return r;
     }

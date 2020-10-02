@@ -49,18 +49,23 @@ public class SessionPreferenceController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Room room =(Room) room_combo.getSelectionModel().getSelectedItem();
-                String Roomid=room.getIdroom();
-
                 SessionHasRoom session=(SessionHasRoom) session_combo.getSelectionModel().getSelectedItem();
-                String sessionid= Integer.toString(session.getIdsessions());
+
+                if(room==null || session==null){
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Please select Sessions and Room  ");
+                    alert.showAndWait();
+                }else {
+
+                    String sessionid= Integer.toString(session.getIdsessions());
+                    String Roomid=room.getIdroom();
 
 //
 //                try {
 //                    SessionHasRoom tag = (SessionHasRoom) SessionRoomDAO.getObservebleSessionHasRoomList(SessionRoomDAO.GetTagUseSessionID(sessionid));
 //                    String tag_name=tag.getTag();
 
-                    SessionRoomDAO sessionRoomDAO =new SessionRoomDAO();
-                    sessionRoomDAO.InsertData(Roomid,sessionid);
+                    SessionRoomDAO sessionRoomDAO = new SessionRoomDAO();
+                    sessionRoomDAO.InsertData(Roomid, sessionid);
                     System.out.println("Session and room id added");
                     LoadSessionHasRoomTable();
 
@@ -68,20 +73,44 @@ public class SessionPreferenceController implements Initializable {
 //                    throwables.printStackTrace();
 //                }
 
+                }
 
             }
         });
 //
-//        tag_delete_btn.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                String rooID= String.valueOf(sessionhasroom.getSelectionModel().getSelectedItem().getIdroom());
-//                String sessionID= String.valueOf(sessionhasroom.getSelectionModel().getSelectedItem().getIdsessions());
-//
-//                SessionRoomDAO sessionRoomDAO=new SessionRoomDAO();
-//                sessionRoomDAO.DeleteData(rooID,sessionID);
-//            }
-//        });
+        tag_delete_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String rooID= String.valueOf(sessionhasroom.getSelectionModel().getSelectedItem().getIdroom());
+                String sessionID= String.valueOf(sessionhasroom.getSelectionModel().getSelectedItem().getIdsessions());
+
+                if(rooID.isEmpty() || sessionID.isEmpty()){
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Pleace select Session and room  ");
+                    alert.showAndWait();
+                }else {
+
+                    SessionRoomDAO sessionRoomDAO=new SessionRoomDAO();
+                    String e= sessionRoomDAO.DeleteData(rooID,sessionID);
+                    LoadSessionHasRoomTable();
+
+                    if(e.equals("Success")){
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Delete successful  ");
+                        alert.showAndWait();
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Delete not successful  ");
+                        alert.showAndWait();
+                    }
+
+                }
+
+
+
+
+
+
+
+            }
+        });
 
 
     }
@@ -98,7 +127,7 @@ public class SessionPreferenceController implements Initializable {
 
         try{
 //            session_combo.setItems(SessionRoomDAO.getObservebleList(SessionRoomDAO.GetAllSessions()));
-            session_combo.setItems(SessionRoomDAO.getObservebleSessionHasRoomList(SessionRoomDAO.GetAllSessionsAndRooms()));
+            session_combo.setItems(SessionRoomDAO.getObservebleSessionHasRoomWithoutRoomList(SessionRoomDAO.GetAllSessionsAndRoomsWithoutRoomID()));
 
         }catch (SQLException throwables) {
             throwables.printStackTrace();

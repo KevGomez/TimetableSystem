@@ -57,24 +57,38 @@ public class TagPreferenceController implements Initializable {
             public void handle(ActionEvent event) {
                 TagData tag =(TagData)tag_combo.getSelectionModel().getSelectedItem();
                 Room room =(Room) room_combo.getSelectionModel().getSelectedItem();
-                String Roomid=room.getIdroom();
+
+
+                if(room==null || tag==null){
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Please select Tag and Room  ");
+                    alert.showAndWait();
+                }else{
+
+
+
+                    String Roomid=room.getIdroom();
                 String Tagid= Integer.toString(tag.getId());
 
-                TaghasLocationDAO newTaghasRoom =new TaghasLocationDAO();
-                newTaghasRoom.InsertData(Roomid,Tagid);
-                //IF tag is lecture ,tutorial tag allocate to particular room
-                if(Integer.parseInt(Tagid)==1){
-                    newTaghasRoom.InsertData(Roomid,"2");
 
-                }else if(Integer.parseInt(Tagid)==2){
-                    //IF tag is tutorial ,lecture tag allocate to particular room
+                    TaghasLocationDAO newTaghasRoom =new TaghasLocationDAO();
+                    newTaghasRoom.InsertData(Roomid,Tagid);
+                    //IF tag is lecture ,tutorial tag allocate to particular room
+                    if(Integer.parseInt(Tagid)==1){
+                        newTaghasRoom.InsertData(Roomid,"2");
 
-                    newTaghasRoom.InsertData(Roomid,"1");
+                    }else if(Integer.parseInt(Tagid)==2){
+                        //IF tag is tutorial ,lecture tag allocate to particular room
 
+                        newTaghasRoom.InsertData(Roomid,"1");
+
+                    }
+
+                    ShowTagHasRoomTable();
+                    System.out.println("add new tag has room");
                 }
 
-                ShowTagHasRoomTable();
-                System.out.println("add new tag has room");
+
+
 
             }
         });
@@ -85,13 +99,20 @@ public class TagPreferenceController implements Initializable {
                 String roomID= String.valueOf(tag_room_table.getSelectionModel().getSelectedItem().getRoom_idroom());
                 String tagID=String.valueOf(tag_room_table.getSelectionModel().getSelectedItem().getTag_idtag());
 
-                tag_room_table.getItems().removeAll(tag_room_table.getSelectionModel().getSelectedItem());
+                if(roomID.isEmpty() || tagID.isEmpty()){
+                    Alert alert = new Alert(Alert.AlertType.WARNING, "Pleace select table row  ");
+                    alert.showAndWait();
+                }else{
+                    tag_room_table.getItems().removeAll(tag_room_table.getSelectionModel().getSelectedItem());
 
 
-                TaghasLocationDAO taghasLocationDAO=new TaghasLocationDAO();
-                taghasLocationDAO.DeleteData(roomID,tagID);
-                System.out.println("Add tag_id and room_id to delete");
-                ShowTagHasRoomTable();
+                    TaghasLocationDAO taghasLocationDAO=new TaghasLocationDAO();
+                    taghasLocationDAO.DeleteData(roomID,tagID);
+                    System.out.println("Add tag_id and room_id to delete");
+                    ShowTagHasRoomTable();
+                }
+
+
 
             }
         });
