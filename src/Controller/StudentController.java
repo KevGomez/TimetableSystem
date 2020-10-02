@@ -158,12 +158,6 @@ public class StudentController implements Initializable {
                         
                         getData();
                             
-                        Alert alert = new Alert(AlertType.INFORMATION);
-                        alert.setTitle("Success");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Data has been edited");
-
-                        alert.showAndWait();
                         
                         });
                         
@@ -201,18 +195,17 @@ public class StudentController implements Initializable {
                                 deleteButton.setOnAction(event ->{
 
                                 StudentData sd=getTableView().getItems().get(getIndex());
-
-                                String query2 = "DELETE FROM students_grp WHERE idstudents_grp = "+sd.getId()+"";
-                                executeQuery(query2);
                                 
-                                getData();
+                                try{
+                                    String query2 = "DELETE FROM students_grp WHERE idstudents_grp = "+sd.getId()+"";
+                                    executeQuery(query2);
 
-                                Alert alert = new Alert(AlertType.INFORMATION);
-                                alert.setTitle("Success");
-                                alert.setHeaderText(null);
-                                alert.setContentText("Data has been deleted!");
-
-                                alert.showAndWait();
+                                    getData();
+                                }catch(Exception e){
+                                    e.printStackTrace();
+                                    
+                                    
+                                }
 
                                 });
 
@@ -260,12 +253,6 @@ public class StudentController implements Initializable {
             grp_no.setText(" ");
             sgrp_no.setText(" ");
         
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Data has been saved!");
-
-            alert.showAndWait();
        
             }
            
@@ -328,8 +315,21 @@ public class StudentController implements Initializable {
         try{
             st = conn.createStatement();
             st.executeUpdate(query);
+            
+            Alert alert = new Alert(AlertType.INFORMATION);
+                                    alert.setTitle("Success");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Operation Success!");
+
+                                    alert.showAndWait();
         }catch(Exception e){
             e.printStackTrace();
+            Alert alert = new Alert(AlertType.INFORMATION);
+                                    alert.setTitle("Error");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Data might be referenced to another table, can not be deleted!");
+
+                                    alert.showAndWait();
         }
     }
     

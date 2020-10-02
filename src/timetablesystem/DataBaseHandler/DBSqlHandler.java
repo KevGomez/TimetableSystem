@@ -60,6 +60,7 @@ public class DBSqlHandler {
             st.executeUpdate(CreateTables.room_has_tag);
             st.executeUpdate(CreateTables.room_has_lecturer);
             st.executeUpdate(CreateTables.room_has_students_grp);
+            st.executeUpdate(CreateTables.NotAvailable);
 
 
 
