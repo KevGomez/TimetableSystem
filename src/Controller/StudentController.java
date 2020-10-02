@@ -327,7 +327,7 @@ public class StudentController implements Initializable {
             Alert alert = new Alert(AlertType.INFORMATION);
                                     alert.setTitle("Error");
                                     alert.setHeaderText(null);
-                                    alert.setContentText("Data might be referenced to another table, can not be deleted!");
+                                    alert.setContentText("Operation can not be done:  " + e.getMessage());
 
                                     alert.showAndWait();
         }
