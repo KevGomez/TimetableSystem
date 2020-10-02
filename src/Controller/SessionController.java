@@ -6,6 +6,7 @@
 package Controller;
 
 import Controller.LocationPrefernceDAO.TaghasLocationDAO;
+import Model.DisplaySession;
 import Model.LecturerDB;
 import Model.LecturerModel;
 import Model.Room;
@@ -80,13 +81,13 @@ public class SessionController implements Initializable {
     private ListView list;
            
            
-        @FXML private TableView<Session> sessiontable;
-    @FXML private TableColumn<Session,String> Lecturers;
-    @FXML private TableColumn<Session,String> Tag;
-    @FXML private TableColumn<Session,String> Subject;
-    @FXML private TableColumn<Session,String> Group;
-    @FXML private TableColumn<Session,String> Students;
-    @FXML private TableColumn<Session,String> Duration;
+        @FXML private TableView<DisplaySession> sessiontable;
+    @FXML private TableColumn<DisplaySession,String> Lecturers;
+    @FXML private TableColumn<DisplaySession,String> Tag;
+    @FXML private TableColumn<DisplaySession,String> Subject;
+    @FXML private TableColumn<DisplaySession,String> Group;
+    @FXML private TableColumn<DisplaySession,String> Students;
+    @FXML private TableColumn<DisplaySession,String> Duration;
         
     /**
      * Initializes the controller class.
@@ -163,15 +164,31 @@ public class SessionController implements Initializable {
     
     public void OnLectureSelect(){
         
+        if(list.getItems().size()==0)
+        {
+            list.getItems().add(lecturers.getValue());
+        }else{
+            
         
-         list.getItems().add(lecturers.getValue());
+        
+        for(int i=0;i<list.getItems().size();i++)
+        {
+            if(list.getItems().get(i)!=lecturers.getValue())
+            {
+                list.getItems().add(lecturers.getValue());
+            }
+        }
+        
+         }
          
-         System.out.println(list.getItems().get(0));
          
-         LecturerModel l1=(LecturerModel) list.getItems().get(0);
-         int lectureid=l1.getId();
          
-         System.out.println(lectureid);
+//         System.out.println(list.getItems().get(0));
+//         
+//         LecturerModel l1=(LecturerModel) list.getItems().get(0);
+//         int lectureid=l1.getId();
+//         
+//         System.out.println(lectureid);
          
          
     }
@@ -258,12 +275,12 @@ public class SessionController implements Initializable {
     public void getAllSession(){
         
         
-              Lecturers.setCellValueFactory(new PropertyValueFactory<>("idsessions"));
-        Tag.setCellValueFactory(new PropertyValueFactory<>("idroom"));
-        Subject.setCellValueFactory(new PropertyValueFactory<>("roomName"));
-        Group.setCellValueFactory(new PropertyValueFactory<>("semester"));
-        Students.setCellValueFactory(new PropertyValueFactory<>("subjects"));
-        Duration.setCellValueFactory(new PropertyValueFactory<>("tag"));
+              Lecturers.setCellValueFactory(new PropertyValueFactory<>("lecturer"));
+               Subject.setCellValueFactory(new PropertyValueFactory<>("subjects"));
+        Tag.setCellValueFactory(new PropertyValueFactory<>("tag"));
+        Group.setCellValueFactory(new PropertyValueFactory<>("students_grp"));
+        Students.setCellValueFactory(new PropertyValueFactory<>("numberofstudents"));
+        Duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         
         
     }
@@ -280,10 +297,10 @@ public class SessionController implements Initializable {
         try{
             st = conn.createStatement();
             rs = st.executeQuery(query);
-            Session session;
+            DisplaySession session;
             while(rs.next()){
-               // button[1]=new Button();
-                //session = new LecturerModel(rs.getInt("idemployee"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
+               
+                //session = new DisplaySession(rs.getInt("idemployee"),rs.getString("name"),rs.getString("lectureID"),rs.getString("faculty"),rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("level"),rs.getString("rank"));
                // lecturelist.add(lecturers);
             }
         }catch(Exception e){

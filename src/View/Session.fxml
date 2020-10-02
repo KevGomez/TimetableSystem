@@ -70,8 +70,8 @@
                               <TableView fx:id="sessiontable" layoutX="48.0" layoutY="47.0" prefHeight="379.0" prefWidth="752.0">
                                 <columns>
                                   <TableColumn fx:id="Lecturers" prefWidth="75.0" text="Lecturers" />
-                                  <TableColumn fx:id="Tag" prefWidth="75.0" text="Tag Name" />
                                   <TableColumn fx:id="Subject" prefWidth="75.0" text="Subject" />
+                                  <TableColumn fx:id="Tag" prefWidth="75.0" text="Tag Name" />
                                   <TableColumn fx:id="Group" prefWidth="75.0" text="Group" />
                                   <TableColumn fx:id="Students" prefWidth="75.0" text="Number of Students" />
                                   <TableColumn fx:id="Duration" prefWidth="75.0" text="Duration" />
