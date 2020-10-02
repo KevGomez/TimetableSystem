@@ -251,5 +251,12 @@ static String room_has_students_grp="CREATE TABLE   room_has_students_grp  (\n" 
         "    ON DELETE NO ACTION\n" +
         "    ON UPDATE NO ACTION)";
 
+static String NotAvailable="CREATE TABLE   notAvailable  (\n" +
+            "   id  INT NOT NULL IDENTITY,\n" +
+            "   catName  VARCHAR(60) NULL,\n" +
+            "   catID  VARCHAR(80) NULL,\n" +
+            "   date  VARCHAR(50) NULL,\n" +
+            "   time  VARCHAR(50) NULL,\n" +
+            "  PRIMARY KEY ( id ))";
 
 }

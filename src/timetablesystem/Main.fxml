@@ -205,7 +205,7 @@
                               <Image url="@../assert/Receive Cash_64px.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="lblPayment1" onMouseClicked="#ClickTags" text="PARALLEL &amp; CONS" textFill="WHITE">
+                        <Label fx:id="lblPayment1" onMouseClicked="#psessionOnClick" text="PARALLEL &amp; CONS" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
