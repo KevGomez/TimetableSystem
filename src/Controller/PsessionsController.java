@@ -312,7 +312,7 @@ public class PsessionsController implements Initializable {
         int SessionID = sessionGotID.getIdsessions();
         
         Session sessionTuteID =(Session) tuteSessionID.getSelectionModel().getSelectedItem();
-        int TuteSessionID = sessionTuteID.getTag_idtag();
+        int TuteSessionID = sessionTuteID.getIdsessions();
         
         
         String query = "UPDATE sessions SET consecutive="+TuteSessionID+" WHERE idsessions="+SessionID+" ";
