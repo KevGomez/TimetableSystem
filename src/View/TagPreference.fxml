@@ -47,7 +47,6 @@
                         <HBox prefHeight="43.0" prefWidth="295.0" spacing="5.0">
                            <children>
                                     <TextField id="search_textfild" fx:id="tag_search_textfiled" prefHeight="25.0" prefWidth="178.0" promptText="Search" />
-                                    <Button id="search_button" fx:id="tax_search_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Search" />
                                     <Button id="delete_button" fx:id="tag_delete_btn" mnemonicParsing="false" text="Delete" />
                            </children>
                         </HBox>
