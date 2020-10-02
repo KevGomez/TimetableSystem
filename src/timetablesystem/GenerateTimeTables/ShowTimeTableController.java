@@ -10,7 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import timetablesystem.DateTimeManagement.DaysHandler;
@@ -41,7 +43,7 @@ public class ShowTimeTableController implements Initializable {
     private GridPane timetableGrid;
 
     @FXML
-    private Pane tiimeTableArea;
+    private ScrollPane tiimeTableArea;
 
     private DaysHandler daysHandler;
 
@@ -110,7 +112,7 @@ public class ShowTimeTableController implements Initializable {
                 timetableGrid=null;
                 timetableGrid= new GridPane();
                 timetableGrid.getChildren().clear();
-                tiimeTableArea.getChildren().clear();
+              //  tiimeTableArea.getChildren().clear();
 
             }
         });
@@ -122,7 +124,7 @@ public class ShowTimeTableController implements Initializable {
                 timetableGrid=null;
                 timetableGrid= new GridPane();
                 timetableGrid.getChildren().clear();
-                tiimeTableArea.getChildren().clear();
+               // tiimeTableArea.getChildren().clear();
             }
         });
 
@@ -210,27 +212,41 @@ public class ShowTimeTableController implements Initializable {
         }
         System.out.println(chDays[0]+" "+chDays[1]);
         int c=0;
+        int postions[]= new int[3];
+
+
         for (int i=1;i<6;i++){
 
 
+            postions[0]= random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            postions[1]= random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            while(postions[0]==postions[1]){
+                postions[1]=random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            }
+            postions[2]= random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            while(postions[0]==postions[2] ||postions[1]==postions[2] ){
+                postions[2]=random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            }
+
+
             if (i==chDays[0]){
-                timetableGrid.add(labels.get(c++),i,3);//lecture
-                timetableGrid.add(labels.get(c++),i,4);//tute
-                timetableGrid.add(labels.get(c++),i,6);//lab
+                timetableGrid.add(labels.get(c++),i,postions[0]);//lecture
+                timetableGrid.add(labels.get(c++),i,postions[1]);//tute
+                timetableGrid.add(labels.get(c++),i,postions[2]);//lab
             }else if (i==chDays[1]){
-                timetableGrid.add(labels.get(c++),i,2);//lecture
-                timetableGrid.add(labels.get(c++),i,4);//tute
-                timetableGrid.add(labels.get(c++),i,5);//lab
+                timetableGrid.add(labels.get(c++),i,postions[0]);//lecture
+                timetableGrid.add(labels.get(c++),i,postions[1]);//tute
+                timetableGrid.add(labels.get(c++),i,postions[2]);//lab
             }else{
-             //   System.out.println(labels.size());
-                timetableGrid.add(labels.get(c++),i,1);//lecture
-                timetableGrid.add(labels.get(c++),i,5);//tute
-                timetableGrid.add(labels.get(c++),i,6);//lab
+                System.out.println(labels.size());
+                timetableGrid.add(labels.get(c++),i,postions[0]);//lecture
+                timetableGrid.add(labels.get(c++),i,postions[1]);//tute
+                timetableGrid.add(labels.get(c++),i,postions[2]);//lab
             }
 
         }
 
-        tiimeTableArea.getChildren().add(timetableGrid);
+        tiimeTableArea.setContent(timetableGrid);
 
 
 
@@ -296,27 +312,42 @@ public class ShowTimeTableController implements Initializable {
         }
 
         int c=0;
+
+        int postions[]= new int[3];
+
+
         for (int i=1;i<6;i++){
 
 
+            postions[0]= random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            postions[1]= random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            while(postions[0]==postions[1]){
+                postions[1]=random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            }
+            postions[2]= random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            while(postions[0]==postions[2] ||postions[1]==postions[2] ){
+                postions[2]=random.nextInt(TimeSlotsController.getTimeSlots().size())+1;
+            }
+
+
             if (i==chDays[0]){
-                timetableGrid.add(labels.get(c++),i,3);//lecture
-                timetableGrid.add(labels.get(c++),i,4);//tute
-                timetableGrid.add(labels.get(c++),i,6);//lab
+                timetableGrid.add(labels.get(c++),i,postions[0]);//lecture
+                timetableGrid.add(labels.get(c++),i,postions[1]);//tute
+                timetableGrid.add(labels.get(c++),i,postions[2]);//lab
             }else if (i==chDays[1]){
-                timetableGrid.add(labels.get(c++),i,2);//lecture
-                timetableGrid.add(labels.get(c++),i,4);//tute
-                timetableGrid.add(labels.get(c++),i,5);//lab
+                timetableGrid.add(labels.get(c++),i,postions[0]);//lecture
+                timetableGrid.add(labels.get(c++),i,postions[1]);//tute
+                timetableGrid.add(labels.get(c++),i,postions[2]);//lab
             }else{
             System.out.println(labels.size());
-                timetableGrid.add(labels.get(c++),i,1);//lecture
-                timetableGrid.add(labels.get(c++),i,5);//tute
-                timetableGrid.add(labels.get(c++),i,6);//lab
+                timetableGrid.add(labels.get(c++),i,postions[0]);//lecture
+                timetableGrid.add(labels.get(c++),i,postions[1]);//tute
+                timetableGrid.add(labels.get(c++),i,postions[2]);//lab
             }
 
         }
 
-        tiimeTableArea.getChildren().add(timetableGrid);
+        tiimeTableArea.setContent(timetableGrid);
 
 
 
