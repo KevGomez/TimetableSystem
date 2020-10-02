@@ -536,7 +536,7 @@ public class PsessionsController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                     alert.setTitle("Error");
                                     alert.setHeaderText(null);
-                                    alert.setContentText("Operation failed!");
+                                    alert.setContentText("Operation failed! " + e.getMessage());
                                     alert.showAndWait();
         }
     }
