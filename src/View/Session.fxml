@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -21,7 +22,7 @@
   
                    <VBox alignment="TOP_CENTER" layoutY="70.0" prefHeight="493.0" prefWidth="873.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
            <children>
-           <TabPane layoutX="21.0" layoutY="79.0" prefHeight="481.0" prefWidth="873.0" tabClosingPolicy="UNAVAILABLE">
+           <TabPane layoutX="21.0" layoutY="79.0" prefHeight="481.0" prefWidth="873.0" stylesheets="@../timetablesystem/tabpane.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Add Session">
                      <content>
@@ -31,14 +32,26 @@
                                  <children>
                                     <AnchorPane prefHeight="430.0" prefWidth="421.0">
                                        <children>
-                                          <ComboBox fx:id="lecturers" layoutX="70.0" layoutY="51.0" onAction="#OnLectureSelect" prefHeight="31.0" prefWidth="283.0" />
-                                          <ComboBox fx:id="tags" layoutX="70.0" layoutY="150.0" prefHeight="29.0" prefWidth="284.0" />
-                                          <ComboBox fx:id="groups" layoutX="70.0" layoutY="248.0" prefHeight="29.0" prefWidth="285.0" />
-                                          <TextField fx:id="noOfStudents" layoutX="71.0" layoutY="324.0" prefHeight="31.0" prefWidth="280.0" />
-                                          <Text layoutX="70.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecturers" />
-                                          <Text layoutX="71.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Tags" />
-                                          <Text layoutX="70.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Groups" />
-                                          <Text layoutX="71.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of students" />
+                                          <ComboBox fx:id="lecturers" layoutX="70.0" layoutY="51.0" onAction="#OnLectureSelect" prefHeight="31.0" prefWidth="283.0" promptText="Select Lecturer" />
+                                          <ComboBox fx:id="tags" layoutX="70.0" layoutY="150.0" prefHeight="29.0" prefWidth="284.0" promptText="Select Tag" />
+                                          <ComboBox fx:id="groups" layoutX="70.0" layoutY="248.0" prefHeight="29.0" prefWidth="285.0" promptText="Add Group" />
+                                          <TextField fx:id="noOfStudents" layoutX="71.0" layoutY="324.0" prefHeight="31.0" prefWidth="280.0" promptText="Add Number of Students" />
+                                          <Text layoutX="70.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecturers">
+                                             <font>
+                                                <Font name="Century Gothic" size="13.0" />
+                                             </font></Text>
+                                          <Text layoutX="71.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Tags">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font></Text>
+                                          <Text layoutX="70.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Groups">
+                                             <font>
+                                                <Font name="Century Gothic" size="13.0" />
+                                             </font></Text>
+                                          <Text layoutX="71.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of students">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font></Text>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -47,12 +60,18 @@
                                  <children>
                                     <AnchorPane prefHeight="438.0" prefWidth="452.0">
                                        <children>
-                                    <Button fx:id="submit" layoutX="302.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#InsertData" prefHeight="38.0" prefWidth="136.0" text="Save" />
-                                          <ComboBox fx:id="subject" layoutX="14.0" layoutY="244.0" prefHeight="31.0" prefWidth="316.0" />
-                                          <TextField fx:id="duration" layoutX="14.0" layoutY="326.0" prefHeight="31.0" prefWidth="281.0" />
-                                          <Text layoutX="14.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Subject" />
-                                          <ListView fx:id="list" layoutX="14.0" layoutY="23.0" prefHeight="115.0" prefWidth="309.0" />
-                                          <Text layoutX="14.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session Duration" />
+                                    <Button fx:id="submit" layoutX="302.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#InsertData" prefHeight="38.0" prefWidth="136.0" stylesheets="@../timetablesystem/buttonstyle.css" text="Save" />
+                                          <ComboBox fx:id="subject" layoutX="14.0" layoutY="244.0" prefHeight="31.0" prefWidth="316.0" promptText="Select Subject" />
+                                          <TextField fx:id="duration" layoutX="14.0" layoutY="326.0" prefHeight="31.0" prefWidth="281.0" promptText="Add session time" />
+                                          <Text layoutX="14.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Subject">
+                                             <font>
+                                                <Font name="Century Gothic" size="13.0" />
+                                             </font></Text>
+                                          <ListView fx:id="list" layoutX="14.0" layoutY="23.0" prefHeight="115.0" prefWidth="309.0" styleClass="pretty-list-view" stylesheets="@../timetablesystem/listviewstyle.css" />
+                                          <Text layoutX="14.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session Duration">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font></Text>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -67,19 +86,25 @@
                            <children>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="462.0" prefWidth="873.0">
                            <children>
-                              <TableView fx:id="sessiontable" layoutX="48.0" layoutY="99.0" prefHeight="327.0" prefWidth="752.0">
+                              <TableView fx:id="sessiontable" layoutX="48.0" layoutY="99.0" prefHeight="327.0" prefWidth="751.0" stylesheets="@../timetablesystem/tablestyle.css">
                                 <columns>
-                                  <TableColumn fx:id="Lecturers" prefWidth="121.0" text="Lecturers" />
-                                  <TableColumn fx:id="Subject" prefWidth="92.0" text="Subject" />
-                                  <TableColumn fx:id="Tag" prefWidth="94.0" text="Tag Name" />
-                                  <TableColumn fx:id="Group" minWidth="0.0" prefWidth="103.0" text="Group" />
-                                  <TableColumn fx:id="Students" prefWidth="136.0" text="Number of Students" />
-                                  <TableColumn fx:id="Duration" prefWidth="139.0" text="Duration" />
+                                  <TableColumn fx:id="Lecturers" prefWidth="174.0" text="Lecturers" />
+                                  <TableColumn fx:id="Subject" prefWidth="157.0" text="Subject" />
+                                  <TableColumn fx:id="Tag" prefWidth="100.0" text="Tag Name" />
+                                  <TableColumn fx:id="Group" minWidth="0.0" prefWidth="106.0" text="Group" />
+                                  <TableColumn fx:id="Students" prefWidth="120.0" text="Number of Students" />
+                                  <TableColumn fx:id="Duration" prefWidth="93.0" text="Duration" />
                                     
                                 </columns>
                               </TableView>
-                                    <TextField fx:id="search" layoutX="72.0" layoutY="35.0" prefHeight="31.0" prefWidth="653.0" />
-                                    <Button fx:id="searchbtn" layoutX="725.0" layoutY="34.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="52.0" text="Search" />
+                                    <TextField fx:id="search" layoutX="72.0" layoutY="35.0" prefHeight="31.0" prefWidth="653.0" promptText="Search Here" />
+                           
+                            <Circle fill="#1172a6" layoutX="762.0" layoutY="51.0" radius="17.0" stroke="#1172a6" strokeType="INSIDE" />
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="749.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/icons8-search-50.png" />
+         </image>
+      </ImageView>
                            </children>
                         </AnchorPane>
                            </children>

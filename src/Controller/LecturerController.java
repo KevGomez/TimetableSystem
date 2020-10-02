@@ -24,6 +24,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import Model.LecturerModel;
+import java.sql.SQLException;
 
 /**
  * FXML Controller class
@@ -130,6 +131,21 @@ public class LecturerController implements Initializable {
          rank.setText(level.getText().toString()+"."+lectid.getText().toString());
          //System.out.println(level.getText().toString()+"."+lectid.getText().toString());
          
+         if(name.getText().toString().equals("")||lectid.getText().toString().equals("")||faculty.getText().toString().equals("")||department.getText().toString().equals("")||center.getText().toString().equals("")||building.getText().toString().equals(""))
+         {
+             
+            
+            
+           
+                      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("failure");
+        alert.setHeaderText(null);
+        alert.setContentText("Cannot keep fields empty!");
+
+        alert.showAndWait();
+         }else{
+             
+         
          LecturerDB l1=new LecturerDB();
          
         int value= l1.createPatientAsForm(name.getText().toString(), lectid.getText().toString(), faculty.getText().toString(), department.getText().toString(), center.getText().toString(), building.getText().toString(), level.getText().toString(), level.getText().toString()+"."+lectid.getText().toString());
@@ -153,7 +169,7 @@ getData();
 
         alert.showAndWait();
         }
-        
+        }
     
    
     }
@@ -258,44 +274,51 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         final Button editButton=new Button("Delete");
                         editButton.setOnAction(event ->{
                         
+                            try{
+                            
+                           
                         LecturerModel my2=getTableView().getItems().get(getIndex());
-                        lecttable.getItems().removeAll(lecttable.getSelectionModel().getSelectedItem());
+                        l2.DeleteLecturer(my2.getId());
                         
-                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Successfully deleted"+my2.getName());
-        
-        
-        alert.showAndWait();
-
-                        //int value=l2.DeleteLecturer(my2.getId());
-                        
+                        getData();
+//                        System.out.println("The value"+value);
 //                        if(value==1)
 //                        {
 //                            getData();
 //                            
-// Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle("Success");
-//        alert.setHeaderText(null);
-//        alert.setContentText("Successfully deleted"+my2.getName());
-//        
-//        
-//        alert.showAndWait();
+//                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                            alert.setTitle("Success");
+//                            alert.setHeaderText(null);
+//                            alert.setContentText("Successfully deleted"+my2.getName());
+//                            
+//                            
+//                            alert.showAndWait();
 //                        }else{
 //                            
 //                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle("Failure");
-//        alert.setHeaderText(null);
-//        alert.setContentText("Error deleting"+my2.getName());
-//        
-//        
-//        alert.showAndWait();
+//                            alert.setTitle("Failure");
+//                            alert.setHeaderText(null);
+//                            alert.setContentText("Error deleting"+my2.getName());
 //                            
 //                            
-//                            
-//                        }
+//                            alert.showAndWait();
+                            
+                            
+                            
+  //                      }
                         
+                         }catch(Exception e){
+                             
+                             
+                              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Failure");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Error deleting "+e);
+                            
+                            
+                            alert.showAndWait();
+                                
+                            }
                         });
                         
                         setGraphic(editButton);

@@ -259,18 +259,12 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         
                         SubjectModel my2=getTableView().getItems().get(getIndex());
                         
-                              subjecttable.getItems().removeAll(subjecttable.getSelectionModel().getSelectedItem());
-                        
-                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Successfully deleted"+my2.getLecture());
-        
-        
-        alert.showAndWait();
+                         
 
-//                        int value=s1.DeleteSubject(my2.getId());
-//                        
+                        s1.DeleteSubject(my2.getId());
+                        
+                          getData();
+                        
 //                        if(value==1)
 //                        {
 //                            getData();

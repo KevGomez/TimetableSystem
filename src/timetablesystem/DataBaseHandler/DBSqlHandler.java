@@ -42,7 +42,7 @@ public class DBSqlHandler {
 //            st.executeUpdate(CreateTables.student) ;
 
             //Azure SQL Credate table
-
+            st.executeUpdate(CreateTables.SessionDisplay);
             st.executeUpdate(CreateTables.workingday);
             st.executeUpdate(CreateTables.timeslot);
             st.executeUpdate(CreateTables.lecturers);
@@ -58,7 +58,7 @@ public class DBSqlHandler {
             st.executeUpdate(CreateTables.room_has_lecturer);
             st.executeUpdate(CreateTables.room_has_students_grp);
             st.executeUpdate(CreateTables.NotAvailable);
-
+            
 
 
 

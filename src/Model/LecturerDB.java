@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 /**
@@ -111,7 +112,7 @@ public class LecturerDB {
     }
    
    
-   public int DeleteLecturer(int id)
+   public void DeleteLecturer(int id)
  {  
 	
 	 
@@ -119,10 +120,7 @@ public class LecturerDB {
 	  {   
 		  Connection con = connect();
 	 
-                  if(con==null)
-                  {
-                      return 0;
-                  }
+                 
 	     
 	  
 	      //create a prepared statement   
@@ -135,16 +133,29 @@ public class LecturerDB {
               st.setInt(1, id);
 	      // execute the statement
 	      st.execute(); 
-	      con.close(); 
-	 
+	      con.close();                             
+              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Success");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Successfully deleted");
+                            
 	      
 	   } 
 	   catch (Exception e)
 	    {   
-		  
+		  Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Failure");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Error deleting lecturer because "+e.getMessage());
+                            
+                            
+                            alert.showAndWait();
+                                
 		  System.err.println(e.getMessage());
+                  
+                  
 		} 
-	 return 1;
+	
 	  
 	}
    

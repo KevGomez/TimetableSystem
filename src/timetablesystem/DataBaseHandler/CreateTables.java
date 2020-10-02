@@ -251,6 +251,8 @@ static String room_has_students_grp="CREATE TABLE   room_has_students_grp  (\n" 
         "    ON DELETE NO ACTION\n" +
         "    ON UPDATE NO ACTION)";
 
+
+
 static String NotAvailable="CREATE TABLE   notAvailable  (\n" +
             "   id  INT NOT NULL IDENTITY,\n" +
             "   catName  VARCHAR(60) NULL,\n" +
@@ -258,5 +260,28 @@ static String NotAvailable="CREATE TABLE   notAvailable  (\n" +
             "   date  VARCHAR(50) NULL,\n" +
             "   time  VARCHAR(50) NULL,\n" +
             "  PRIMARY KEY ( id ))";
+
+static String SessionDisplay="CREATE TABLE   sessiondisplay  (\n" +
+            "   lectid  INT NOT NULL IDENTITY,\n" +
+            "   lecturers  VARCHAR(200) NULL,\n" +
+            "   subject  VARCHAR(80) NULL,\n" +
+            "   code  VARCHAR(80) NULL,\n" +
+            "   tag  VARCHAR(50) NULL,\n" +
+            "   studgroup  VARCHAR(50) NULL,\n" +
+            "   students  VARCHAR(50) NULL,\n" +
+            "   duration  VARCHAR(50) NULL,\n" +
+            "  PRIMARY KEY ( lectid ))";
+
+//CREATE TABLE sessiondisplay( 
+//               lectid  INT NOT NULL IDENTITY,
+//               lecturers  VARCHAR(200) NULL,
+//               subject  VARCHAR(80) NULL,
+//               code  VARCHAR(80) NULL,
+//               tag  VARCHAR(50) NULL,
+//                studgroup VARCHAR(50) NULL,
+//               students  VARCHAR(50) NULL,
+//               duration  VARCHAR(50) NULL,
+//              PRIMARY KEY ( lectid ))
+
 
 }

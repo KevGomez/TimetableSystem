@@ -177,17 +177,43 @@ public class SessionController implements Initializable {
             list.getItems().add(lecturers.getValue());
         }else{
             
-        
+        int count=0;
         
         for(int i=0;i<list.getItems().size();i++)
         {
-            if(list.getItems().get(i)!=lecturers.getValue())
+       
+            if(list.getItems().get(i).equals(lecturers.getValue()))
             {
-                list.getItems().add(lecturers.getValue());
-            }
+                count=count+1;
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("failure");
+//        alert.setHeaderText(null);
+//        alert.setContentText("lecturer already added!");
+//
+//        alert.showAndWait();
+               
+//            }else{
+//                
+//                 list.getItems().add(lecturers.getValue());
+//            }
         }
         
          }
+        
+        if(count>0)
+        {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("failure");
+        alert.setHeaderText(null);
+        alert.setContentText("lecturer already added!");
+
+        alert.showAndWait();
+        }else{
+            list.getItems().add(lecturers.getValue());
+            
+        }
+            
+        }
          
          
          
@@ -206,7 +232,8 @@ public class SessionController implements Initializable {
     {
      int count=0;
         String sql="insert into sessions (numberofstudents, duration, consecutive, notavailble , tag_idtag , lecturer_idemployee, subjects_idsubjects, students_grp_idstudents_grp,room_idroom,porder) values (?,?,?,?,?,?,?,?,?,?)";
-    
+        String sql2="insert into sessiondisplay (lecturers, subject, code, tag, studgroup , students , duration) values (?,?,?,?,?,?,?)";
+
         
            TagData tag =(TagData) tags.getSelectionModel().getSelectedItem();
                 int tagid=tag.getId();
@@ -247,7 +274,20 @@ public class SessionController implements Initializable {
 			
 			
 			count=st.executeUpdate();
-		}	
+		}
+                           
+                  PreparedStatement st1 =con.prepareStatement(sql2);
+                  
+                        st1.setString(1,list.getItems().toString());
+			st1.setString(2,subj.getSubject());
+			st1.setString(3,subj.getCode());
+			st1.setString(4,tag.getName());
+			st1.setString(5,stud.getSgrp_id());
+                        st1.setString(6,noOfStudents.getText());
+			st1.setString(7,duration.getText());
+                           
+                        st1.executeUpdate();
+                           
                         if(count>0)
                         {
                              Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -256,6 +296,7 @@ public class SessionController implements Initializable {
         alert.setContentText("Data has been saved!");
 
         alert.showAndWait();
+         getAllSession();
                         }else{
                             
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -292,7 +333,7 @@ public class SessionController implements Initializable {
         
         
         try{
-        sessiontable.setItems(getObservebleSessionDsiplay(getAllData()));
+        sessiontable.setItems(getObservebleSessionDsiplay2(getAllData2()));
        FilterData();
 
         } catch (Exception throwables) {
@@ -301,7 +342,47 @@ public class SessionController implements Initializable {
 }
     
     
-       public ResultSet getAllData(){
+       public ResultSet getAllData2(){
+        
+        Connection conn = connect();
+        String getDataQuery="\n" +
+                " SELECT l.name,sb.subject,t.name,st.sgrp_id,s.numberofstudents,s.duration\n" +
+                " FROM  sessions s,lecturers l,tag t,subject sb,students_grp st\n" +
+                " WHERE s.tag_idtag=t.idtag AND s.subjects_idsubjects = sb.idsubjects AND s.lecturer_idemployee =l.idemployee AND s.students_grp_idstudents_grp=st.idstudents_grp";
+        
+        String query = "SELECT * FROM sessiondisplay";
+        Statement st;
+        ResultSet rs;
+
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            //DisplaySession session;
+            return rs;
+      
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return null;
+    }
+       
+       
+    
+             public static ObservableList<DisplaySession> getObservebleSessionDsiplay2(ResultSet resultSet) throws SQLException {
+        ObservableList<DisplaySession> sessions = FXCollections.observableArrayList();
+
+        while (resultSet.next()){
+            sessions.add(new DisplaySession(resultSet.getString("lecturers"),resultSet.getString("subject")+" -"+resultSet.getString("code"),resultSet.getString("studgroup"),resultSet.getString("tag"),parseInt(resultSet.getString("students")),resultSet.getString("duration")));
+            
+        }
+
+        return  sessions;
+    }
+           
+           
+           
+           public ResultSet getAllData(){
         
         Connection conn = connect();
         String getDataQuery="\n" +
@@ -337,12 +418,6 @@ public class SessionController implements Initializable {
 
         return  sessions;
     }
-
-   
-           
-           
-           
-           
            
            
            
@@ -351,7 +426,7 @@ public class SessionController implements Initializable {
            
             public void FilterData(){
         try {
-            FilteredList<DisplaySession> sessionFilteredList =new FilteredList<DisplaySession>(getObservebleSessionDsiplay(getAllData()),b->true);
+            FilteredList<DisplaySession> sessionFilteredList =new FilteredList<DisplaySession>(getObservebleSessionDsiplay2(getAllData2()),b->true);
             search.textProperty().addListener((observable, oldValue, newValue) -> {
                 sessionFilteredList.setPredicate(session->{
                     if(newValue==null||newValue.isEmpty()){
@@ -363,6 +438,9 @@ public class SessionController implements Initializable {
                     if(session.getLecturer().toLowerCase().indexOf(lowerCaseFilter)!=-1){
                         return true;
                     }else if(session.getSubjects().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                        return true;
+                    }
+                    else if(session.getStudents_grp().toLowerCase().indexOf(lowerCaseFilter)!=-1){
                         return true;
                     }else{
                         return false;
