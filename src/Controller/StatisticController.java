@@ -50,10 +50,10 @@ public class StatisticController implements Initializable {
             subject_code_pichart.setData(lecture.getPiCtartData(student.GroupBy("semester","subject","idsubjects")));
 
             subject_year_pichart.setTitle("Academic Year");
-            subject_code_pichart.setTitle("Subject Code");
+            subject_code_pichart.setTitle("Subject Semester");
 
             studet_accadamicyear_pichart.setTitle("Academic Year");
-            studet_accadamicsemester_pichart.setTitle("Academic  Semester");
+            studet_accadamicsemester_pichart.setTitle("Academic Program");
 
 
 

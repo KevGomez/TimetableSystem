@@ -59,14 +59,23 @@ public class LecturerPreferenceController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Room room =(Room) room_combo.getSelectionModel().getSelectedItem();
-                String Roomid=room.getIdroom();
-
                 Lecture lecturer=(Lecture) lecture_combo.getSelectionModel().getSelectedItem();
-                String lecturerid=Integer.toString(lecturer.getIdemployee());
 
-                LecturerRoomDAO lecturerRoomDAO=new LecturerRoomDAO();
-                lecturerRoomDAO.InsertData(Roomid,lecturerid);
-                LoadTableDate();
+                if(room==null || lecturer==null){
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Please select Lecture and Room  ");
+                    alert.showAndWait();
+                }else {
+
+
+                    String lecturerid = Integer.toString(lecturer.getIdemployee());
+                    String Roomid = room.getIdroom();
+
+
+                    LecturerRoomDAO lecturerRoomDAO = new LecturerRoomDAO();
+                    lecturerRoomDAO.InsertData(Roomid, lecturerid);
+                    LoadTableDate();
+
+                }
 
 
             }

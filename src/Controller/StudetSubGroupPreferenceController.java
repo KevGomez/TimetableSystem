@@ -57,15 +57,28 @@ public class StudetSubGroupPreferenceController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Room room =(Room) room_combo.getSelectionModel().getSelectedItem();
-                String Roomid=room.getIdroom();
-
                 StudentSubgroup studentSubgroup =(StudentSubgroup) subgroup_combo.getSelectionModel().getSelectedItem();
-                String Subgroupid=Integer.toString(studentSubgroup.getIdstudents_grp());
 
-                StudentSubgroupRoomDAO newRoomD=new StudentSubgroupRoomDAO();
-                newRoomD.InsertData(Roomid,Subgroupid);
-                System.out.println("Subgroup and room ids added");
-                LoadStudntGroupAndRoom();
+
+                if(room==null || studentSubgroup==null){
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Please select Subgroup and Room");
+                    alert.showAndWait();
+                }else {
+
+                    String Roomid=room.getIdroom();
+                    String Subgroupid=Integer.toString(studentSubgroup.getIdstudents_grp());
+
+
+
+
+
+                    StudentSubgroupRoomDAO newRoomD=new StudentSubgroupRoomDAO();
+                    newRoomD.InsertData(Roomid,Subgroupid);
+                    System.out.println("Subgroup and room ids added");
+                    LoadStudntGroupAndRoom();
+
+                }
+
 
 
             }

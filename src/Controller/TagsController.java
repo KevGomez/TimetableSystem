@@ -137,11 +137,6 @@ public class TagsController implements Initializable {
                             String query3 = "UPDATE tag SET name='"+sd.getName()+"' WHERE idtag="+sd.getId()+" ";
                             executeQuery(query3);
                             
-                            Alert alert = new Alert(AlertType.INFORMATION);
-                            alert.setTitle("Success");
-                            alert.setHeaderText(null);
-                            alert.setContentText("Data has been edited");
-                            alert.showAndWait();
 
                             });
 
@@ -185,12 +180,7 @@ public class TagsController implements Initializable {
                                 
                                 getData();
 
-                                Alert alert = new Alert(AlertType.INFORMATION);
-                                alert.setTitle("Success");
-                                alert.setHeaderText(null);
-                                alert.setContentText("Data has been deleted!");
-
-                                alert.showAndWait();
+                                
 
                                 });
 
@@ -238,13 +228,7 @@ public class TagsController implements Initializable {
         
         name.setText(" ");
         
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Data has been saved!");
-
-        alert.showAndWait();
-        getData();
+        
     }
     
     private void editableCols(){
@@ -264,8 +248,20 @@ public class TagsController implements Initializable {
         try{
             st = conn.createStatement();
             st.executeUpdate(query);
+            
+            Alert alert = new Alert(AlertType.INFORMATION);
+                                    alert.setTitle("Success");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Operation Success!");
+
+                                    alert.showAndWait();
         }catch(Exception e){
             e.printStackTrace();
+            Alert alert = new Alert(AlertType.INFORMATION);
+                                    alert.setTitle("Error");
+                                    alert.setHeaderText(null);
+                                    alert.setContentText("Operation can not be done:  " + e.getMessage());
+                                    alert.showAndWait();
         }
     }
     
